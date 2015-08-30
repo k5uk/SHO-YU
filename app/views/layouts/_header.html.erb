@@ -1,0 +1,40 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--brown-500">
+  <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+  </div>
+  <div class="mdl-layout__header-row">
+    <h3>将友 &lt;SHO-YU&gt;</h3>
+    <h6>&nbsp; &nbsp; 将棋のマッチングサイト</h6>
+  </div>
+  <div class="mdl-layout--large-screen-only mdl-layout__tab-bar mdl-js-ripple-effect">
+    <%= link_to "OverView", root_path, { :class => "mdl-layout__tab is-active" } %>
+    <%= link_to "Login", "#", { :class => "mdl-layout__tab is-active" } %>
+    <%= link_to "About", about_path, { :class => "mdl-layout__tab is-active" } %>
+    <%= link_to "Contact", contact_path, { :class => "mdl-layout__tab is-active" } %>
+    <%= link_to "Link", "#", { :class => "mdl-layout__tab is-active" } %>
+    <!-- 正常に上が出たら消す
+    <a href="#features" class="mdl-layout__tab">Login</a>
+    <a href="#features" class="mdl-layout__tab">About</a>
+    <a href="#features" class="mdl-layout__tab">Contact</a>
+    <a href="#features" class="mdl-layout__tab">Link</a>
+    -->
+  </div>
+</header>
+ 
+<div class="mdl-layout__drawer ">
+  <span class="mdl-layout-title">Menu List</span>
+  <nav class="mdl-navigation">
+    <%= link_to "OverView", root_path, { :class => "mdl-navigation__link" } %>
+    <%= link_to "Login", "#", { :class => "mdl-navigation__link" } %>
+    <%= link_to "About", about_path, { :class => "mdl-navigation__link" } %>
+    <%= link_to "Contact", contact_path, { :class => "mdl-navigation__link" } %>
+    <%= link_to "Link", "#", { :class => "mdl-navigation__link" } %>
+    <!-- 正常に上が出たら消す
+    <a href="#overview" class="mdl-navigation__link">Overview</a>
+    <a href="#features" class="mdl-navigation__link">Login</a>
+    <a href="#features" class="mdl-navigation__link">About</a>
+    <a href="#features" class="mdl-navigation__link">Contact</a>
+    <a href="#features" class="mdl-navigation__link">Link</a>
+    -->
+  </nav>
+</div>
