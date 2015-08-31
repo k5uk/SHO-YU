@@ -1,0 +1,36 @@
+<!-- Contents Start -->
+<div class="Tab-Contents-Field mdl-color--yellow-50">
+
+  <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
+      <h3>&nbsp;&nbsp;&nbsp;お問い合わせフォーム</h3>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+    <%= form_for(@contact) do |f| %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :age %><br />
+        <%= f.text_field :age, autofocus: true %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :mail %><br />
+        <%= f.text_field :mail, autofocus: true %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :content %><br />
+        <%= f.text_area :content %>
+      </div>
+      
+        <%= f.submit "送信する" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<!-- Contents END -->

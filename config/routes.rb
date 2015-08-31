@@ -1,9 +1,15 @@
 ShoYu::Application.routes.draw do
-  devise_for :users
-  root to:"static_pages#home"
+  get "contacts/new"
+  devise_for :users, :controllers => {
+    :registrations => "registrations"
+  }
   
+  root to:"static_pages#home"
+  resources :users, only: [:show]
+  resources :contacts, only: [:new, :create]
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/link', to: 'static_pages#link', via: 'get'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

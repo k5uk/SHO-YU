@@ -17,13 +17,17 @@
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
       <ul class="button" style="list-style:none">
-          <li><a href="#"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--deep-orange-A700">
-             メールアドレスで登録&nbsp;&frasl;&nbsp;ログイン
-          </button></a></li>
-          <li>&nbsp;</li>
-          <li><a href="#"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-A700">
-             FACEBOOKで登録&nbsp;&frasl;&nbsp;ログイン
-          </button></a></li>
+          <li>
+            <%= link_to "メールアドレスで登録 / ログイン", new_user_session_path, 
+            { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+            mdl-button--accent mdl-color--deep-orange-A700" } %>
+          </li>
+          <br />
+          <li>
+            <%= link_to "FACEBOOKで登録 / ログイン", new_user_session_path, 
+            { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+            mdl-button--accent mdl-color--blue-A700" } %>
+          </li>
       </ul>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text entry-content">
@@ -34,7 +38,7 @@
 
 </div>
 
-<!-- Main Contents Field Start -->
+<!-- Main Contents Field END -->
 
 
 <div>
