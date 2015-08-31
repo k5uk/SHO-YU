@@ -10,7 +10,11 @@
     <%= link_to "OverView", root_path, { :class => "mdl-layout__tab is-active" } %>
     
     <% if signed_in? %>
+    
+    <div class="mdl-layout__tab is-active">
       <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+    </div>
+    
     <% else %>
       <%= link_to "Login", new_user_session_path, { :class => "mdl-layout__tab is-active" } %>
     <% end %>
@@ -28,11 +32,15 @@
   <span class="mdl-layout-title">Menu List</span>
   <nav class="mdl-navigation">
     <%= link_to "OverView", root_path, { :class => "mdl-navigation__link" } %>
+    
     <% if signed_in? %>
+    <div class="mdl-navigation__link">
     <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+    </div>
     <% else %>
     <%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link" } %>
     <% end %>
+    
     <%= link_to "About", about_path, { :class => "mdl-navigation__link" } %>
     <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link" } %>
     <%= link_to "Link", link_path, { :class => "mdl-navigation__link" } %>

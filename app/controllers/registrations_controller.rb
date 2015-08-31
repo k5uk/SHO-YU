@@ -11,4 +11,9 @@ class RegistrationsController < Devise::RegistrationsController
         :kiryoku, :comment, :password, :password_confirmation)
       end
       
+      def account_update_params
+        params.require(:user).permit(:name, :email, :sex, :birthday, :area, :kiryoku, :comment, 
+        :password, :password_confirmation, :current_password)
+      end
+      
 end

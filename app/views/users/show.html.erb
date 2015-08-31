@@ -1,2 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!-- Contents Start -->
+<div class="Tab-Contents-Field mdl-color--yellow-50">
+　
+　<%= link_to "プロフィールを編集する", edit_user_registration_path, 
+  { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+  mdl-button--accent mdl-color--blue-A700" } %>
+　
+  <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
+      <h3><%= @user.name %></h3>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+      <label class="mdl-text_field__label">
+          <%= @user.sex %>
+      </label>
+      
+      <label class="mdl-text_field__label">
+          <%= @user.birthday %>
+      </label>
+      
+      <label class="mdl-text_field__label">
+          <%= @user.kiryoku %>
+      </label>
+
+      <label class="mdl-text_field__label">
+          <%= @user.area %>
+      </label>
+
+      <label class="mdl-text_field__label">
+          <%= @user.comment %>
+      </label>
+    　
+  </div>
+</div>
+<!-- Contents END -->

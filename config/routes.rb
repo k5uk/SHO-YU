@@ -1,5 +1,5 @@
 ShoYu::Application.routes.draw do
-  get "contacts/new"
+  
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
