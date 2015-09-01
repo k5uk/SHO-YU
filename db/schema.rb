@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831015619) do
+ActiveRecord::Schema.define(version: 20150831090855) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
     t.string   "age"
     t.string   "mail"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "style"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +48,10 @@ ActiveRecord::Schema.define(version: 20150831015619) do
     t.string   "area"
     t.string   "kiryoku"
     t.string   "comment"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

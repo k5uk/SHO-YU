@@ -5,6 +5,7 @@ gem 'rails', '4.0.5'
 gem 'material-design-rails', '~> 0.1.0'
 gem 'bootstrap-sass', '3.3.1'
 gem 'devise', '3.4.1'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 group :development do
   gem 'sqlite3', '1.3.9'

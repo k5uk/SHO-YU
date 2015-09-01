@@ -8,7 +8,6 @@ ShoYu::Application.routes.draw do
   resources :users, only: [:show]
   resources :contacts, only: [:new, :create]
   match '/about', to: 'static_pages#about', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
   match '/link', to: 'static_pages#link', via: 'get'
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,36 +1,49 @@
 <!-- Contents Start -->
 <div class="Tab-Contents-Field mdl-color--yellow-50">
 　
-　<%= link_to "プロフィールを編集する", edit_user_registration_path, 
-  { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-  mdl-button--accent mdl-color--blue-A700" } %>
-　
   <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
     <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
-      <h3><%= @user.name %></h3>
+      <h3><%= @user.name %>&lt;プロフィール&gt;</h3>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
 
-      <label class="mdl-text_field__label">
-          <%= @user.sex %>
-      </label>
+      <div class="image">
+        <%= image_tag @user.image.url(:medium) %>
+      </div>
       
-      <label class="mdl-text_field__label">
-          <%= @user.birthday %>
-      </label>
+      <%= link_to "プロフィールを編集する", edit_user_registration_path, 
+      { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+      mdl-button--accent mdl-color--blue-A700" } %>
+    </div>
       
-      <label class="mdl-text_field__label">
-          <%= @user.kiryoku %>
-      </label>
-
-      <label class="mdl-text_field__label">
-          <%= @user.area %>
-      </label>
-
-      <label class="mdl-text_field__label">
-          <%= @user.comment %>
-      </label>
-    　
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text entry-content">
+    
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <tbody>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><h5>性別<h5></td>
+          <td class="mdl-data-table__cell--non-numeric"><h5><%= @user.sex %></h5></td>
+        </tr>
+        <tr>
+        　<td class="mdl-data-table__cell--non-numeric"><h5>生年月日</td>
+          <td class="mdl-data-table__cell--non-numeric"><h5><%= @user.birthday %></h5></td>
+        </tr>
+        <tr>
+        　<td class="mdl-data-table__cell--non-numeric"><h5>棋力</h5></td>
+          <td class="mdl-data-table__cell--non-numeric"><h5><%= @user.kiryoku %></h5></td>
+        </tr>
+        <tr>
+        　<td class="mdl-data-table__cell--non-numeric"><h5>地域</h5></td>
+          <td class="mdl-data-table__cell--non-numeric"><h5><%= @user.area %></h5></td>
+        </tr>
+        <tr>
+        　<td class="mdl-data-table__cell--non-numeric"><h5>ひとこと</h5></td>
+          <td class="mdl-data-table__cell--non-numeric"><h5><%= @user.comment %></h5></td>
+        </tr>
+      </tbody>
+    </table>
+       </div>
   </div>
+    　
 </div>
 <!-- Contents END -->
