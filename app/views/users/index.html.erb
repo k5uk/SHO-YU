@@ -1,0 +1,22 @@
+<!-- Contents Start -->
+<div class="Tab-Contents-Field mdl-color--yellow-50">
+
+  <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
+      <h3>&lt;ユーザ一覧&gt;</h3>
+    </div>
+　　<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+    　<%= link_to "検索条件を指定する", "#", 
+      { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+      mdl-button--accent mdl-color--blue-A700" } %>
+    </div>
+    
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text entry-content">
+        <ul class="users">
+            <% @users.each do |user| %>
+              <li><%= link_to user.name, user %></li>
+            <% end %> 
+        </ul>
+    </div>
+</div>
+<!-- Contents END -->

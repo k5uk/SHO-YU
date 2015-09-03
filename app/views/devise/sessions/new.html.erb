@@ -8,33 +8,27 @@
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       
-      <!--
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" id="session_email" name="session[email]" />
-        <label class="mdl-textfield__label" for="session_email">email...</label>
-      </div>
-      -->
-      
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "off" %>
+        <%= f.label :"メールアドレス", { class:"mdl-textfield__label" } %><br />
+        <%= f.email_field :email, { class:"mdl-textfield__input" } %>
       </div>
       
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :"パスワード", { class:"mdl-textfield__label" } %><br />
+        <%= f.password_field :password, { class:"mdl-textfield__input" } %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <div class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+          <%= f.check_box :remember_me , { class:"mdl-checkbox__input" } %>
+          <%= f.label :remember_me , { class:"mdl-checkbox__label" } %>
         </div>
       <% end -%>
 
       <div class="actions">
-             <%= f.submit "ログイン" %>
-      </div>
+             <%= f.submit "ログイン", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+            mdl-button--accent mdl-color--deep-orange-A700"  %>
+      </div><br />
       <% end %>
 
       <%= link_to "アカウントを新規で作成する", new_user_registration_path, 

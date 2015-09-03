@@ -17,7 +17,7 @@
       <h4>ユーザ検索</h4>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-      <p>ユーザ検索を行う</p>
+      <h4><%= link_to "ユーザ検索を行う", users_path %></h4>
     </div>
   </div>
   
@@ -64,9 +64,9 @@
           </li>
           <br />
           <li>
-            <%= link_to "FACEBOOKで登録 / ログイン", new_user_session_path, 
+            <%= link_to "FACEBOOKで登録 / ログイン", user_omniauth_authorize_path(:facebook),
             { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-            mdl-button--accent mdl-color--blue-A700" } %>
+            mdl-button--accent mdl-color--blue-A700" }%>
           </li>
       </ul>
     </div>

@@ -9,56 +9,54 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"お名前", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :name, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"メールアドレス", { class:"mdl-textfield__label" } %><br />
+        <%= f.email_field :email, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :sex %><br />
-        <%= f.text_field :sex, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"性別", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :sex, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :birthday %><br />
-        <%= f.text_field :birthday, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"生年月日", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :birthday, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :area %><br />
-        <%= f.text_field :area, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"地域", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :area, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :kiryoku %><br />
-        <%= f.text_field :kiryoku, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"棋力", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
       </div>
       
-      <div class="field">
-        <%= f.label :comment %><br />
-        <%= f.text_field :comment, autofocus: true %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"ひとこと", { class:"mdl-textfield__label" } %><br />
+        <%= f.text_field :comment, { class:"mdl-textfield__input" } %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"パスワード", { class:"mdl-textfield__label" }  %><br />
+        <%= f.password_field :password, { class:"mdl-textfield__input" } %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :"パスワード(確認)", { class:"mdl-textfield__label" }  %><br />
+        <%= f.password_field :password_confirmation, { class:"mdl-textfield__input" } %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "アカウント新規作成", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+            mdl-button--accent mdl-color--deep-orange-A700" %>
       </div>
     <% end %>
     </div>

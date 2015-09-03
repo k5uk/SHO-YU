@@ -1,11 +1,20 @@
 ShoYu::Application.routes.draw do
   
   devise_for :users, :controllers => {
-    :registrations => "registrations"
+    :registrations => "registrations",
+    omniauth_callbacks: 'omniauth_callbacks'
   }
   
   root to:"static_pages#home"
-  resources :users, only: [:show]
+  
+  resources :users, only: [:show, :index] do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
+  
   resources :contacts, only: [:new, :create]
   match '/about', to: 'static_pages#about', via: 'get'
   match '/link', to: 'static_pages#link', via: 'get'

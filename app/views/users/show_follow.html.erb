@@ -1,0 +1,20 @@
+<!-- Contents Start -->
+<div class="Tab-Contents-Field mdl-color--yellow-50">
+    
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+        <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
+          <h3>&lt;<%= @title %>&gt;</h3>
+        </div>
+        
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text entry-content">
+            <% if @users.any? %>
+            <ul class="users">
+                <%= @users %>
+            </ul>
+            <% end %>
+        </div>
+    
+    </div>
+    
+</div>
+<!-- Contents END -->
