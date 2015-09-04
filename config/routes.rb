@@ -18,6 +18,7 @@ ShoYu::Application.routes.draw do
   resources :contacts, only: [:new, :create]
   match '/about', to: 'static_pages#about', via: 'get'
   match '/link', to: 'static_pages#link', via: 'get'
+  match '/search', to: 'users#search' , via: 'get'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

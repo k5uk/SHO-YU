@@ -1,36 +1,97 @@
+/* Common Section Start */
+.Contents-Field {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Main-Contents-Field {
-  width: 100%;
-  height: 700px;
-  
-  .mdl-card {
+  padding: 80px 0;
+  width: 1200px;
+  margin-left: auto; 
+  margin-right: auto;
+
+}
+/* Common Section End */
+
+/* Guest Section Start*/
+
+.guest-card-field {
+  width: 1200px;
+    
+    .mdl-card {
       float: left;
-      margin-left: 80px;
-      margin-top: 40px;
-      p {
-        font-size: 15px;
-      }
-      
-    }
-  
+      margin-left: 40px;  
+  }
 }
 
-.Tab-Contents-Field {
+.Single-Card-Field {
+  width: 1200px;
+    .mdl-card {
+      margin: 0 auto;
+    }
+}
+
+
+/* Guest Section End*/
+
+/* Member Section Start */
+
+.member-more-section .member-section-title {
+  margin-left: 12px;
+  padding-bottom: 24px;
+}
+
+/* User Menu */
+
+.member-card-container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+
+.member-card-container .mdl-card__media img {
   width: 100%;
-  height: 800px;
-  
-  .mdl-card {
-      margin-top: 40px;
-      margin-left: 350px;
-      p {
-        font-size: 15px;
-      }
-      
-    }
-  
 }
 
+.member-card-container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
 
-.footer {
+.member-card-container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+
+.member-card-container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 48px;
+}
+
+.member-card-container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.member-card-container .mdl-card__actions a {
+  border-top: none;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.member-card-container .mdl-card__actions span {
+  color: #8bc34a;
+}
+
+.member-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+/* Member Section End */
+
+  .footer {
   position: absolute;
   bottom: 0;
 }

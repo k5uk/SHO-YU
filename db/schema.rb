@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150903003645) do
     t.datetime "image_updated_at"
     t.string   "uid"
     t.string   "provider"
+    t.integer  "age"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

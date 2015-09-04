@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+    area = params[:user]["area"]
+    kiryoku = params[:user]["kiryoku"]
+    @users = User.where("area = :area and kiryoku = :kiryoku", area: area, kiryoku: kiryoku)
+  end
+  
+  def search
+    @user = User.new
   end
   
   def following
