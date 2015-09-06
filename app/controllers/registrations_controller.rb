@@ -4,6 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
     root_path
   end
 
+  def after_update_path_for(resource)
+    current_user
+  end
+
   private
 
       def sign_up_params

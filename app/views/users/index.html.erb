@@ -2,28 +2,47 @@
 <div class="Contents-Field">
 <!-- Main Contents Field Start -->
 <div class="Main-Contents-Field mdl-color--yellow-50">
-  <!-- Single Card Field Start -->
-  <div class="Single-Card-Field">
-
-  <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
-    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
-      <h3>&lt;ユーザ一覧&gt;</h3>
-    </div>
-　　<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-    　<%= link_to "検索条件を指定する", "#", 
-      { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-      mdl-button--accent mdl-color--blue-A700" } %>
+  <!-- Users Card Field Start -->
+  <div class="users-card-container mdl-grid">
+    <div class="users-title-area">
+      <div class="users-title-contents">
+        <div class="users-section-title mdl-typography--display-1-color-contrast">検索結果</div>
+        <%= link_to "検索条件を変更する", search_path, 
+        { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+        mdl-button--accent mdl-color--deep-orange-A700" } %>
+      </div>
     </div>
     
-    <div class="mdl-color-text--grey-700 mdl-card__supporting-text entry-content">
-        <ul class="users">
-            <% @users.each do |user| %>
-              <li><%= link_to user.name, user %></li>
-            <% end %> 
+    <% @users.each do |user| %>
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+      <div class="mdl-card__media">
+        <%= image_tag user.image.url %>
+      </div>
+      <div class="mdl-card__title">
+        <h4><%= user.name %></h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <span class="mdl-typography--font-light mdl-typography--subhead">
+        <ul style="list-style:none">
+          <li>棋力: <%= user.kiryoku %></li>
+          <li>地域: <%= user.area %></li>
+          <li>年齢: <%= user.age %></li>
         </ul>
+        </span>
+      </div>
+      <div class="mdl-card__actions">
+       <%= link_to user, { :class => "users-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+    　     <span class="icon-link">プロフィールを開く
+    　     <i class="material-icons">chevron_right</i>
+    　     </span>
+    　  <% end %>
+      </div>
     </div>
-    </div>
-  <!-- Single Card Field END -->
+  <% end %> 
+      
+  </div>
+  <!-- Users Card Field END -->
+  
 </div>
 <!-- Main Contents Field END -->
 

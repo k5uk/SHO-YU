@@ -15,30 +15,44 @@ class User < ActiveRecord::Base
   # setting name value
   validates :name, presence: true, length: { maximum: 30 }
   validates :name, uniqueness: true
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
          
-         def self.find_for_oauth(auth)
-           user = User.where(uid: auth.uid, provider: auth.provider).first
-           
-           unless user
-              user = User.create(
-                 uid: auth.uid,
-                 provider: auth.provider,
-                 name: auth.info.name,
-                 email: auth.info.email,
-                 password: Devise.friendly_token[4, 30]
-                 )
-           end
-           
-           user
-           
-         end
          
-  #utility
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+    
+    unless user
+    
+       user = User.create(
+          #facebook available items
+          uid: auth.uid,
+          provider: auth.provider,
+          name: auth.info.name,
+          
+          email: User.create_unique_email,
+          password: Devise.friendly_token[10, 15]
+          )
+    end
+    
+    user
+    
+  end
+
+  ### FaceBook Utility ###  
+  def self.create_unique_email
+    User.create_unique_string + "@sample.com"
+  end
+  
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+  
+  
+  ### Relation Utility ###
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
@@ -51,5 +65,6 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+  
   
 end

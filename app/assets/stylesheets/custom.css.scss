@@ -1,3 +1,38 @@
+/* mdl layout tameshi start*/
+.sho-header {
+  overflow: visible;
+  
+  .sho-navigation-container {
+    width: 1000px;
+  }
+  
+  .sho-navigation {
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .sho-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+  }
+  
+  .sho-navigation .mdl-navigation__link:hover {
+    border-bottom: 4px solid #8bc34a;
+  }
+  
+  .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;    
+  }
+  
+}
+
+/* mdl layout tameshi end*/
+
+
+
 /* Common Section Start */
 .Contents-Field {
   width: 100%;
@@ -41,8 +76,6 @@
   margin-left: 12px;
   padding-bottom: 24px;
 }
-
-/* User Menu */
 
 .member-card-container .mdl-card__media {
   overflow: hidden;
@@ -91,10 +124,137 @@
 
 /* Member Section End */
 
+/* Users Section Start */
+
+.users-title-area {
+  height: 100px;
+  width: 1200px;
+  .users-title-contents {
+      margin-left: auto; 
+      margin-right: auto;
+  }
+}
+
+.users-card-container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+
+.users-card-container .mdl-card__media img {
+  width: 100%;
+}
+
+.users-card-container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
+
+.users-card-container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+
+.users-card-container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 48px;
+}
+
+.users-card-container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.users-card-container .mdl-card__actions a {
+  border-top: none;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.users-card-container .mdl-card__actions span {
+  color: #8bc34a;
+}
+
+.users-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+/* Users Section End */
+
+
+/* links Contents Start */
+
+.links-title-area {
+  height: 100px;
+  width: 1200px;
+  .users-title-contents {
+      margin-left: auto; 
+      margin-right: auto;
+  }
+}
+
+.links-more-section .links-section-title {
+  margin-left: 12px;
+  padding-bottom: 24px;
+}
+
+.links-card-container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+
+.links-card-container .mdl-card__media img {
+  width: 100%;
+}
+
+.links-card-container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
+
+.links-card-container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+
+.links-card-container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 48px;
+}
+
+.links-card-container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.links-card-container .mdl-card__actions a {
+  border-top: none;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.links-card-container .mdl-card__actions span {
+  color: #8bc34a;
+}
+
+.links-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+/* links Contents End */
+
+
+/* Footer Contents Start */
+
   .footer {
   position: absolute;
   bottom: 0;
 }
+
+/* Footer Contents End */
 
 /* Debug Css */
 @mixin box_sizing {
