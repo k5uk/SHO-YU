@@ -14,37 +14,37 @@
                 <%= devise_error_messages! %>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <%= f.label :"プロフィール画像", { class:"mdl-textfield__label" } %><br /><br />
+                <%= f.label :image, { class:"mdl-textfield__label" } %><br /><br />
                 <%= f.file_field :image %>
                 </div>
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "お名前", { class:"mdl-textfield__label" } %><br />
+                  <%= f.label :name, { class:"mdl-textfield__label" } %><br />
                   <%= f.text_field :name, { class:"mdl-textfield__input" } %>
                 </div>
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "メールアドレス", { class:"mdl-textfield__label" } %><br />
+                  <%= f.label :email, { class:"mdl-textfield__label" } %><br />
                   <%= f.email_field :email, { class:"mdl-textfield__input" } %>
                 </div>
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "生年月日", { class:"mdl-textfield__label" } %>  <i>(1989年8月23日の場合、19890823と入力)</i><br />
+                  <%= f.label :birthday, { class:"mdl-textfield__label" } %>  <i>(1989年8月23日の場合、19890823と入力)</i><br />
                   <%= f.text_field :birthday, { class:"mdl-textfield__input" } %>
                 </div>
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "地域", { class:"mdl-textfield__label" } %><br />
+                  <%= f.label :area, { class:"mdl-textfield__label" } %><br />
                   <%= f.text_field :area, { class:"mdl-textfield__input" } %>
                 </div>                
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "棋力", { class:"mdl-textfield__label" } %><br />
+                  <%= f.label :kiryoku, { class:"mdl-textfield__label" } %><br />
                   <%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
                 </div>
                 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "ひとこと", { class:"mdl-textfield__label" } %><br />
+                  <%= f.label :comment, { class:"mdl-textfield__label" } %><br />
                   <%= f.text_field :comment, { class:"mdl-textfield__input" } %>
                 </div>                
 
@@ -53,17 +53,17 @@
                 <% end %>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label :"変更後パスワード", { class:"mdl-textfield__label" } %>  <i>(パスワードを変更する場合のみ入力)</i><br />
+                  <%= f.label :password, { class:"mdl-textfield__label" } %>  <i>(パスワードを変更する場合のみ入力)</i><br />
                   <%= f.password_field :password, { class:"mdl-textfield__input" } %>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label :"変更後パスワード確認", { class:"mdl-textfield__label" } %>　<br />
+                  <%= f.label :password_confirmation, { class:"mdl-textfield__label" } %>　<br />
                   <%= f.password_field :password_confirmation, { class:"mdl-textfield__input" } %>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <%= f.label "現在のパスワード", { class:"mdl-textfield__label" } %> <br />
+                  <%= f.label :current_password, { class:"mdl-textfield__label" } %> <br />
                   <%= f.password_field :current_password, { class:"mdl-textfield__input" } %>
                 </div>
 

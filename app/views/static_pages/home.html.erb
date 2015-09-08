@@ -1,7 +1,7 @@
 <!-- Contents Field Start -->
-<div class="Contents-Field">
+<div class="Contents-Field mdl-color--brown-50">
 <!-- Main Contents Field Start -->
-<div class="Main-Contents-Field mdl-color--yellow-50">
+<div class="Main-Contents-Field">
 
 <% if signed_in? %>
 
@@ -105,7 +105,7 @@
 </div>
  
   <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--5-col mdl-color--lime-50">
-    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--primary">
+    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
       <h3>&nbsp;&nbsp;&nbsp;アカウント登録&nbsp;&frasl;&nbsp;ログイン</h3>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
@@ -113,13 +113,13 @@
           <li>
             <%= link_to "メールアドレスで登録 / ログイン", new_user_session_path, 
             { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-            mdl-button--accent mdl-color--deep-orange-A700" } %>
+            mdl-button--accent mdl-color--teal-300" } %>
           </li>
           <br />
           <li>
             <%= link_to "FACEBOOKで登録 / ログイン", user_omniauth_authorize_path(:facebook),
             { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-            mdl-button--accent mdl-color--blue-A700" }%>
+            mdl-button--accent mdl-color--teal-300" }%>
           </li>
       </ul>
     </div>

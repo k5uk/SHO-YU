@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
-  has_many :follower_users, through: :reverse_relationships, source: :follower
+  has_many :followers, through: :reverse_relationships, source: :follower
   
   #peperclip
-  has_attached_file :image, styles: { medium: "150x150>", thumb: "50x50>" }
+  has_attached_file :image, styles: { medium: "250x250>", thumb: "50x50>" }
   
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   

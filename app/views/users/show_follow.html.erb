@@ -9,6 +9,13 @@
       <div class="users-title-contents">
         <div class="users-section-title mdl-typography--display-1-color-contrast">&lt;<%= @title %>&gt;</div>
         <!-- FollowingユーザかFolowerユーザを表示しているかによって、ボタン表示を制御する -->
+        <% if current_page?(following_user_path(@user))%>
+          <%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
+          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-A700" }%>
+        <% else %>
+          <%= link_to "友達登録しているユーザを開く", following_user_path(@user),
+          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-A700" }%>
+        <% end %>
       </div>
     </div>
     

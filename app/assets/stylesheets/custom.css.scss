@@ -1,4 +1,4 @@
-/* mdl layout tameshi start*/
+/* Header Field Start */
 .sho-header {
   overflow: visible;
   
@@ -29,25 +29,128 @@
   
 }
 
-/* mdl layout tameshi end*/
+/* Header Field End */
 
+/* Main Field Section Start */
 
-
-/* Common Section Start */
-.Contents-Field {
+.Contents-Field { /* pearent */
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 800px;
+  
+   .Main-Contents-Field { /* child */
+      padding-top: 40px;
+      padding-left: 40px;
+      width: 1200px;
+    }
+    
+   .Main-Contents-Field { /* child */
+      padding-top: 40px;
+      padding-left: 74.5px;
+      width: 1200px;
+    }
+    
+   .Show-Contents-Field { /* child */
+      padding-top: 80px;
+      padding-left: 225px;
+      width: 900px;
+    }
+  
 }
 
-.Main-Contents-Field {
-  padding: 80px 0;
-  width: 1200px;
-  margin-left: auto; 
-  margin-right: auto;
+/* Main Field Section End */
 
-}
-/* Common Section End */
+  .Contents-Head-Field { /* Contents-Head-Field Start */
+    width: 900px;
+    height: 50px;
+    background-color: #fffde7;
+      .head-title-field {
+        float: left;
+        width: 450px;
+        height: 50px;
+          h3 {
+              width: 450px;
+              height: 50px;
+              display: table-cell;
+              vertical-align: middle;
+          }
+      }
+      
+      .head-action-field {
+        float: right;
+        width: 450px;
+        height: 50px;
+        position: relative;
+        
+          .action-buttons {
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            
+          }
+        
+    }
+    
+  } /* Contents-Head-Field End */
+    
+  
+  .Contents-Left-Field { /* Contents-Left-Field Start */
+    float: left;
+    width: 300px;
+    height: 500px;
+    background-color: #D6FFAE;
+      .Left-Field-Contents {
+        padding-top: 20px;
+        width: 250px;
+        height: 400px;
+        margin: 0 auto;
+        
+        .follow_buttons {
+          width: 180px;
+          margin: 0 auto;
+        }
+        
+        li {
+          margin-bottom: 10px;
+        }
+        
+        #following_button {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        
+      }
+      
+  } /* Contents-Left-Field End */
+  
+  .Contents-Right-Field { /* Contents-Right-Field Start */
+    float: right;
+    width: 600px;
+    height: 500px;
+    background-color: #FFCCC5;
+    
+    .Right-Field-Contents {
+      
+      width: 400px;
+      height: 500px;
+      margin: 0 auto;
+      
+      table {
+        height: 150px;
+        width: 400px;
+      }
+      
+    }
+
+    
+  } /* Contents-Right-Field End */
+  
+
+
+
 
 /* Guest Section Start*/
 
@@ -58,13 +161,6 @@
       float: left;
       margin-left: 40px;  
   }
-}
-
-.Single-Card-Field {
-  width: 1200px;
-    .mdl-card {
-      margin: 0 auto;
-    }
 }
 
 
