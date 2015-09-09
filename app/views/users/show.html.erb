@@ -6,26 +6,27 @@
 
   <div class="Contents-Head-Field">
     <div class="head-title-field">
-      <h3><%= @user.name %>&lt;プロフィール&gt;</h3>
+      <h3><%= @user.name %></h3>
     </div>
     
     <div class="head-action-field">
-        <div class="action-buttons" style="list-style:none">
-          <% if current_user == @user %>
-          <%= link_to "プロフィールを編集する", edit_user_registration_path, 
-          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-          mdl-button--accent mdl-color--teal-300" } %>
-          </div>
-          <% else %>
-            
-          <%= link_to "フレンドリストに登録する", "#", 
-          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-          mdl-button--accent mdl-color--blue-A700", :id => "add_Freind_button"} %>
-
-          <%= link_to "メッセージを送信する", "#", 
-          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-          mdl-button--accent mdl-color--blue-A700", :id => "message_button" } %>
-            
+        <% if current_user == @user %>
+            <div class="action-item">
+                <%= link_to "プロフィールを編集する", edit_user_registration_path, 
+                { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                mdl-button--accent mdl-color--teal-300", :id => "edit_profile_button"} %>
+            </div>
+        <% else %>
+            <div class="action-item">
+                <%= link_to "フレンドリストに登録する", "#", 
+                { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                mdl-button--accent mdl-color--teal-300", :id => "add_Freind_button"} %>
+            </div>
+            <div class="action-item">
+                <%= link_to "メッセージを送信する", "#", 
+                { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                mdl-button--accent mdl-color--teal-300", :id => "message_button" } %>
+            </div>
           <% end %>
       </div>
   </div>

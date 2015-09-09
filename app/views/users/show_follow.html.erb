@@ -1,22 +1,26 @@
 <!-- Contents Field Start -->
-<div class="Contents-Field">
+<div class="Contents-Field mdl-color--brown-50">
 <!-- Main Contents Field Start -->
-<div class="Main-Contents-Field mdl-color--yellow-50">
+<div class="Main-Contents-Field">
     
   <!-- Users Card Field Start -->
-  <div class="users-card-container mdl-grid">
-    <div class="users-title-area">
-      <div class="users-title-contents">
-        <div class="users-section-title mdl-typography--display-1-color-contrast">&lt;<%= @title %>&gt;</div>
+  <div class="Multiple-Card-Container mdl-grid">
+    <div class="cards-title-area">
+        <div class="cards-section-title mdl-typography--display-1-color-contrast">&lt;<%= @title %>&gt;</div>
         <!-- FollowingユーザかFolowerユーザを表示しているかによって、ボタン表示を制御する -->
         <% if current_page?(following_user_path(@user))%>
-          <%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
-          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-A700" }%>
+          <div class="cards-section-button">  
+              <%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
+              { :class => "mdl-button mdl-js-button mdl-button--raised 
+              mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
+          </div>
         <% else %>
-          <%= link_to "友達登録しているユーザを開く", following_user_path(@user),
-          { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-A700" }%>
+          <div class="cards-section-button">  
+              <%= link_to "友達登録しているユーザを開く", following_user_path(@user),
+              { :class => "mdl-button mdl-js-button mdl-button--raised 
+              mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
+          </div>
         <% end %>
-      </div>
     </div>
     
     <% @users.each do |user| %>

@@ -67,6 +67,18 @@
                 margin-right: auto;
             }
             
+            .action-buttons-field {
+                width: 600px;
+                height: 60px;
+                
+                .action-item {
+                    float: right;
+                    width: 220px;
+                    margin-top: 20px;
+                }
+                
+            }
+            
             #login_button {
                 padding-left: 65px;
                 padding-right: 65px;
@@ -78,8 +90,10 @@
             }
             
             #search_button {
-                padding-left: 65px;
-                padding-right: 65px;              
+                padding-right: 50px;
+                margin-top: 20px;
+                width: 220px;
+                float: right;
             }
             
         }
@@ -91,6 +105,20 @@
 				}
 
 				.Multiple-Card-Container {
+				  
+				  .cards-title-area {
+                    height: 100px;
+                    width: 1200px;
+                    
+                    .cards-section-title {
+                        float: left;  
+                    }
+                    
+                    .cards-section-button {
+                        float: right;  
+                    }
+                    
+                  }
 				  
 					.mdl-card__media {
 					  overflow: hidden;
@@ -170,15 +198,15 @@
                 float: right;
                 width: 450px;
                 height: 50px;
-                position: relative;
-                .action-buttons {
-                    width: 200px;
-                    height: 30px;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    right: 0;
-                    margin: auto;
+                .action-item {
+                    float: right;
+                    width: 180px;
+                    margin-top: 5px;
+                    #message_button {
+                        padding-left: 17.5px;
+                        padding-right: 17.5px;
+                    }
+                    
                 }
         
             }
@@ -239,129 +267,6 @@
     } /* Show-Contents-Field End */
   
 }  /* Contents Field End */
-
-/* Users Section Start */
-
-.users-title-area {
-  height: 100px;
-  width: 1200px;
-  .users-title-contents {
-      margin-left: auto; 
-      margin-right: auto;
-  }
-}
-
-.users-card-container .mdl-card__media {
-  overflow: hidden;
-  background: transparent;
-}
-
-.users-card-container .mdl-card__media img {
-  width: 100%;
-}
-
-.users-card-container .mdl-card__title {
-  background: transparent;
-  height: auto;
-}
-
-.users-card-container .mdl-card__title-text {
-  color: black;
-  height: auto;
-}
-
-.users-card-container .mdl-card__supporting-text {
-  height: auto;
-  color: black;
-  padding-bottom: 48px;
-}
-
-.users-card-container .mdl-card__actions {
-  position: absolute;
-  bottom: 0;
-}
-
-.users-card-container .mdl-card__actions a {
-  border-top: none;
-  line-height: 32px;
-  font-size: 16px;
-}
-
-.users-card-container .mdl-card__actions span {
-  color: #8bc34a;
-}
-
-.users-link .material-icons {
-  position: relative;
-  top: 6px;
-}
-
-/* Users Section End */
-
-
-/* links Contents Start */
-
-.links-title-area {
-  height: 100px;
-  width: 1200px;
-  .users-title-contents {
-      margin-left: auto; 
-      margin-right: auto;
-  }
-}
-
-.links-more-section .links-section-title {
-  margin-left: 12px;
-  padding-bottom: 24px;
-}
-
-.links-card-container .mdl-card__media {
-  overflow: hidden;
-  background: transparent;
-}
-
-.links-card-container .mdl-card__media img {
-  width: 100%;
-}
-
-.links-card-container .mdl-card__title {
-  background: transparent;
-  height: auto;
-}
-
-.links-card-container .mdl-card__title-text {
-  color: black;
-  height: auto;
-}
-
-.links-card-container .mdl-card__supporting-text {
-  height: auto;
-  color: black;
-  padding-bottom: 48px;
-}
-
-.links-card-container .mdl-card__actions {
-  position: absolute;
-  bottom: 0;
-}
-
-.links-card-container .mdl-card__actions a {
-  border-top: none;
-  line-height: 32px;
-  font-size: 16px;
-}
-
-.links-card-container .mdl-card__actions span {
-  color: #8bc34a;
-}
-
-.links-link .material-icons {
-  position: relative;
-  top: 6px;
-}
-
-/* links Contents End */
-
 
 /* Footer Contents Start */
 

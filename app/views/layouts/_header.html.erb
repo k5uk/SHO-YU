@@ -1,41 +1,40 @@
 <!-- Simple header with scrollable tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="sho-header mdl-layout__header mdl-color--brown-500">
-    <!-- Title -->
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title"><strong>将棋のマッチングサイト&nbsp;&nbsp;&nbsp;将友</strong></span>
-      <div class="sho-navigation-container">
-       <nav class="sho-navigation mdl-navigation">
-        <%= link_to "OverView", root_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
-       <% if signed_in? %>
-        <%= link_to "LogOut", destroy_user_session_path,{ method: :delete, class: "mdl-navigation__link mdl-typography--text-uppercase" } %>
-       <% else %>
-        <%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
-       <% end %>
-        <%= link_to "About", about_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
-        <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
-        <%= link_to "Link", link_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
-       </nav>
-      </div>
+    <header class="sho-header mdl-layout__header mdl-color--brown-500">
+        <!-- Title -->
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title"><strong>将棋のマッチングサイト&nbsp;&nbsp;&nbsp;将友</strong></span>
+            <div class="sho-navigation-container">
+                <nav class="sho-navigation mdl-navigation">
+                    <%= link_to "OverView", root_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                <% if signed_in? %>
+                    <%= link_to "LogOut", destroy_user_session_path,{ method: :delete, class: "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                <% else %>
+                    <%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                <% end %>
+                    <%= link_to "About", about_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                    <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                    <%= link_to "Link", link_path, { :class => "mdl-navigation__link mdl-typography--text-uppercase" } %>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Menu List</span>
+    <main class="mdl-layout__content">
+        <nav class="mdl-navigation">
+            <%= link_to "OverView", root_path, { :class => "mdl-navigation__link" } %>
+        	  <% if signed_in? %>
+        	  		<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+            <% else %>
+            		<%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link" } %>
+        	  <% end %>
+            <%= link_to "About", about_path, { :class => "mdl-navigation__link" } %>
+            <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link" } %>
+            <%= link_to "Link", link_path, { :class => "mdl-navigation__link" } %>
+        </nav>
+    </main>
+
     </div>
-  </header>
-
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Menu List</span>
-  <main class="mdl-layout__content">
-    <nav class="mdl-navigation">
-      <%= link_to "OverView", root_path, { :class => "mdl-navigation__link" } %>
-      <% if signed_in? %>
-      <div class="mdl-navigation__link">
-      <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
-      </div>
-      <% else %>
-      <%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link" } %>
-      <% end %>
-      <%= link_to "About", about_path, { :class => "mdl-navigation__link" } %>
-      <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link" } %>
-      <%= link_to "Link", link_path, { :class => "mdl-navigation__link" } %>
-  </main>
-
-  </div>
 </div>
