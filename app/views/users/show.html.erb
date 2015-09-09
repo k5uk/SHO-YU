@@ -14,7 +14,7 @@
           <% if current_user == @user %>
           <%= link_to "プロフィールを編集する", edit_user_registration_path, 
           { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-          mdl-button--accent mdl-color--blue-A700" } %>
+          mdl-button--accent mdl-color--teal-300" } %>
           </div>
           <% else %>
             
@@ -36,19 +36,19 @@
           <%= image_tag @user.image.url(:medium) %>
       </div>
       
-      <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-color--teal-300">
+      <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-color--blue-grey-50">
         <div class="mdl-card__title"><strong><%= @user.name %>さんのフレンドリスト</strong></div>
         <div class="mdl-card__supporting-text">
           <div class="follow_buttons" style="list-style:none">
             <li>
               <%= link_to "友達登録しているユーザ", following_user_path(@user), 
               { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-              mdl-button--accent mdl-color--blue-A700", :id => "following_button"} %>
+              mdl-button--accent mdl-color--teal-300", :id => "following_button"} %>
             </li>
             <li>
               <%= link_to "友達登録されているユーザ", followers_user_path(@user), 
               { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-              mdl-button--accent mdl-color--blue-A700", :id => "followed_button" } %>
+              mdl-button--accent mdl-color--teal-300", :id => "followed_button" } %>
             </li>
           </div>
         </div>
