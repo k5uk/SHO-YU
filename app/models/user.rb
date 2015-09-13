@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
          
          
@@ -32,8 +32,9 @@ class User < ActiveRecord::Base
           uid: auth.uid,
           provider: auth.provider,
           name: auth.info.name,
+          email: auth.info.email,
           
-          email: User.create_unique_email,
+          #email: User.create_unique_email,
           password: Devise.friendly_token[10, 15]
           )
     end
@@ -50,7 +51,6 @@ class User < ActiveRecord::Base
   def self.create_unique_string
     SecureRandom.uuid
   end
-  
   
   ### Relation Utility ###
   

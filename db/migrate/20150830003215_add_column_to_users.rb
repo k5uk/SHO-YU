@@ -6,5 +6,6 @@ class AddColumnToUsers < ActiveRecord::Migration
     add_column :users, :area, :string
     add_column :users, :kiryoku, :string
     add_column :users, :comment, :string
+    add_column :users, :email_publish, :integer
   end
 end

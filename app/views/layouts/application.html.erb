@@ -15,6 +15,14 @@
   
 <!-- before script-->
 <script>_reload();</script>
+
+
+<% if request.url == "https://work-ritaame.c9.io/message?1" %>
+
+<%= yield %>
+
+<% else %>
+
 <!-- header start -->
 
 <%= render 'layouts/header' %>
@@ -28,6 +36,8 @@
 <%= render 'layouts/footer' %>
 
 <!-- footer end -->
+
+<% end %>
 
 <!-- デバッグコンソールをヘッダー下に表示する -->
 <%= debug(params) if Rails.env.development? %>

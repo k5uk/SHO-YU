@@ -20,6 +20,12 @@ ShoYu::Application.routes.draw do
   match '/link', to: 'static_pages#link', via: 'get'
   match '/search', to: 'users#search' , via: 'get'
   
+  match '/message', to: 'message#index' , via:'get'
+  post 'post' => 'message#post'
+  
+  ### Demo Windows ###
+  match '/zzz_demo_home', to: "static_pages#zzz_demo_home" , via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

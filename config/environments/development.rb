@@ -27,7 +27,7 @@ ShoYu::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
-  config.action_mailer.default_url_options = { :host => 'https://work-ritaame.c9.io/', port: 8080 }
+  config.action_mailer.default_url_options = { :host => 'https://work-ritaame.c9.io' }
   
   config.action_mailer.delivery_method = :smtp
   

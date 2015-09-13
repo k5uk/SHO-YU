@@ -17,17 +17,33 @@
                 mdl-button--accent mdl-color--teal-300", :id => "edit_profile_button"} %>
             </div>
         <% else %>
-            <div class="action-item">
-                <%= link_to "フレンドリストに登録する", "#", 
-                { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                mdl-button--accent mdl-color--teal-300", :id => "add_Freind_button"} %>
-            </div>
+            <% if current_user.following?(@user) %>
+
+                <%= form_for(current_user.relationships.find_by(followed_id: @user.id),html: { method: :delete }) do |f| %>
+                    <div class="action-item">
+                        <%= f.submit "フレンド登録を解除する", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                        mdl-button--accent mdl-color--teal-300", id:"delete_Freind_button" %>
+                    </div>
+                <% end %>
+
+            <% else %>
+
+                <%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
+                    <div class="action-item">
+                        <div><%= f.hidden_field :followed_id %></div>
+                        <%= f.submit "フレンドリストに登録する", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                        mdl-button--accent mdl-color--teal-300", id:"add_Freind_button" %>
+                    </div>
+                <% end %>
+
+            <% end %>
+            
             <div class="action-item">
                 <%= link_to "メッセージを送信する", "#", 
                 { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
                 mdl-button--accent mdl-color--teal-300", :id => "message_button" } %>
             </div>
-          <% end %>
+                <% end %>
       </div>
   </div>
   
@@ -68,7 +84,11 @@
         </tr>
         <tr>
           <td class="mdl-data-table__cell--non-numeric">性別</td>
-          <td class="mdl-data-table__cell--non-numeric"><strong><%= @user.sex %></strong></td>
+          <% if @user.sex == 0 %>
+          <td class="mdl-data-table__cell--non-numeric"><strong>男性</strong></td>
+          <% else %>
+          <td class="mdl-data-table__cell--non-numeric"><strong>女性</strong></td>
+          <% end %>
         </tr>
         <tr>
         　<td class="mdl-data-table__cell--non-numeric">生年月日</td>
@@ -76,7 +96,11 @@
         </tr>
         <tr>
         　<td class="mdl-data-table__cell--non-numeric">メールアドレス</td>
+        　<% if @user.email_publish == 0 %>
+          <td class="mdl-data-table__cell--non-numeric"><strong>非公開</strong></td>
+          <% else %>
           <td class="mdl-data-table__cell--non-numeric"><strong><%= @user.email %></strong></td>
+          <% end %>
         </tr>
       </tbody>
     </table>
