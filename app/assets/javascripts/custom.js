@@ -1,16 +1,37 @@
-// 画面起票時リロードする
+// 画面起票時１回だけリロードする
 function _reload() {
-    if ( location.search.indexOf("1") == -1 ) {
-    location.href = location.href + "?1";
-    }
+    console.log("てすと");
+    console.log(location.search);
+    console.log(location.search.indexOf("1"));
+        if ( location.search.indexOf("1") == -1 ) {
+            location.href = location.href + "?1";
+        }
+    
 }
 
-function _submit(){
+// メッセージ画面をリロードする
+function _messageReload() {
+    if ((location.href.indexOf("message?") != -1) && (counter(location.href,"?1") != 1)) {
+        location.href = location.href + "?1";
+    }
+    
+}
+
+// スクロールバーを一番下に移動する
+function moveScrollbarToBottom() {
+    var scrollbar = document.getElementById("Both-Field");
+    scrollbar.scrollTop = scrollbar.scrollHeight;
+}
+
+// 特定の文字列の個数を返却する部品
+function counter(str,seq) {
+    return str.split(seq).length -1;
+}
+
+function _submit() {
     var userAge = calculateAge(document.getElementById("user_birthday").value);
     var age = document.getElementById("user_age");
     age.value = userAge
-    alert("Hello world");
-    console.log("Hello world");
 }
 
 // 年齢計算
@@ -25,7 +46,7 @@ function calculateAge(birthday) {
 
 function affixZero(int) {
     if (int < 10)int = "0" + int;
-    return "" + int;
+        return "" + int;
 }
 
 // メールアドレス公開/非公開
@@ -71,17 +92,36 @@ function set_area_value() {
     area_Selector.value = area;
 }
 
-function set_kiryoku_value() {
-    var kiryoku = document.getElementById("user_kiryoku").value;
-    var kiryoku_Selector = document.getElementById("kiryoku_serector");
-    kiryoku_Selector.value = kiryoku;
-}
-
 // 棋力選択
-
 function changeKiryoku() {
     var kiryoku = document.getElementById("user_kiryoku");
     var kiryoku_Selector = document.getElementById("kiryoku_serector").value;
     kiryoku.value = kiryoku_Selector;
 }
 
+function set_kiryoku_value() {
+    var kiryoku = document.getElementById("user_kiryoku").value;
+    var kiryoku_Selector = document.getElementById("kiryoku_serector");
+    kiryoku_Selector.value = kiryoku;
+}
+
+// 年齢選択
+function changeAge() {
+    var age = document.getElementById("user_age");
+    var age_Selector = document.getElementById("age_serector").value;
+    age.value = age_Selector;
+}
+
+function set_age_value() {
+    var age = document.getElementById("user_age").value;
+    var age_Selector = document.getElementById("age_serector");
+    age_Selector.value = age;
+}
+
+// メッセージパートナの選択
+
+function selectPartner(id) {
+    // パートナーのIDをhiddenに埋め込む
+    var partner_user_id = document.getElementById("user_id2");
+    partner_user_id.value = document.getElementById(id);
+}

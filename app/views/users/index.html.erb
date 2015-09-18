@@ -15,7 +15,11 @@
   		  		<% @users.each do |user| %>
   		  		   		<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
   		  		   				<div class="mdl-card__media">
+  		  		   				    <% if ! user.image_file_name.nil? %>
   		  		   						<%= image_tag user.image.url %>
+  		  		   					<% else %>
+  		  		   					    <%= image_tag "link/noImage.png" %>
+  		  		   					<% end %>
   		  		   				</div>
   		  		   				<div class="mdl-card__title">
   		  		   				 		<h4><%= user.name %></h4>

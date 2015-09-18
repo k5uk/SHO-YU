@@ -42,21 +42,6 @@ class User < ActiveRecord::Base
     user
     
   end
-  
-  ### パスワード不要で編集できるように ###
-  
-  def update_without_current_password(params, *options)
-    params.delete(:current_password)
- 
-    if params[:password].blank? && params[:password_confirmation].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation)
-    end
- 
-    result = update_attributes(params, *options)
-    clean_up_passwords
-    result
-  end
 
   ### FaceBook Utility ###  
   def self.create_unique_email
@@ -80,5 +65,82 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+  
+  ### User Sarch Utility ###
+  def self.searchUser(area,kiryoku,age)
+    
+    # 検索条件が全く設定されていなければ返却
+    if area.nil? && kiryoku.nil? && age.nil?
+      return
+    end
+    
+    # 地域チェック
+    if ! area.nil?
+      @area_str = "area = ? " + AND
+      @placeHolder = params[:area]
+    end
+    
+    # 棋力チェック
+    if ! kiryoku.nil?
+      @kiryoku_str = "kiryoku = ? " + AND 
+      @placeHolder = params[:kiryoku]
+    end
+    
+    # 年齢チェック
+    if ! kiryoku.nil?
+    
+      case @age
+    
+      when "10代"
+        @age_str = "age: 10..19 "
+      when "20代前半"
+        @age_str = "age: 20..24 "
+      when "20代後半"
+        @age_str = "age: 25..29 "
+      when "30代前半"
+        @age_str = "age: 30..34 "
+      when "30代後半"
+        @age_str = "age: 35..39 "
+      when "40代前半"
+        @age_str = "age: 40..44 "
+      when "40代後半"
+        @age_str = "age: 45..49 "
+      when "50代前半"
+        @age_str = "age: 50..54 "
+      when "50代後半"
+        @age_str = "age: 55..59 "
+      when "60歳以上"
+        @age_str = "age: 60.. "
+    　end
+    　
+      end
+      
+    end
+    
+    #SQL文を組み立てる
+    sqlstr = @area_str
+    
+    if kiryoku.nil?
+      sqlstr.slice!(-5,5)
+    else
+      sqlstr = sqlstr + @kiryoku_str
+    end
+    
+    if age.nil?
+      sqlstr.slice!(-5,5)
+    else
+      sqlstr = sqlstr + @age_str
+    end
+    
+    puts "ためしためしためし"
+    puts "出来たSQL文：" + sqlstr
+    puts "SQL第一の矢：" + @area_str
+    puts "SQL第一の矢：" + @kiryoku_str
+    puts "SQL第一の矢：" + @age_str
+    puts "SQLプレースホルダ:" + @placeHolder
+    @users = User.where(sqlstr)
+    @users
+  end
+  #@users = User.where("area = :area and kiryoku = :kiryoku", area: area, kiryoku: kiryoku)
   
 end

@@ -39,7 +39,7 @@
             <% end %>
             
             <div class="action-item">
-                <%= link_to "メッセージを送信する", "#", 
+                <%= link_to "メッセージを送信する", message_path(friend_name: @user), 
                 { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
                 mdl-button--accent mdl-color--teal-300", :id => "message_button" } %>
             </div>

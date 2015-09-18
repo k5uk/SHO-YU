@@ -7,7 +7,10 @@ class UsersController < ApplicationController
   def index
     area = params[:user]["area"]
     kiryoku = params[:user]["kiryoku"]
+    age = params[:user]["age"]
+    
     @users = User.where("area = :area and kiryoku = :kiryoku", area: area, kiryoku: kiryoku)
+    #@Users = User.searchUser(area,kiryoku,age)
   end
   
   def search

@@ -25,14 +25,15 @@
     <main class="mdl-layout__content">
         <nav class="mdl-navigation">
             <%= link_to "OverView", root_path, { :class => "mdl-navigation__link" } %>
-        	  <% if signed_in? %>
-        	  		<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+        	<% if signed_in? %>
+        	  	<%= link_to "LogOut", destroy_user_session_path, { :class => "mdl-navigation__link" ,:method => "delete"} %>
+        	  	<%= link_to "Profile", current_user, { :class => "mdl-navigation__link" } %>
+                <%= link_to "Search User", search_path, { :class => "mdl-navigation__link" } %>
+                <%= link_to "Friend List", following_user_path(current_user.id), { :class => "mdl-navigation__link" } %>
+                <%= link_to "Messages", message_path, { :class => "mdl-navigation__link" } %>
             <% else %>
-            		<%= link_to "Login", new_user_session_path, { :class => "mdl-navigation__link" } %>
-        	  <% end %>
-            <%= link_to "About", about_path, { :class => "mdl-navigation__link" } %>
-            <%= link_to "Contact", new_contact_path, { :class => "mdl-navigation__link" } %>
-            <%= link_to "Link", link_path, { :class => "mdl-navigation__link" } %>
+            	<%= link_to "LogIn", new_user_session_path, { :class => "mdl-navigation__link" } %>
+        	<% end %> 
         </nav>
     </main>
 

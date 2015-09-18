@@ -20,8 +20,8 @@ ShoYu::Application.routes.draw do
   match '/link', to: 'static_pages#link', via: 'get'
   match '/search', to: 'users#search' , via: 'get'
   
-  match '/message', to: 'message#index' , via:'get'
-  post 'post' => 'message#post'
+  match '/message', to: 'messages#index' , via:'get'
+  post 'post' => 'messages#post'
   
   ### Demo Windows ###
   match '/zzz_demo_home', to: "static_pages#zzz_demo_home" , via: 'get'

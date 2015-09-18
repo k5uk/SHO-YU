@@ -1,0 +1,15 @@
+class Message < ActiveRecord::Base
+    
+    def self.saveMessage(param)
+        @uid1 = param[:current_user_id]
+        @uid2 = param[:partner_user_id]
+        @message = param[:message]
+        Message.create(uid1: @uid1, uid2: @uid2, uid1Msg: @message)
+    end
+    
+    def self.getOldMessage(user,friend)
+        @messages = Message.where(uid1: user, uid2: friend)
+        @messages
+    end
+    
+end

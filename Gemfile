@@ -6,6 +6,7 @@ gem 'material-design-rails', '~> 0.1.0'
 gem 'bootstrap-sass', '3.3.1'
 gem 'devise', '3.4.1'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'will_paginate', '3.0.4'
 
 gem 'omniauth'
 gem 'omniauth-facebook'

@@ -278,7 +278,7 @@
     .Friend-Field {
         margin-left: 10px;
         width: 300px;
-        height: 575px;
+        height: auto;
         background-color: #FFFFE0;
         float: left;
         list-style: none;
@@ -297,139 +297,34 @@
     .Message-Field {
         margin-right: 10px;
         width: 1000px;
-        height: 575px;
+        height: 600px;
         float: right;
         
-        .User-Name-Field {
-            width: 488px;
-            height: 50px;
-            background-color: #FFFFCC;
+        .user-Field {
+            width: 495px;
+            height: 525px;
             float: left;
+            
         }
-
-        .Friend-Name-Field {
-            width: 488px;
+        
+        .name-area {
+            width: 495px;
             height: 50px;
             background-color: #FFFFCC;
-            float: right;
-            margin-right: 20px;
         }
-        
-        #Both-Field {
-            width: 1000px;
-            height: 455px;
+            
+        .message-area {
+            width: 495px;
+            height: 475px;
             background-color: #EEE8AA;
-            overflow: scroll;
-            
-            td {
-                /* width: 488px; */
-            }
-            
-            .user-timestamp-cell {
-                text-align: left;
-                width: 88px;
-            }
-            
-            .user-message-cell {
-                text-align: left;
-                width: 400px;
-            }
-            .friend-message-cell {
-                text-align: right;
-                width: 400px;
-            }
-            
-            .friend-timestamp-cell {
-                text-align: right;
-                width: 88px;
-            }
-            
-            /* 吹き出し要素 */
-            .msg-baroon-left {
-                position: relative;
-	            display: inline-block;
-	            padding: 0 15px;
-	            width: auto;
-	            min-width: 115px;
-	            height: 50px;
-	            color: #F6F6F6;
-	            line-height: 50px;
-	            text-align: center;
-	            background: #19283C;
-	            border-radius: 50px;
-	            z-index: 0;
-            }
-	            
-	       .msg-baroon-left:before {
-	            content: "";
-	            position: absolute;
-	            top: -17px; left: 15px;
-	            margin-right: 0;
-	            display: block;
-	            width: 15px;
-	            height: 15px;
-	            background: #19283C;
-	            border-radius: 50%;
-	            z-index: -1;
-	        }
-	            
-	       .msg-baroon-left:after {
-	            content: "";
-	            position: absolute;
-	            top: -25px; left: 25px;
-	            margin-right: 0;
-	            display: block;
-	            width: 8px;
-	            height: 8px;
-	            background: #19283C;
-	            border-radius: 50%;
-	            z-index: -1;
-            }
-            
-            .msg-baroon-right {
-				position: relative;
-				display: inline-block;
-				padding: 0 15px;
-				width: auto;
-				min-width: 115px;
-				height: 50px;
-				color: #F6F6F6;
-				line-height: 50px;
-				text-align: center;
-				background: #19283C;
-				border-radius: 50px;
-				z-index: 0;
-			}
-			
-			.msg-baroon-right:before {
-				content: "";
-				position: absolute;
-				top: -17px; right: 15px;
-				margin-right: 0;
-				display: block;
-				width: 15px;
-				height: 15px;
-				background: #19283C;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			
-			.msg-baroon-right:after {
-				content: "";
-				position: absolute;
-				top: -25px; right: 25px;
-				margin-right: 0;
-				display: block;
-				width: 8px;
-				height: 8px;
-				background: #19283C;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			/* 吹き出し要素 */
-            
         }
         
+        .partner-Field {
+            width: 495px;
+            height: 525px;
+            background-color: #F5F5DC;
+            float: right;
+        }
     }
     
     .Input-Field {
