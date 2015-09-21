@@ -1,9 +1,14 @@
+/*default settings*/
+html {
+    width: 1350px;
+}
+
 /* Header Field Start */
 .sho-header {
   overflow: visible;
   
   .sho-navigation-container {
-    width: 1000px;
+    width: 70%;
   }
   
   .sho-navigation {
@@ -39,12 +44,12 @@
    .Main-Contents-Field { /* Main-Contents-Field Start */
       padding-top: 100px;
       padding-left: 74.5px;
-      width: 1200px;
+      width: 85%;
       height: auto;
       min-height: 400px;
       
         .Guest-Card-Field {
-            width: 1200px;
+            width: 100%;
     
             .mdl-card {
                 float: left;
@@ -59,7 +64,7 @@
         }
         
         .Single-Card-Field {
-            width: 1200px;
+            width: 100%;
             
             .contents-card {
                 width: 600px;
@@ -108,7 +113,7 @@
 				  
 				  .cards-title-area {
                     height: 100px;
-                    width: 1200px;
+                    width: 100%;
                     
                     .cards-section-title {
                         float: left;  
@@ -172,21 +177,21 @@
    .Show-Contents-Field { /* Show-Contents-Field Start */
       padding-top: 80px;
       padding-left: 225px;
-      width: 900px;
+      width: 67%;
       height: 600px;
       
         .Contents-Head-Field {
-            width: 900px;
+            width: 100%;
             height: 50px;
             background-color: #d7ccc8;
             
             .head-title-field {
                 float: left;
-                width: 450px;
+                width: 50%;
                 height: 50px;
                 
                 h3 {
-                    width: 450px;
+                    width: 100%;
                     height: 50px;
                     display: table-cell;
                     vertical-align: middle;
@@ -196,11 +201,11 @@
       
             .head-action-field {
                 float: right;
-                width: 450px;
+                width: 50%;
                 height: 50px;
                 .action-item {
                     float: right;
-                    width: 180px;
+                    width: 40%;
                     margin-top: 5px;
                     #message_button {
                         padding-left: 17.5px;
@@ -215,18 +220,18 @@
         
         .Contents-Left-Field {
             float: left;
-            width: 300px;
+            width: 33.3%;
             height: 500px;
             background-color: #e8f5e9;
                 
             .Left-Field-Contents {
                 padding-top: 20px;
-                width: 250px;
+                width: 84%;
                 height: 400px;
                 margin: 0 auto;
       
                 .follow_buttons {
-                    width: 180px;
+                    width: 85%;
                     margin: 0 auto;
                 }
         
@@ -245,19 +250,19 @@
         
         .Contents-Right-Field {
             float: right;
-            width: 600px;
+            width: 66.6%;
             height: 500px;
             background-color: #e1f5fe;
     
             .Right-Field-Contents {
       
-                width: 400px;
+                width: 66.6%;
                 height: 500px;
                 margin: 0 auto;
       
                 table {
                     height: 150px;
-                    width: 400px;
+                    width: 100%;
                 }
       
             }
@@ -277,7 +282,7 @@
     
     .Friend-Field {
         margin-left: 10px;
-        width: 300px;
+        width: 20%;
         height: 575px;
         background-color: #FFFFE0;
         float: left;
@@ -296,19 +301,19 @@
     
     .Message-Field {
         margin-right: 10px;
-        width: 1000px;
+        width: 78%;
         height: 575px;
         float: right;
         
         .User-Name-Field {
-            width: 488px;
+            width: 48.5%;
             height: 50px;
             background-color: #FFFFCC;
             float: left;
         }
 
         .Friend-Name-Field {
-            width: 488px;
+            width: 48.5%;
             height: 50px;
             background-color: #FFFFCC;
             float: right;
@@ -316,7 +321,7 @@
         }
         
         #Both-Field {
-            width: 1000px;
+            width: 100%;
             height: 455px;
             background-color: #EEE8AA;
             overflow: scroll;
@@ -327,21 +332,21 @@
             
             .user-timestamp-cell {
                 text-align: left;
-                width: 88px;
+                width: 8%;
             }
             
             .user-message-cell {
                 text-align: left;
-                width: 400px;
+                width: 47%;
             }
             .friend-message-cell {
                 text-align: right;
-                width: 400px;
+                width: 47%;
             }
             
             .friend-timestamp-cell {
                 text-align: right;
-                width: 88px;
+                width: 8%;
             }
             
             /* 吹き出し要素 */
@@ -443,8 +448,9 @@
 /* Footer Contents Start */
 
   .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  width: 100%;
 }
 
 /* Footer Contents End */

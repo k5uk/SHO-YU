@@ -25,10 +25,7 @@ ActiveRecord::Schema.define(version: 20150913080739) do
   create_table "messages", force: true do |t|
     t.integer  "uid1"
     t.integer  "uid2"
-    t.string   "uid1Msg"
-    t.datetime "uid1MsgTime"
-    t.string   "uid2Msg"
-    t.datetime "uidMsgTime"
+    t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

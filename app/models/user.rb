@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   
   # setting name value
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length:  { maximum: 30 }
   validates :name, uniqueness: true
 
   # Include default devise modules. Others available are:
@@ -23,20 +23,41 @@ class User < ActiveRecord::Base
          
          
   def self.find_for_oauth(auth)
+    puts "Auth パラメータチェック"
+    p auth
+    p auth.uid
+    p auth.provider
+    p auth.info.name
+    p auth.info.email
+    p auth.info.user_birthday
     user = User.where(uid: auth.uid, provider: auth.provider).first
     
     unless user
     
-       user = User.create(
+       user = User.new(
           #facebook available items
           uid: auth.uid,
           provider: auth.provider,
           name: auth.info.name,
           email: auth.info.email,
+          #image: auth.info.image,
+          #birthday: auth.info.user_birthday,
           
           #email: User.create_unique_email,
-          password: Devise.friendly_token[10, 15]
+          password: Devise.friendly_token[10, 15],
+          confirmed_at: Time.now
           )
+      
+      p "てすとてすと"
+      
+      p user
+      
+      user.save
+      
+      p "てすとてすと"
+      
+      p user
+    
     end
     
     user
@@ -79,6 +100,64 @@ class User < ActiveRecord::Base
   
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
+  end
+  
+  ### User Sarch Utility ###
+  def self.searchUser(area,kiryoku,age)
+
+    # 検索条件が全く設定されていなければ返却
+    if area.nil? && kiryoku.nil? && age.nil?
+      return
+    end
+    
+    # 地域チェック
+    if ! area.nil?
+      @area = User.where(area: area)
+      @areaSql = @area.where_values.reduce
+    end
+    
+    # 棋力チェック
+    if ! kiryoku.nil?
+      @kiryoku = User.where(kiryoku: kiryoku)
+      @kiryokuSql = @kiryoku.where_values.reduce
+    end
+    
+    # 年齢チェック
+    if ! age.nil?
+    
+      case age
+    
+      when "10代"
+        @age_str = "10..19 "
+      when "20代前半"
+        @age_str = "20..24 "
+      when "20代後半"
+        puts "とおったよ！"
+        @age_str = "25..29 "
+      when "30代前半"
+        @age_str = "30..34 "
+      when "30代後半"
+        @age_str = "35..39 "
+      when "40代前半"
+        @age_str = "40..44 "
+      when "40代後半"
+        @age_str = "45..49 "
+      when "50代前半"
+        @age_str = "50..54 "
+      when "50代後半"
+        @age_str = "55..59 "
+      when "60歳以上"
+        @age_str = "60.. "
+    　end
+    　
+      end
+      
+      @age = User.where(age: @age_str)
+      @ageSql = @age.where_values
+    end
+    
+    @users = User.where(@areaSql.and @kiryokuSql)
+    @users
   end
   
 end

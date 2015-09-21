@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
         @uid1 = param[:current_user_id]
         @uid2 = param[:partner_user_id]
         @message = param[:message]
-        Message.create(uid1: @uid1, uid2: @uid2, uid1Msg: @message)
+        Message.create(uid1: @uid1, uid2: @uid2, message: @message)
     end
     
     def self.getOldMessage(user_id,friend_id)

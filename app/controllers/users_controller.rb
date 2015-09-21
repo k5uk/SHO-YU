@@ -9,8 +9,10 @@ class UsersController < ApplicationController
     kiryoku = params[:user]["kiryoku"]
     age = params[:user]["age"]
     
-    @users = User.where("area = :area and kiryoku = :kiryoku", area: area, kiryoku: kiryoku)
-    #@Users = User.searchUser(area,kiryoku,age)
+    #@users = User.where("area = :area and kiryoku = :kiryoku", area: area, kiryoku: kiryoku)
+
+    @users = User.searchUser(area,kiryoku,age)
+    @users = @users.paginate(:page => params[:page], :per_page => 8)
   end
   
   def search
@@ -21,6 +23,7 @@ class UsersController < ApplicationController
     @title = "友達登録しているユーザ"
     @user = User.find(params[:id])
     @users = @user.followed_users
+    @users = @users.paginate(:page => params[:page], :per_page => 8)
     render 'show_follow'
   end
   
@@ -28,6 +31,7 @@ class UsersController < ApplicationController
     @title = "友達登録されているユーザ"
     @user = User.find(params[:id])
     @users = @user.followers
+    @users = @users.paginate(:page => params[:page], :per_page => 8)
     render 'show_follow'
   end
   

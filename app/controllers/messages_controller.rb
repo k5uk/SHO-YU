@@ -21,8 +21,7 @@ class MessagesController < ApplicationController
         @pusher_access_key = config_pusher['access_key']
         @user = current_user
         @users = @user.followed_users
-        
-        #@users = @users.paginate(:page => params[:page], :per_page => 8)
+        @users = @users.paginate(:page => params[:page], :per_page => 8)
         
         if @friend_name.nil?  
             @friend_name = "フレンドの名前"

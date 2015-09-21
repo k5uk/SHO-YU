@@ -1,20 +1,13 @@
 // 画面起票時１回だけリロードする
 function _reload() {
-    console.log("てすと");
-    console.log(location.search);
-    console.log(location.search.indexOf("1"));
-        if ( location.search.indexOf("1") == -1 ) {
-            location.href = location.href + "?1";
-        }
-    
-}
-
-// メッセージ画面をリロードする
-function _messageReload() {
-    if ((location.href.indexOf("message?") != -1) && (counter(location.href,"?1") != 1)) {
-        location.href = location.href + "?1";
+    if (window.name != "reloadFlag") {
+        location.reload();
+        window.name = "reloadFlag";
     }
-    
+    else {
+        window.name = "notReload";   
+    }
+    console.log(window.name);
 }
 
 // スクロールバーを一番下に移動する
