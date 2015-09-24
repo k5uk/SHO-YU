@@ -10,4 +10,11 @@ class StaticPagesController < ApplicationController
   
   def link 
   end
+  
+  def comfirm
+  end
+  
+  def sending
+  end
+  
 end

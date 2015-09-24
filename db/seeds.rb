@@ -8,8 +8,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #make default
-#Relationship.delete_all
-#User.delete_all
+Relationship.delete_all
+User.delete_all
 #Message.delete_all
 
 #User Samples

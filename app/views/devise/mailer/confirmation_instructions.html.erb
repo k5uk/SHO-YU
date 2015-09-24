@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+------------------------------------------------------------
+<p>このメールは将友ユーザ登録確認メールです</p>
+<p>下記リンクをクリックしメール認証を完了させてください<p>
+------------------------------------------------------------
+<p><%= link_to '【こちらをクリックしてください】', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '将棋のマッチングサイト　将友', "https://work-ritaame.c9.io/" %></p>

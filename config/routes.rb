@@ -2,6 +2,7 @@ ShoYu::Application.routes.draw do
   
   devise_for :users, :controllers => {
     :registrations => "registrations",
+    :confirmations => "confirmations",
     omniauth_callbacks: 'omniauth_callbacks'
   }
   
@@ -19,6 +20,8 @@ ShoYu::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get'
   match '/link', to: 'static_pages#link', via: 'get'
   match '/search', to: 'users#search' , via: 'get'
+  match '/comfirm', to: 'static_pages#comfirm', via:'get'
+  match '/sending', to: 'static_pages#sending', via:'get'
   
   match '/message', to: 'messages#index' , via:'get'
   post 'post' => 'messages#post'
