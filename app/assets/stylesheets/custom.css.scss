@@ -183,7 +183,7 @@ html {
         .Contents-Head-Field {
             width: 100%;
             height: 50px;
-            background-color: #d7ccc8;
+            background-color: #795548;
             
             .head-title-field {
                 float: left;
@@ -195,6 +195,7 @@ html {
                     height: 50px;
                     display: table-cell;
                     vertical-align: middle;
+                    color: #ffffff;
                 }
                 
             }
@@ -222,28 +223,53 @@ html {
             float: left;
             width: 33.3%;
             height: 500px;
-            background-color: #e8f5e9;
+            background-color: #fffde7;
                 
-            .Left-Field-Contents {
-                padding-top: 20px;
-                width: 84%;
-                height: 400px;
-                margin: 0 auto;
-      
-                .follow_buttons {
-                    width: 85%;
-                    margin: 0 auto;
+            .image-area {
+                width: 100%;
+                height: 50%;
+                position: relative;
+                .image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 80%;
+                    height: 80%;
                 }
-        
-                li {
-                    margin-bottom: 10px;
+            }
+            
+            .friend-area {
+                width: 100%;
+                height: 50%;
+                position: relative;
+                .mdl-card {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 80%;
+                    height: 80%;
                 }
-        
+                
                 #following_button {
                     padding-left: 15px;
                     padding-right: 15px;
                 }
-        
+                
+                .follow_buttons {
+                    width: 100%;
+                    height: 80%;
+                    li {
+                        width: 90%;
+                        margin: 0 auto;
+                        padding: 5px 0;
+                    }
+                }
             }
       
         }
@@ -252,20 +278,46 @@ html {
             float: right;
             width: 66.6%;
             height: 500px;
-            background-color: #e1f5fe;
-    
-            .Right-Field-Contents {
+            background-color: #fffde7;
+                
       
-                width: 66.6%;
-                height: 500px;
-                margin: 0 auto;
-      
-                table {
-                    height: 150px;
+                .personal-table-area {
+                    height: 50%;
                     width: 100%;
+                    position: relative;
+                    
+                    table {
+                        width: 80%;
+                        height: 150px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                
                 }
+                
+                .profile-table-area {
+                    height: 50%;
+                    width: 100%;
+                    position: relative;
+                    
+                    table {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        width: 80%;
+                        height: 150px;
+                    }
+                }
+                
       
-            }
+            
 
         }
       
@@ -282,9 +334,9 @@ html {
     
     .Friend-Field {
         margin-left: 10px;
-        width: 20%;
+        width: 25%;
         height: 575px;
-        background-color: #FFFFE0;
+        background-color: #f9fbe7;
         float: left;
         list-style: none;
         
@@ -301,29 +353,80 @@ html {
     
     .Message-Field {
         margin-right: 10px;
-        width: 78%;
+        width: 73%;
         height: 575px;
         float: right;
         
         .User-Name-Field {
             width: 48.5%;
             height: 50px;
-            background-color: #FFFFCC;
+            background-color: #f9fbe7;
             float: left;
+            
+            .name-area {
+                float: left;
+                width: 50%;
+                height: 100%;
+                
+                .mdl-button {
+                    height: 100%;
+                    width: 70%;
+                    color: black;
+                    font-size: 1.2em;
+                }
+            }
+            
+            .image-area {
+                float: right;
+                width: 50%;
+                height: 100%;
+                
+                .image-item {
+                    height: 100%;
+                    float: right;
+                }
+            }
         }
 
         .Friend-Name-Field {
             width: 48.5%;
             height: 50px;
-            background-color: #FFFFCC;
+            background-color: #f9fbe7;
             float: right;
             margin-right: 20px;
+            
+            .name-area {
+                float: right;
+                width: 50%;
+                height: 100%;
+                font-weight: 700;
+                font-size: 14px;  
+                
+                .mdl-button {
+                    height: 100%;
+                    width: 70%;
+                    float: right;
+                    color: black;
+                    font-size: 1.2em;
+                }
+            }
+            
+            .image-area {
+                float: left;
+                width: 50%;
+                height: 100%;
+                
+                .image-item {
+                    height: 100%;
+                }
+            }
+            
         }
         
         #Both-Field {
             width: 100%;
             height: 455px;
-            background-color: #EEE8AA;
+            background-color: #e8eaf6;
             overflow: scroll;
             
             td {
@@ -443,6 +546,19 @@ html {
     }
     
 }    /* Message Container End */
+
+.partner {
+    height: 60px;
+    width: 100%;
+}
+
+.hover {
+        background:#E85F98 !important;    
+}
+
+.hover p{
+ color:#003366 !important;
+}
 
 
 /* Footer Contents Start */

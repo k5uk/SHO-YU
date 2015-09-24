@@ -6,7 +6,7 @@
   <!-- Users Card Field Start -->
   <div class="Multiple-Card-Container mdl-grid">
     <div class="cards-title-area">
-        <div class="cards-section-title mdl-typography--display-1-color-contrast">&lt;<%= @title %>&gt;</div>
+        <div class="cards-section-title mdl-typography--display-1-color-contrast"><i class="material-icons">content_copy</i><%= @title %></div>
         <!-- FollowingユーザかFolowerユーザを表示しているかによって、ボタン表示を制御する -->
         <% if current_page?(following_user_path(@user))%>
           <div class="cards-section-button">  

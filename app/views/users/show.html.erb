@@ -48,13 +48,15 @@
   </div>
   
   <div class="Contents-Left-Field">
-    <div class="Left-Field-Contents">
-      <div class="image">
+    <div class="image-area">
+        <div class="image">
           <%= image_tag @user.image.url(:medium) %>
-      </div>
-      
-      <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-color--blue-grey-50">
-        <div class="mdl-card__title"><strong><%= @user.name %>さんのフレンドリスト</strong></div>
+        </div>
+    </div>
+    <div class="friend-area">
+      <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-color--white">
+        <div class="mdl-card__title"><strong><%= @user.name %>さんの<br />
+        フレンドリスト</strong></div>
         <div class="mdl-card__supporting-text">
           <div class="follow_buttons" style="list-style:none">
             <li>
@@ -70,12 +72,11 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
   
   <div class="Contents-Right-Field">
-    <div class="Right-Field-Contents">
+    <div class="personal-table-area">
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
       <tbody>
         <tr>
@@ -104,7 +105,9 @@
         </tr>
       </tbody>
     </table>
-    
+    </div>
+
+    <div class="profile-table-area">    
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
       <tbody>
         <tr>
@@ -125,6 +128,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
     
     </div>
   </div>

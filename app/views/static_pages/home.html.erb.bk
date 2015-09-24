@@ -11,7 +11,7 @@
 			
 			<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
 		    	<div class="mdl-card__media">
-		        	<%= image_tag "demo/profile.png" %>
+		        	<%= image_tag "demo/demo-1.png" %>
 		    	</div>
 		    	<div class="mdl-card__title">
 		        	<h4 class="mdl-card__title-text">プロフィール設定</h4>
@@ -31,7 +31,7 @@
 		  
 		  	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
 		    	<div class="mdl-card__media">
-		      		<%= image_tag "demo/search.png" %>
+		      		<%= image_tag "demo/demo-2.png" %>
 		    	</div>
 		    	<div class="mdl-card__title">
 		      		<h4 class="mdl-card__title-text">ユーザ検索</h4>
@@ -51,7 +51,7 @@
 		  
 		  	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
 		    	<div class="mdl-card__media">
-		      		<%= image_tag "demo/freind.png" %>
+		      		<%= image_tag "demo/demo-3.png" %>
 		    	</div>
 		    	<div class="mdl-card__title">
 		      		<h4 class="mdl-card__title-text">フレンドリスト</h4>
@@ -61,7 +61,7 @@
 		        	フレンドリストを開く</span>
 		    	</div>
 		    	<div class="mdl-card__actions">
-		    		<%= link_to "#", { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		    		<%= link_to following_user_path(current_user.id), { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
 		       			<span class="icon-link">See My FreindList
 		       			<i class="material-icons">chevron_right</i>
 		       			</span>
@@ -71,7 +71,7 @@
 		  
 		  	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
 		    	<div class="mdl-card__media">
-		      		<%= image_tag "demo/message.png" %>
+		      		<%= image_tag "demo/demo-4.png" %>
 		   	 	</div>
 		    	<div class="mdl-card__title">
 		      		<h4 class="mdl-card__title-text">メッセージ</h4>
@@ -81,7 +81,7 @@
 		        	メッセージをやり取りする</span>
 		    	</div>
 		    	<div class="mdl-card__actions">
-		    		<%= link_to "#", { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		    		<%= link_to message_path, { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
 		       			<span class="icon-link">Exchange Messages
 		       			<i class="material-icons">chevron_right</i>
 		       			</span>

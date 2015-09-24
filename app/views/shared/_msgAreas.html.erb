@@ -1,22 +1,33 @@
 <div class="User-Name-Field">
-    <input type="button" value= <%=@user.name %> 
-    class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300">
-    <% if ! @user.image.url.nil? %>  
-        <%= image_tag @user.image.url, :size => "150x50" %>
-    <% else %>
-        <%= image_tag "link/noImage.png", :size => "150x50" %>
-    <% end %>
+    <div class="name-area">
+            <input type="button" value= <%=@user.name %> 
+            class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-grey-50">
+    </div>
+    <div class="image-area">
+        <div class="image-item">
+            <% if ! @user.image.url.nil? %>  
+                <%= image_tag @user.image.url, :size => "150x50" %>
+            <% else %>
+                <%= image_tag "link/noImage.png", :size => "150x50" %>
+            <% end %>
+        </div>
+    </div>
 </div>
 
 <div class="Friend-Name-Field">
-    <input type="button" value= <%=@friend_name %> 
-	class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300">
-	<% if ! @friend_img.nil? %>  
-	    <%= image_tag @friend_img, :size => "150x50" %>
-	    <% else if ! @friend_id.nil? %>
-	        <%= image_tag "link/noImage.png", :size => "150x50" %>
+	<div class="image-area">
+	    <% if ! @friend_img.nil? %>  
+	        <%= image_tag @friend_img, :size => "150x50" %>
+	        <% else if ! @friend_id.nil? %>
+	            <%= image_tag "link/noImage.png", :size => "150x50" %>
+	        <% end %>
 	    <% end %>
-	<% end %>
+	</div>
+    <div class="name-area">
+        <input type="button" value= <%=@friend_name %> 
+	    class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-grey-50">
+	    <input type="hidden" id="talking_friend_id" value=<%=@friend_id %> >
+	</div>
 </div>
 
 <div id="Both-Field">
@@ -75,7 +86,7 @@
             <input id="current_user_id" name="current_user_id" type="hidden" value= <%=@user.id %> >
             <input id="partner_user_id" name="partner_user_id" type="hidden" value= <%=@friend_id%> >
             <%= submit_tag 'メッセージ送信', :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-            mdl-button--accent" %>
+            mdl-button--accent mdl-color--teal-300" %>
         <% end %>
     <!-- メッセージ入力フィールド -->   
 </div>
