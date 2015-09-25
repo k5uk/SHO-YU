@@ -5,7 +5,7 @@
     </div>
     <div class="image-area">
         <div class="image-item">
-            <% if ! @user.image.url.nil? %>  
+            <% if @user.image.url.nil? %>  
                 <%= image_tag @user.image.url, :size => "150x50" %>
             <% else %>
                 <%= image_tag "link/noImage.png", :size => "150x50" %>
@@ -16,7 +16,7 @@
 
 <div class="Friend-Name-Field">
 	<div class="image-area">
-	    <% if ! @friend_img.nil? %>  
+	    <% if @friend_img.nil? %>  
 	        <%= image_tag @friend_img, :size => "150x50" %>
 	        <% else if ! @friend_id.nil? %>
 	            <%= image_tag "link/noImage.png", :size => "150x50" %>

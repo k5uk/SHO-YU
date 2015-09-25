@@ -50,7 +50,11 @@
   <div class="Contents-Left-Field">
     <div class="image-area">
         <div class="image">
-          <%= image_tag @user.image.url(:medium) %>
+          <% if @user.image_file_name.nil? %>
+            <%= image_tag "link/noImage.png", :size => "200x200" %>
+          <% else %>
+            <%= image_tag @user.image.url(:medium) %>
+          <% end %>
         </div>
     </div>
     <div class="friend-area">
