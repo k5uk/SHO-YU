@@ -57,20 +57,6 @@ function public_change() {
     }
 }
 
-// 性別 男性/女性
-
-function change_Man() {
-    var sex = document.getElementById("user_sex");
-    sex.value = 0;
-    document.getElementById("checkboxLady").checked = false;
-}
-
-function change_Lady() {
-    var sex = document.getElementById("user_sex");
-    sex.value = 1;
-    document.getElementById("checkboxMan").checked = false;
-}
-
 // 地域選択
 
 function changeArea() {
@@ -117,4 +103,20 @@ function selectPartner(id) {
     // パートナーのIDをhiddenに埋め込む
     var partner_user_id = document.getElementById("user_id2");
     partner_user_id.value = document.getElementById(id);
+}
+
+// チェックボックスの制御
+
+function controlCheckMan() {
+    var sex = document.getElementById("user_sex");
+    sex.value = 0;
+    var checkboxLady = document.getElementById("checkboxLady_label");
+    checkboxLady.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
+}
+
+function controlCheckLady() {
+    var sex = document.getElementById("user_sex");
+    sex.value = 1;
+    var checkboxMan = document.getElementById("checkboxMan_label");
+    checkboxMan.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
 }

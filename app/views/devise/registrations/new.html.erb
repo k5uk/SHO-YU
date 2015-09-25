@@ -23,29 +23,27 @@
 												  		<%= f.email_field :email, { class:"mdl-textfield__input" } %>
 												</div>
 												
-										        <!-- sex area -->
+										        <!-- sex field -->
+										        <input id="user_sex" name="user[sex]" type="hidden" value= <%=@user.sex %>>
+										        
 										        <div class="sex-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										        	<label class="mdl-textfield__label"> 性別</label>
 										        </div>
-										        
-										        	
-                      					        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkboxMan">
-  										        	<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="change_Man()"/>
-  										        	<span class="mdl-checkbox__label">男性</span>
-										        </label>
-                      					        
-                      					        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkboxLady">
-  										        	<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="change_Lady()"/>
-  										        	<span class="mdl-checkbox__label">女性</span>
-										        </label>
-										        	
-                      					        
-                      					        <input id="user_sex" name="user[sex]" type="hidden" value= <%=@user.sex %>>
-                      					        
-                      					        <!-- sex area -->
+
+                      							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+  													<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
+  													<span class="mdl-checkbox__label">男性</span>
+												</label>
+										
+												<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+  													<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
+  													<span class="mdl-checkbox__label">女性</span>
+												</label>
+										       
+                      					        <!-- sex field -->
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :birthday,'生年月日', { class:"mdl-textfield__label" } %> <i>(1989年8月23日の場合、19890823と入力)</i><br />
+												  		<%= f.label :birthday,'生年月日', { class:"mdl-textfield__label" } %> 
 												  		<%= f.text_field :birthday, { class:"mdl-textfield__input" } %>
 												</div>
 											
