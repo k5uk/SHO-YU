@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   
   # setting name value
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length:  { maximum: 30 }
   validates :name, uniqueness: true
 
   # Include default devise modules. Others available are:
@@ -23,11 +23,16 @@ class User < ActiveRecord::Base
          
          
   def self.find_for_oauth(auth)
+    p auth
+    p auth.uid
+    p auth.provider
+    p auth.info.name
+    p auth.info.name
     user = User.where(uid: auth.uid, provider: auth.provider).first
     
     unless user
     
-       user = User.create(
+       user = User.new(
           #facebook available items
           uid: auth.uid,
           provider: auth.provider,
@@ -40,6 +45,17 @@ class User < ActiveRecord::Base
           password: Devise.friendly_token[10, 15],
           confirmed_at: Time.now
           )
+      
+      p "てすとてすと"
+      
+      p user
+      
+      user.save
+      
+      p "てすとてすと"
+      
+      p user
+    
     end
     
     user
@@ -109,36 +125,36 @@ class User < ActiveRecord::Base
     
       case age
     
-      when "10代"
-        @age_str = "10..19 "
+      when "10代前半"
+        @age_str = 10..14 
+      when "10代後半"
+        @age_str = 15..19 
       when "20代前半"
-        @age_str = "20..24 "
+        @age_str = 20..24 
       when "20代後半"
-        puts "とおったよ！"
-        @age_str = "25..29 "
+        @age_str = 25..29
       when "30代前半"
-        @age_str = "30..34 "
+        @age_str = 30..34
       when "30代後半"
-        @age_str = "35..39 "
+        @age_str = 35..39
       when "40代前半"
-        @age_str = "40..44 "
+        @age_str = 40..44
       when "40代後半"
-        @age_str = "45..49 "
+        @age_str = 45..49
       when "50代前半"
-        @age_str = "50..54 "
+        @age_str = 50..54
       when "50代後半"
-        @age_str = "55..59 "
+        @age_str = 55..59
       when "60歳以上"
-        @age_str = "60.. "
-    　end
-    　
+        @age_str = 60..120
+
       end
       
       @age = User.where(age: @age_str)
-      @ageSql = @age.where_values
+      @ageSql = @age.where_values.reduce
     end
     
-    @users = User.where(@areaSql.and @kiryokuSql)
+    @users = User.where(@areaSql.and @kiryokuSql.and @ageSql)
     @users
   end
   

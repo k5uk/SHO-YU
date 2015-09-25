@@ -22,7 +22,7 @@
   		  		   					<% end %>
   		  		   				</div>
   		  		   				<div class="mdl-card__title">
-  		  		   				 		<h4><%= user.name %></h4>
+  		  		   				 		<h4 class="mdl-card__title-text"><%= user.name %></h4>
   		  		   				</div>
   		  		   				<div class="mdl-card__supporting-text">
   		  		   						<span class="mdl-typography--font-light mdl-typography--subhead">
@@ -34,7 +34,7 @@
   		  		   						 </span>
   		  		   				</div>
   		  		   				<div class="mdl-card__actions">
-  		  		   						<%= link_to user, { :class => "users-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+  		  		   						<%= link_to user, { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
   		  		   								<span class="icon-link">プロフィールを開く
   		  		   										<i class="material-icons">chevron_right</i>
   		  		   								</span>

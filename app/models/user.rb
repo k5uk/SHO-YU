@@ -23,13 +23,7 @@ class User < ActiveRecord::Base
          
          
   def self.find_for_oauth(auth)
-    puts "Auth パラメータチェック"
-    p auth
-    p auth.uid
-    p auth.provider
-    p auth.info.name
-    p auth.info.email
-    p auth.info.user_birthday
+
     user = User.where(uid: auth.uid, provider: auth.provider).first
     
     unless user
@@ -41,22 +35,14 @@ class User < ActiveRecord::Base
           name: auth.info.name,
           email: auth.info.email,
           #image: auth.info.image,
-          #birthday: auth.info.user_birthday,
+          birthday: auth.info.user_birthday,
           
           #email: User.create_unique_email,
           password: Devise.friendly_token[10, 15],
           confirmed_at: Time.now
           )
       
-      p "てすとてすと"
-      
-      p user
-      
       user.save
-      
-      p "てすとてすと"
-      
-      p user
     
     end
     
@@ -106,58 +92,89 @@ class User < ActiveRecord::Base
   def self.searchUser(area,kiryoku,age)
 
     # 検索条件が全く設定されていなければ返却
-    if area.nil? && kiryoku.nil? && age.nil?
+    if area.blank? && kiryoku.blank? && age.blank?
       return
     end
     
+    @serach_keys = Array.new
+    @serach_values = Array.new
+
     # 地域チェック
-    if ! area.nil?
-      @area = User.where(area: area)
-      @areaSql = @area.where_values.reduce
+    if area.present?
+      @serach_keys.push('area')
+      @serach_values.push(area)
     end
     
     # 棋力チェック
-    if ! kiryoku.nil?
-      @kiryoku = User.where(kiryoku: kiryoku)
-      @kiryokuSql = @kiryoku.where_values.reduce
+    if kiryoku.present?
+      @serach_keys.push('kiryoku')
+      @serach_values.push(kiryoku)
     end
     
     # 年齢チェック
-    if ! age.nil?
+    if age.present?
     
       case age
     
-      when "10代"
-        @age_str = "10..19 "
+      when "10代前半"
+        @ageRange = 10..14 
+      when "10代後半"
+        @ageRange = 15..19 
       when "20代前半"
-        @age_str = "20..24 "
+        @ageRange = 20..24 
       when "20代後半"
-        puts "とおったよ！"
-        @age_str = "25..29 "
+        @ageRange = 25..29
       when "30代前半"
-        @age_str = "30..34 "
+        @ageRange = 30..34
       when "30代後半"
-        @age_str = "35..39 "
+        @ageRange = 35..39
       when "40代前半"
-        @age_str = "40..44 "
+        @ageRange = 40..44
       when "40代後半"
-        @age_str = "45..49 "
+        @ageRange = 45..49
       when "50代前半"
-        @age_str = "50..54 "
+        @ageRange = 50..54
       when "50代後半"
-        @age_str = "55..59 "
+        @ageRange = 55..59
       when "60歳以上"
-        @age_str = "60.. "
-    　end
-    　
+        @ageRange = 60..120
+
       end
       
-      @age = User.where(age: @age_str)
-      @ageSql = @age.where_values
+      @serach_keys.push('age')
+      @serach_values.push(@ageRange)
     end
     
-    @users = User.where(@areaSql.and @kiryokuSql)
+    @users = User.search(@serach_keys,@serach_values)
     @users
+    
   end
+  
+
+    scope :search, lambda { |search_keys, search_values| 
+
+    conditions = nil
+    search_keys.each_with_index do |search_key, i|
+      
+      if conditions.present?
+        
+        if(search_key == "age") 
+          conditions = conditions.and(arel_table[search_key].in(search_values[i]))
+        else 
+          conditions = conditions.and(arel_table[search_key].eq(search_values[i]))
+        end
+        
+      else
+        if(search_key == "age") 
+          conditions = arel_table[search_key].in(search_values[i])
+        else
+          conditions = arel_table[search_key].eq(search_values[i])
+        end
+        
+      end 
+    end
+
+    where(conditions)
+  }
   
 end
