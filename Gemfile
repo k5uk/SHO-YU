@@ -7,6 +7,7 @@ gem 'bootstrap-sass', '3.3.1'
 gem 'devise', '3.4.1'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'will_paginate', '3.0.4'
+gem 'open_uri_redirections'
 
 gem 'omniauth'
 gem 'omniauth-facebook'

@@ -1,5 +1,5 @@
 <!-- Simple header with scrollable tabs. -->
-<div class=" mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="sho-header mdl-layout__header mdl-color--brown-500">
         <!-- Title -->
         <div class="mdl-layout__header-row">

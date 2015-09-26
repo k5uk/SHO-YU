@@ -28,10 +28,14 @@ class User < ActiveRecord::Base
     
     unless user
     
-    p "authチェック"
-    p auth
-    p auth.info
-    p auth.info.user_birthday
+    #making with utility
+    birthday = self.birthdayEditer(auth.extra.raw_info.birthday)
+    age = self.ageEditer(birthday)
+    sex = self.sexEditer(auth.extra.raw_info.gender)
+    
+    require 'open-uri'
+    require 'open_uri_redirections'
+    image = open(auth.info.image, :allow_redirections => :safe)
     
        user = User.new(
           #facebook available items
@@ -39,20 +43,45 @@ class User < ActiveRecord::Base
           provider: auth.provider,
           name: auth.info.name,
           email: auth.info.email,
-          #image: auth.info.image,
-          birthday: auth.extra.raw_info.birthday,
-          
-          #email: User.create_unique_email,
+          image: image,
+          birthday: birthday,
+          age: age,
+          sex: sex,
           password: Devise.friendly_token[10, 15],
           confirmed_at: Time.now
           )
-      
+
       user.save
     
     end
     
     user
     
+  end
+  
+  ### FaceBook Data Editer ###
+  def self.sexEditer(sex)
+    if sex == "male"
+      return 0
+    else
+      return 1
+    end
+    return sex
+  end
+  
+  def self.birthdayEditer(birthday)
+    year = birthday[6,4]
+    month = birthday[0,2]
+    day = birthday[3,2]
+    userBirthday = year + "/" + month + "/" + day
+    return userBirthday
+  end
+  
+  def self.ageEditer(userBirthday)
+    birthday = Date.strptime(userBirthday,'%Y/%m/%d')
+    birthdayInt = birthday.strftime("%Y%m%d").to_i
+    todayInt = Date.today.strftime("%Y%m%d").to_i
+    return (todayInt - birthdayInt) / 10000
   end
   
   ### パスワード不要で編集できるように ###

@@ -7,13 +7,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         private
             def callback_from(provider)
                 provider = provider.to_s
-                p "Requestちぇっく"
                 p request.env['omniauth.auth']
                 @user = User.find_for_oauth(request.env['omniauth.auth'])
-                
-                p "コントーラーてすと"
-                p @user
-                
+
                 if @user.persisted?
                     p "ぱーしすてっどせいこう"
                     sign_in_and_redirect @user, eventr: :authentication
