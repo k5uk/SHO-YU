@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
     
     unless user
     
+    p "authチェック"
+    p auth
+    p auth.info
+    p auth.info.user_birthday
+    
        user = User.new(
           #facebook available items
           uid: auth.uid,
@@ -35,7 +40,7 @@ class User < ActiveRecord::Base
           name: auth.info.name,
           email: auth.info.email,
           #image: auth.info.image,
-          birthday: auth.info.user_birthday,
+          birthday: auth.extra.raw_info.birthday,
           
           #email: User.create_unique_email,
           password: Devise.friendly_token[10, 15],
