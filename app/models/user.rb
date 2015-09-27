@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   
   #peperclip
-  has_attached_file :image, styles: { medium: "250x250>", thumb: "50x50>" }
+  has_attached_file :image, styles: { medium: "200x200>", thumb: "100x100>" }
   
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   
@@ -33,9 +33,10 @@ class User < ActiveRecord::Base
     age = self.ageEditer(birthday)
     sex = self.sexEditer(auth.extra.raw_info.gender)
     
+    imageUrl = auth.info.image + "?type=large"
     require 'open-uri'
     require 'open_uri_redirections'
-    image = open(auth.info.image, :allow_redirections => :safe)
+    image = open(imageUrl, :allow_redirections => :safe)
     
        user = User.new(
           #facebook available items
@@ -127,7 +128,7 @@ class User < ActiveRecord::Base
 
     # 検索条件が全く設定されていなければ返却
     if area.blank? && kiryoku.blank? && age.blank?
-      return
+      return User.all
     end
     
     @serach_keys = Array.new

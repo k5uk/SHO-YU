@@ -117,9 +117,9 @@ $(document).ready(function() {
         <% @users.each do |user| %>
             <li class="partner" id=<%=user.id%>>
                 <% if user.image_file_name.nil? %>
-                    <%= image_tag "link/noImage.png", :size => "50x25" %>
+                    <%= image_tag "link/noImage.png", :size => "50x50" %>
                 <% else %>
-                    <%= image_tag user.image.url(:thumb) %>
+                    <%= image_tag user.image.url, :size => "50x50" %>
                 <% end %>
                 <%= link_to user.name, message_path(friend_id: user.id, friend_name: user.name, friend_img: user.image) %>
             </li>
