@@ -124,7 +124,7 @@ class User < ActiveRecord::Base
   end
   
   ### User Sarch Utility ###
-  def self.searchUser(area,kiryoku,age)
+  def self.searchUser(area,kiryoku,age,myid)
 
     # 検索条件が全く設定されていなければ返却
     if area.blank? && kiryoku.blank? && age.blank?
@@ -180,13 +180,13 @@ class User < ActiveRecord::Base
       @serach_values.push(@ageRange)
     end
     
-    @users = User.search(@serach_keys,@serach_values)
+    @users = User.search(@serach_keys,@serach_values,myid)
     @users
     
   end
   
 
-    scope :search, lambda { |search_keys, search_values| 
+    scope :search, lambda { |search_keys, search_values, myid| 
 
     conditions = nil
     search_keys.each_with_index do |search_key, i|
@@ -208,7 +208,8 @@ class User < ActiveRecord::Base
         
       end 
     end
-
+    
+    conditions = conditions.and(arel_table["id"].not_eq(myid))
     where(conditions)
   }
   

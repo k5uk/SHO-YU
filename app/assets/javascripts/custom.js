@@ -120,3 +120,86 @@ function controlCheckLady() {
     var checkboxMan = document.getElementById("checkboxMan_label");
     checkboxMan.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
 }
+
+// 行の追加
+function insertRow(id,message,speaker) {
+    var table = document.getElementById(id);
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+    var cell2 = row.insertCell(-1);
+    var cell3 = row.insertCell(-1);
+    var cell4 = row.insertCell(-1);
+    var row_len = table.rows.length;
+    
+    var nowDateTime = formatDate(new Date(),'YYYY/MM/DD hh:mm');
+    
+    if(speaker == 'User') {
+        cell1.className = "user-timestamp-cell";
+        var messagediv1 = document.createElement('div');
+        messagediv1.innerHTML = nowDateTime;
+        cell1.appendChild(messagediv1);
+
+        cell2.className = "user-message-cell";
+        var messagediv2 = document.createElement('div');
+        messagediv2.innerHTML = message;
+        messagediv2.className = "msg-baroon-left";
+        cell2.appendChild(messagediv2);
+    }
+    
+    else {
+        cell3.className = "friend-message-cell";
+        var messagediv3 = document.createElement('div');
+        messagediv3.innerHTML = message;
+        messagediv3.className = "msg-baroon-right";
+        cell3.appendChild(messagediv3);
+
+        cell4.className = "friend-timestamp-cell";
+        var messagediv4 = document.createElement('div');
+        messagediv4.innerHTML = nowDateTime;
+        cell4.appendChild(messagediv4);
+    }
+    
+    moveScrollbarToBottom();
+}
+
+// 日付の書式を置換する
+function formatDate(date, format) {
+  if (!format) format = 'YYYY-MM-DD hh:mm:ss.SSS';
+  format = format.replace(/YYYY/g, date.getFullYear());
+  format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
+  format = format.replace(/DD/g, ('0' + date.getDate()).slice(-2));
+  format = format.replace(/hh/g, ('0' + date.getHours()).slice(-2));
+  format = format.replace(/mm/g, ('0' + date.getMinutes()).slice(-2));
+  format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
+  if (format.match(/S/g)) {
+    var milliSeconds = ('00' + date.getMilliseconds()).slice(-3);
+    var length = format.match(/S/g).length;
+    for (var i = 0; i < length; i++) format = format.replace(/S/, milliSeconds.substring(i, i + 1));
+  }
+  return format;
+};
+
+function highlight() {
+    
+    if(document.getElementById("talking_friend_id") != null) {
+        
+        var talking_friend_id = document.getElementById('talking_friend_id').value;
+        var taiking_friend_li_id = document.getElementById(talking_friend_id);
+        taiking_friend_li_id.style.backgroundColor = "#fff59d";
+    }
+
+    
+    $('.Friend-Field').on('mouseenter','.partner',function(){
+	    $(this).addClass("hover")
+    });
+
+    $('.Friend-Field').on('mouseleave','.partner',function(){
+        if ($(this).hasClass("hover")) { 
+            $(this).removeClass("hover") 
+        }
+    });
+    
+    $('.Friend-Field').on('click','.partner',function(){
+        location.href = $(this).find("a").eq(0).attr("href");
+    });
+}
