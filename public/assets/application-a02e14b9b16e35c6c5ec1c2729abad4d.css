@@ -1,0 +1,756 @@
+@charset "UTF-8";/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+/*default settings*/
+/* line 3, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+html {
+  width: 1350px;
+}
+
+/*MDL START*/
+/* line 8, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.mdl-layout__container {
+  height: 10 !important;
+}
+
+/*MDL END*/
+/* Header Field Start */
+/* line 14, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header {
+  overflow: visible;
+}
+/* line 17, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header .sho-navigation-container {
+  width: 70%;
+}
+/* line 21, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header .sho-navigation {
+  justify-content: flex-end;
+  width: 100%;
+}
+/* line 26, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header .sho-navigation .mdl-navigation__link {
+  display: inline-block;
+  height: 60px;
+  line-height: 68px;
+}
+/* line 32, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header .sho-navigation .mdl-navigation__link:hover {
+  border-bottom: 4px solid #8bc34a;
+}
+/* line 36, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.sho-header .mdl-navigation__link {
+  color: #757575;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Header Field End */
+/* Contents Field Start */
+/* line 47, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field {
+  width: 100%;
+  height: auto;
+  /* Main-Contents-Field End */
+  /* Show-Contents-Field End */
+}
+/* line 51, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field {
+  /* Main-Contents-Field Start */
+  padding-top: 100px;
+  padding-left: 5%;
+  width: 85%;
+  height: auto;
+  min-height: 400px;
+}
+/* line 58, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+/* line 64, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field h3 {
+  text-align: center;
+}
+/* line 68, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field ul {
+  width: 100%;
+}
+/* line 71, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field ul li {
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 74, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field ul li .mdl-button {
+  width: 65%;
+}
+/* line 82, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field p {
+  text-align: center;
+}
+/* line 86, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .navigate-card-area {
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+/* line 93, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .navigate-card-area .mdl-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 85%;
+  clear: both;
+}
+/* line 106, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .registrate-card-area {
+  width: 50%;
+  height: 100%;
+  float: right;
+  position: relative;
+  overflow: hidden;
+}
+/* line 113, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .registrate-card-area .mdl-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 85%;
+  clear: both;
+}
+/* line 127, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area {
+  width: 66.6%;
+  height: 100%;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+/* line 134, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area .mdl-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 85%;
+  clear: both;
+}
+/* line 146, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area .action-item {
+  width: 100%;
+}
+/* line 149, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area .action-item .password-field {
+  float: left;
+  width: 50%;
+}
+/* line 154, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area .action-item .login-field {
+  float: right;
+  width: 50%;
+}
+/* line 157, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .session-card-area .action-item .login-field #login_button {
+  float: right;
+  width: 60%;
+}
+/* line 167, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area {
+  width: 33.3%;
+  height: 100%;
+  float: right;
+  position: relative;
+  overflow: hidden;
+}
+/* line 174, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area .mdl-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 85%;
+  clear: both;
+}
+/* line 186, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area .navi-item {
+  width: 100%;
+  height: 50%;
+}
+/* line 190, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area .navi-item p {
+  font-size: 16px;
+  color: red;
+  text-decoration: underline;
+}
+/* line 198, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area .action-item {
+  width: 100%;
+  height: 50%;
+  margin: 0 auto;
+}
+/* line 202, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Guest-Card-Field .new-registrate-card-area .action-item a {
+  margin: 0 auto;
+  width: 90%;
+}
+/* line 212, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field {
+  width: 100%;
+}
+/* line 215, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field .contents-card {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 220, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field .contents-card .session-input-field {
+  width: 100%;
+  height: 64%;
+}
+/* line 225, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field .contents-card .action-buttons-field {
+  width: 100%;
+  height: 36%;
+  overflow: hidden;
+}
+/* line 230, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field .contents-card .action-buttons-field .action-item {
+  float: right;
+  width: 40%;
+  margin-bottom: 3%;
+}
+/* line 240, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field #contact_button {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+/* line 245, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field #search_button {
+  float: right;
+  width: 30%;
+}
+/* line 250, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field h3 {
+  text-align: center;
+}
+/* line 254, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Single-Card-Field .mdl-checkbox {
+  float: left;
+  width: 50%;
+}
+/* line 262, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .multiple-section-title {
+  margin-left: 12px;
+  padding-bottom: 24px;
+}
+/* line 269, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .cards-title-area {
+  height: 100px;
+  width: 100%;
+}
+/* line 273, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .cards-title-area .cards-section-title {
+  float: left;
+}
+/* line 277, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .cards-title-area .cards-section-button {
+  float: right;
+}
+/* line 283, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+/* line 288, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__media img {
+  width: 100%;
+}
+/* line 292, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
+/* line 297, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+/* line 302, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 20%;
+}
+/* line 308, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+/* line 313, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__actions a {
+  border-top: none;
+  line-height: 32px;
+  font-size: 16px;
+}
+/* line 319, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .mdl-card__actions span {
+  color: #8bc34a;
+}
+/* line 323, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Main-Contents-Field .Multiple-Card-Container .multiple-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+/* line 332, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field {
+  /* Show-Contents-Field Start */
+  padding-top: 80px;
+  padding-left: 16%;
+  width: 67%;
+  height: 600px;
+}
+/* line 338, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field {
+  width: 100%;
+  height: 7.5%;
+  background-color: #795548;
+}
+/* line 343, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field .head-title-field {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+/* line 348, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field .head-title-field h3 {
+  width: 100%;
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  color: #ffffff;
+}
+/* line 358, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field .head-action-field {
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+/* line 362, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field .head-action-field .action-item {
+  float: right;
+  width: 50%;
+  margin-top: 1%;
+  overflow: hidden;
+}
+/* line 367, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Head-Field .head-action-field .action-item .mdl-button {
+  width: 85%;
+  height: 40%;
+  clear: both;
+}
+/* line 378, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field {
+  float: left;
+  width: 33.3%;
+  height: 500px;
+  background-color: #fffde7;
+}
+/* line 384, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .image-area {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 389, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .image-area .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 75%;
+  height: 80%;
+  clear: both;
+}
+/* line 402, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .friend-area {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 407, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .friend-area .mdl-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  clear: both;
+}
+/* line 419, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .friend-area #following_button {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* line 424, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .friend-area .follow_buttons {
+  width: 100%;
+  height: 80%;
+}
+/* line 427, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Left-Field .friend-area .follow_buttons li {
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+/* line 437, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Right-Field {
+  float: right;
+  width: 66.6%;
+  height: 500px;
+  background-color: #fffde7;
+}
+/* line 444, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Right-Field .personal-table-area {
+  height: 50%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 450, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Right-Field .personal-table-area table {
+  width: 80%;
+  height: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  clear: both;
+}
+/* line 464, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Right-Field .profile-table-area {
+  height: 50%;
+  width: 100%;
+  position: relative;
+}
+/* line 469, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Contents-Field .Show-Contents-Field .Contents-Right-Field .profile-table-area table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 150px;
+}
+
+/* Contents Field End */
+/* line 491, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container {
+  /* Message Container Start */
+  padding-top: 70px;
+  width: 100%;
+  height: auto;
+}
+/* line 497, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Friend-Field {
+  margin-left: 0.5%;
+  width: 25%;
+  height: 575px;
+  background-color: #f9fbe7;
+  float: left;
+  list-style: none;
+}
+/* line 505, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Friend-Field li {
+  overflow: auto;
+  padding: 3% 0 0 2%;
+  border-top: 1px solid #DCDCDC;
+  overflow: hidden;
+}
+/* line 511, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Friend-Field li:last-child {
+  border-bottom: 1px solid #DCDCDC;
+}
+/* line 517, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field {
+  margin-right: 0.5%;
+  width: 73%;
+  height: 575px;
+  float: right;
+}
+/* line 523, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .User-Name-Field {
+  width: 48.5%;
+  height: 50px;
+  background-color: #f9fbe7;
+  float: left;
+}
+/* line 529, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .User-Name-Field .name-area {
+  float: left;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 535, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .User-Name-Field .name-area .mdl-button {
+  height: 100%;
+  width: 70%;
+  color: black;
+  font-size: 1.2em;
+  clear: both;
+}
+/* line 544, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .User-Name-Field .image-area {
+  float: right;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 550, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .User-Name-Field .image-area .image-item {
+  height: 100%;
+  float: right;
+  clear: both;
+}
+/* line 558, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .Friend-Name-Field {
+  width: 48.5%;
+  height: 50px;
+  background-color: #f9fbe7;
+  float: right;
+  margin-right: 1.8%;
+}
+/* line 565, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .Friend-Name-Field .name-area {
+  float: right;
+  width: 50%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  overflow: hidden;
+}
+/* line 573, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .Friend-Name-Field .name-area .mdl-button {
+  height: 100%;
+  width: 70%;
+  float: right;
+  color: black;
+  font-size: 1.2em;
+  clear: both;
+}
+/* line 583, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .Friend-Name-Field .image-area {
+  float: left;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 589, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field .Friend-Name-Field .image-area .image-item {
+  height: 100%;
+  clear: both;
+}
+/* line 597, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field {
+  width: 100%;
+  height: 455px;
+  background-color: #e8eaf6;
+  overflow: scroll;
+  /* 吹き出し要素 */
+  /* 吹き出し要素 */
+}
+/* line 603, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field td {
+  /* width: 488px; */
+}
+/* line 607, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .user-timestamp-cell {
+  text-align: left;
+  width: 8%;
+}
+/* line 612, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .user-message-cell {
+  text-align: left;
+  width: 47%;
+}
+/* line 616, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .friend-message-cell {
+  text-align: right;
+  width: 47%;
+}
+/* line 621, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .friend-timestamp-cell {
+  text-align: right;
+  width: 8%;
+}
+/* line 627, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-left {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  width: auto;
+  min-width: 115px;
+  height: 50px;
+  color: #F6F6F6;
+  line-height: 50px;
+  text-align: center;
+  background: #19283C;
+  border-radius: 50px;
+  z-index: 0;
+}
+/* line 642, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-left:before {
+  content: "";
+  position: absolute;
+  top: -17px;
+  left: 15px;
+  margin-right: 0;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #19283C;
+  border-radius: 50%;
+  z-index: -1;
+}
+/* line 655, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-left:after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 25px;
+  margin-right: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #19283C;
+  border-radius: 50%;
+  z-index: -1;
+}
+/* line 668, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-right {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  width: auto;
+  min-width: 115px;
+  height: 50px;
+  color: #F6F6F6;
+  line-height: 50px;
+  text-align: center;
+  background: #19283C;
+  border-radius: 50px;
+  z-index: 0;
+}
+/* line 683, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-right:before {
+  content: "";
+  position: absolute;
+  top: -17px;
+  right: 15px;
+  margin-right: 0;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #19283C;
+  border-radius: 50%;
+  z-index: -1;
+}
+/* line 696, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Message-Field #Both-Field .msg-baroon-right:after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  right: 25px;
+  margin-right: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #19283C;
+  border-radius: 50%;
+  z-index: -1;
+}
+/* line 714, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.Message_Container .Input-Field {
+  width: 74%;
+  height: 50px;
+}
+
+/* Message Container End */
+/* line 721, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.partner {
+  height: 60px;
+  width: 100%;
+}
+
+/* line 726, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.hover {
+  background: #E85F98 !important;
+}
+
+/* line 730, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.hover p {
+  color: #003366 !important;
+}
+
+/* Footer Contents Start */
+/* line 737, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Footer Contents End */
+/* Debug Css */
+/* line 752, /home/ubuntu/workspace/sho-yu/app/assets/stylesheets/custom.css.scss */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
