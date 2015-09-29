@@ -9,6 +9,16 @@
                     <h3>お問い合わせフォーム&nbsp;&nbsp;&nbsp;</h3>
                 </div>
                 <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+										
+					<% if @contact.errors.any? %>
+						<h2><%= @contact.errors.count %>件のエラーがあります</h2>
+						<ul>
+    					    <% @contact.errors.full_messages.each do |msg| %>
+      						<li><%= msg %></li>
+    						<% end %>
+    					</ul>
+					<% end %>
+										
                     <%= form_for(@contact) do |f| %>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -20,6 +30,7 @@
                       <%= f.label :age,'年齢', { class:"mdl-textfield__label" } %><br />
                       <%= f.text_field :age, { class:"mdl-textfield__input" } %>
                     </div>
+                    <%= render 'shared/contactAge' %>
                     
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <%= f.label :mail,'メールアドレス', { class:"mdl-textfield__label" } %><br />

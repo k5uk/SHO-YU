@@ -12,58 +12,9 @@ class User < ActiveRecord::Base
   
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   
-  # setting validates
+  # setting name value
   validates :name, presence: true, length:  { maximum: 30 }
   validates :name, uniqueness: true
-  validates :password, length:  { minimum: 8 }, on: [:new] 
-  
-  validate :sex_check
-  validate :birthday_check
-  #validate :area_check
-  validate :password_confirmation_check, on: [:new]
-
-  def sex_check
-    
-    if sex == 0
-        errors.add(:sex, "を入力してください")
-    end  
-  
-  end
-  
-  def birthday_check
-    
-    if birthday.empty?
-        errors.add(:birthday, "を入力してください")
-    end
-  
-  end
-    
-  def area_check
-    
-    if area.empty?
-        errors.add(:area, "を入力してください")
-    end
-  
-  end
-  
-  def kiryoku_check
-    
-    if kiryoku.empty?
-        errors.add(:kiryoku, "を入力してください")
-    end 
-  
-  end
-  
-  def password_confirmation_check
-    
-    if password.present?
-      if password_confirmation.empty?
-        errors.add(:password_confirmation, "を入力してください")
-      end
-    end
-  
-  end
-
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -87,11 +38,6 @@ class User < ActiveRecord::Base
     require 'open_uri_redirections'
     image = open(imageUrl, :allow_redirections => :safe)
     
-    #FQL
-    #query = "SELECT current_location FROM user WHERE uid =" + auth.uid
-    #location = Fql.execute(query)
-    #puts location[0]
-    #puts Fql.execute(query)
        user = User.new(
           #facebook available items
           uid: auth.uid,
@@ -117,10 +63,11 @@ class User < ActiveRecord::Base
   ### FaceBook Data Editer ###
   def self.sexEditer(sex)
     if sex == "male"
-      return 1
+      return 0
     else
-      return 2
+      return 1
     end
+    return sex
   end
   
   def self.birthdayEditer(birthday)

@@ -72,6 +72,8 @@ GEM
     execjs (2.6.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    fql (0.3.1)
+      multi_json
     hashie (3.4.2)
     hike (1.2.3)
     httpclient (2.6.0.1)
@@ -200,6 +202,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.1)
   coffee-rails (= 4.0.1)
   devise (= 3.4.1)
+  fql
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.2)
   material-design-rails (~> 0.1.0)

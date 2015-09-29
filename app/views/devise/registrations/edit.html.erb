@@ -9,8 +9,15 @@
 										<h3>プロフィール編集&nbsp;&nbsp;&nbsp;</h3>
 								</div>
 								<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+										<% if @user.errors.any? %>
+											<h2><%= @user.errors.count %>件のエラーがあります</h2>
+											<ul>
+    											<% @user.errors.full_messages.each do |msg| %>
+      											<li><%= msg %></li>
+    											<% end %>
+    										</ul>
+										<% end %>
 										<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-												<%= devise_error_messages! %>
 
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<%= f.label :image,'プロフィール画像',{ class:"mdl-textfield__label" } %><br /><br />

@@ -97,6 +97,19 @@ function set_age_value() {
     age_Selector.value = age;
 }
 
+// 年連選択（問い合わせ）
+function change_contact_age_value() {
+    var age = document.getElementById("contact_age");
+    var age_Selector = document.getElementById("contact_age_serector").value;
+    age.value = age_Selector;
+}
+
+function set_contact_age_value() {
+    var age = document.getElementById("contact_age").value;
+    var age_Selector = document.getElementById("contact_age_serector");
+    age_Selector.value = age;
+}
+
 // メッセージパートナの選択
 
 function selectPartner(id) {
@@ -109,14 +122,14 @@ function selectPartner(id) {
 
 function controlCheckMan() {
     var sex = document.getElementById("user_sex");
-    sex.value = 0;
+    sex.value = 1;
     var checkboxLady = document.getElementById("checkboxLady_label");
     checkboxLady.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
 }
 
 function controlCheckLady() {
     var sex = document.getElementById("user_sex");
-    sex.value = 1;
+    sex.value = 2;
     var checkboxMan = document.getElementById("checkboxMan_label");
     checkboxMan.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
 }

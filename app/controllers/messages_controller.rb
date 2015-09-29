@@ -22,11 +22,6 @@ class MessagesController < ApplicationController
         @user = current_user
         @users = @user.followed_users
         @users = @users.paginate(:page => params[:page], :per_page => 8)
-        
-        if @friend_name.nil?  
-            @friend_name = "フレンドの名前"
-        end
-        
     end
     
 end

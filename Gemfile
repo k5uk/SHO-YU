@@ -13,6 +13,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'pusher'
+gem 'fql'
 
 group :development do
   gem 'sqlite3', '1.3.9'

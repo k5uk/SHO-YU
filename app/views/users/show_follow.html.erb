@@ -38,6 +38,7 @@
       <div class="mdl-card__supporting-text">
         <span class="mdl-typography--font-light mdl-typography--subhead">
         <ul style="list-style:none">
+          <li>性別: <% if user.sex == 1 %> 男性 <% else %> 女性 <% end %></li>
           <li>棋力: <%= user.kiryoku %></li>
           <li>地域: <%= user.area %></li>
           <li>年齢: <%= user.age %></li>

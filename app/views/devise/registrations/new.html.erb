@@ -10,8 +10,17 @@
 						  		  <h3>アカウント新規登録&nbsp;&nbsp;&nbsp;</h3>
 						  		</div>
 								<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+										<% if @user.errors.any? %>
+											<h2><%= @user.errors.count %>件のエラーがあります</h2>
+											<ul>
+    											<% @user.errors.full_messages.each do |msg| %>
+      											<li><%= msg %></li>
+    											<% end %>
+    										</ul>
+										<% end %>
+
 										<%= form_for(resource, as: resource_name, url: registration_path(resource_name, html: {id:'regist_form' } )) do |f| %>
-												<%= devise_error_messages! %>
 
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :name,'お名前', { class:"mdl-textfield__label" } %><br />
@@ -24,7 +33,7 @@
 												</div>
 												
 										        <!-- sex field -->
-										        <input id="user_sex" name="user[sex]" type="hidden" value= <%=@user.sex %>>
+										        <input id="user_sex" name="user[sex]" type="hidden" value= 0 %>>
 										        
 										        <div class="sex-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										        	<label class="mdl-textfield__label"> 性別</label>
@@ -51,20 +60,22 @@
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :area, { class:"mdl-textfield__input" } %>
+												  		<input type="text" name="user[area]" id="user_area" onFocus="this.blur()" 
+														class="mdl-textfield__input" >
 												</div>
 												
 												<%= render 'shared/area' %>
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
+												  		<input type="text" name="user[kiryoku]" id="user_kiryoku" onFocus="this.blur()" 
+														class="mdl-textfield__input" >
 												</div>
 												
 												<%= render 'shared/kiryoku' %>
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :comment,'ひとこと', { class:"mdl-textfield__label" } %><br />
+												  		<%= f.label :comment,'コメント', { class:"mdl-textfield__label" } %><br />
 												  		<%= f.text_field :comment, { class:"mdl-textfield__input" } %>
 												</div>
 
