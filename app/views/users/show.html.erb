@@ -116,7 +116,11 @@
       <tbody>
         <tr>
         　<td class="mdl-data-table__cell--non-numeric">棋力</td>
+        　<% if @user.kiryoku.blank? %>
+        　<td class="mdl-data-table__cell--non-numeric"><strong>未設定</strong></td>
+        　<% else %>
           <td class="mdl-data-table__cell--non-numeric"><strong><%= @user.kiryoku %></strong></td>
+          <% end %>
         </tr>
         <tr>
         　<td class="mdl-data-table__cell--non-numeric">地域</td>
@@ -128,7 +132,11 @@
         </tr>
         <tr>
         　<td class="mdl-data-table__cell--non-numeric">ひとこと</td>
+          <% if @user.kiryoku.blank? %>
+          <td class="mdl-data-table__cell--non-numeric"><strong>未設定</strong></td>
+          <% else %>
           <td class="mdl-data-table__cell--non-numeric"><strong><%= @user.comment %></strong></td>
+          <% end %>
         </tr>
       </tbody>
     </table>

@@ -17,4 +17,6 @@ class StaticPagesController < ApplicationController
   def sending
   end
   
+  def sending_contact
+  end
 end

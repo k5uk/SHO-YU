@@ -29,8 +29,7 @@ function _submit() {
 
 // 年齢計算
 function calculateAge(birthday) {
-    var birthdayDelmit = birthday.substr(0,4) + "/" + birthday.substr(4,2) + "/" + birthday.substr(6,2);
-    var birth = birthdayDelmit.split('/');
+    var birth = birthday.split('/');
     var _birth = parseInt("" + birth[0] + birth[1] + birth[2]);
     var today = new Date();
     var _today = parseInt("" + today.getFullYear() + affixZero(today.getMonth() + 1) + affixZero(today.getDate()));
@@ -40,6 +39,17 @@ function calculateAge(birthday) {
 function affixZero(int) {
     if (int < 10)int = "0" + int;
         return "" + int;
+}
+
+// 日付自動スラッシュ挿入
+function addSlash(birthday) {
+    textLength = birthday.value.length;
+    if((textLength == 5)||(textLength == 8)) {
+        var textAfter = birthday.value.substr(-1 , 1);
+        if (textAfter != '/') {
+            birthday.value = birthday.value.substr(0,textLength -1 ) + '/' + textAfter;
+        }
+    }
 }
 
 // メールアドレス公開/非公開

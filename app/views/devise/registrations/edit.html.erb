@@ -61,7 +61,7 @@
 											<label class="mdl-textfield__label"> 性別</label>
 										</div>
 										
-										<% if @user.sex == 0 %>
+										<% if @user.sex == 1 %>
 											
                       						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
   												<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()" checked/>
@@ -90,22 +90,26 @@
                       					<!-- sex field end -->					
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										  <%= f.label :birthday,'生年月日 (1989年8月23日の場合、19890823と入力)', { class:"mdl-textfield__label" } %>
-										  <%= f.text_field :birthday, { class:"mdl-textfield__input" } %>
+										  <%= f.label :birthday,'生年月日 (1989年8月23日の場合、1989/08/23と入力)', { class:"mdl-textfield__label" } %>
+										  <input type="text" name="user[birthday]" id="user_birthday" value =<%=@user.birthday%> 
+										  onkeyup="addSlash(this)" maxlength="10" class="mdl-textfield__input" >
 										</div>
+										<br /><label>※生年月日のスラッシュは自動で入力されます</label><br />
 										
 										<input id="user_age" name="user[age]" type="hidden">
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										  <%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
-										  <%= f.text_field :area, { class:"mdl-textfield__input" } %>
+										  <input type="text" name="user[area]" id="user_area" onFocus="this.blur()"
+										  class="mdl-textfield__input" >
 										</div>                
 										
 										<%= render 'shared/area' %>
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										  <%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
-										  <%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
+										  <input type="text" name="user[kiryoku]" id="user_kiryoku" onFocus="this.blur()" 
+										  class="mdl-textfield__input" >
 										</div>
 										
 										<%= render 'shared/kiryoku' %>

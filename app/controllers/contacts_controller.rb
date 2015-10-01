@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     if @contact.save
         ContactMailer.sent(@contact).deliver
         ContactMailer.sent_toAdmin(@contact).deliver
-        redirect_to root_url
+        redirect_to sending_contact_path
     end
   end
   

@@ -22,6 +22,7 @@ ShoYu::Application.routes.draw do
   match '/search', to: 'users#search' , via: 'get'
   match '/comfirm', to: 'static_pages#comfirm', via:'get'
   match '/sending', to: 'static_pages#sending', via:'get'
+  match '/sending_contact', to: 'static_pages#sending_contact', via:'get'
   
   match '/message', to: 'messages#index' , via:'get'
   post 'post' => 'messages#post'
