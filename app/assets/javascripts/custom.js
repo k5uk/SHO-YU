@@ -1,3 +1,8 @@
+function readyAction() {
+    editCheck();
+    _reload();
+}
+
 // 画面起票時１回だけリロードする
 function _reload() {
     if (window.name != "reloadFlag") {
@@ -7,7 +12,6 @@ function _reload() {
     else {
         window.name = "notReload";   
     }
-    console.log(window.name);
 }
 
 // スクロールバーを一番下に移動する
@@ -21,10 +25,32 @@ function counter(str,seq) {
     return str.split(seq).length -1;
 }
 
-function _submit() {
+// 登録確定ボタン 
+function newSubmit() {
+    // 年齢のセット
+    settingAge();
+}
+
+// 変更確定ボタン
+function editSubmit() {
+    settingAge();
+    window.name = "editFlag"
+}
+
+// 変更後にアラートを表示する
+function editCheck() {
+    if (window.name == "editFlag") {
+        alert("プロフィールを更新しました");
+        window.name = "alreadyOutput";
+    }
+}
+
+
+// 年齢の設定
+function settingAge() {
     var userAge = calculateAge(document.getElementById("user_birthday").value);
     var age = document.getElementById("user_age");
-    age.value = userAge
+    age.value = userAge    
 }
 
 // 年齢計算
@@ -225,4 +251,13 @@ function highlight() {
     $('.Friend-Field').on('click','.partner',function(){
         location.href = $(this).find("a").eq(0).attr("href");
     });
+    
+    //adjustmentHeaderStyle();
 }
+
+// ヘッダーMDLの高さを消す
+//function adjustmentHeaderStyle() {
+//    var mdlHeaderHeight = document.getElementById("mdl-layout__container")
+//    console.log(mdlHeaderHeight)
+//    mdlHeaderHeight.height = "0% !important";
+//}

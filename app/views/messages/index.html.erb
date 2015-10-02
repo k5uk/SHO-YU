@@ -3,6 +3,9 @@
 
 <div class="Message_Container">
     <div class="Friend-Field">
+        <li class="label">
+            <strong><i>フレンド一覧</i></strong>
+        </li>
         <% @users.each do |user| %>
             <li class="partner" id=<%=user.id%>>
                 <% if user.image_file_name.nil? %>
@@ -17,7 +20,7 @@
     </div>
     <div class="Message-Field">
     <% if @friend_id.nil?%>
-        <!-- 何かコンテンツを入れる予定 -->
+        <%= render 'shared/infoAreas' %>
     <% else %>
         <%= render 'shared/msgAreas' %>
     <% end %>

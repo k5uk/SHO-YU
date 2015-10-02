@@ -3,10 +3,6 @@ html {
     width: 1350px;
 }
 
-.mdl-layout__container {
-    height: 0% !important;
-}
-
 /* Header Field Start */
 .sho-header {
   overflow: visible;
