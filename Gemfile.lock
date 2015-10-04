@@ -42,8 +42,6 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.1.0)
-      sass (~> 3.2)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -72,8 +70,6 @@ GEM
     execjs (2.6.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    fql (0.3.1)
-      multi_json
     hashie (3.4.2)
     hike (1.2.3)
     httpclient (2.6.0.1)
@@ -205,10 +201,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (= 3.3.1)
   coffee-rails (= 4.0.1)
   devise (= 3.4.1)
-  fql
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.2)
   material-design-rails (~> 0.1.0)
@@ -226,7 +220,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (= 4.0.3)
   sdoc (= 0.4.1)
-  sqlite3 (= 1.3.9)
+  sqlite3
   turbolinks (= 2.5.1)
   uglifier (= 2.5.3)
   will_paginate (= 3.0.4)

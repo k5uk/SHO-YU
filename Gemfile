@@ -3,7 +3,6 @@ ruby '2.0.0'
 
 gem 'rails', '4.1.2'
 gem 'material-design-rails', '~> 0.1.0'
-gem 'bootstrap-sass', '3.3.1'
 gem 'devise', '3.4.1'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'will_paginate', '3.0.4'
@@ -13,12 +12,15 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'pusher'
-gem 'fql'
 
-gem "pg", groups: %w(production), require: false
-gem 'rails_12factor', groups: %w(production), require: false
-gem 'sqlite3', '1.3.9', groups: %w(test development), require: false
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
+group :development do
+  gem 'sqlite3'
+end
 
 gem 'sass-rails', '4.0.3'
 gem 'uglifier', '2.5.3'

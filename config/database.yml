@@ -21,9 +21,5 @@ test:
 production:
   adapter: postgresql
   database: db/production.pg
-  port: 5432
-  host: hostname
-  username: username
-  password: password
   pool: 5
   timeout: 5000
