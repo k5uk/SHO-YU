@@ -87,13 +87,10 @@ class User < ActiveRecord::Base
     require 'open_uri_redirections'
     image = open(imageUrl, :allow_redirections => :safe)
     
-    #FQL
-    #query = "SELECT current_location FROM user WHERE uid =" + auth.uid
-    #location = Fql.execute(query)
-    #puts location[0]
-    #puts Fql.execute(query)
+    location = auth.info.location
+    prefecture = locationEditer(location)
+    
        user = User.new(
-          #facebook available items
           uid: auth.uid,
           provider: auth.provider,
           name: auth.info.name,
@@ -102,6 +99,7 @@ class User < ActiveRecord::Base
           birthday: birthday,
           age: age,
           sex: sex,
+          area: prefecture,
           password: Devise.friendly_token[10, 15],
           confirmed_at: Time.now
           )
@@ -136,6 +134,13 @@ class User < ActiveRecord::Base
     birthdayInt = birthday.strftime("%Y%m%d").to_i
     todayInt = Date.today.strftime("%Y%m%d").to_i
     return (todayInt - birthdayInt) / 10000
+  end
+  
+  def self.locationEditer(location)
+    userLocationArr = location.split(',')
+    userPrefectures = userLocationArr[1].strip
+    pref = JpPrefecture::Prefecture.find name: userPrefectures
+    return pref.name
   end
   
   ### パスワード不要で編集できるように ###
@@ -202,31 +207,13 @@ class User < ActiveRecord::Base
     # 年齢チェック
     if age.present?
     
-      case age
-    
-      when "10代前半"
-        @ageRange = 10..14 
-      when "10代後半"
-        @ageRange = 15..19 
-      when "20代前半"
-        @ageRange = 20..24 
-      when "20代後半"
-        @ageRange = 25..29
-      when "30代前半"
-        @ageRange = 30..34
-      when "30代後半"
-        @ageRange = 35..39
-      when "40代前半"
-        @ageRange = 40..44
-      when "40代後半"
-        @ageRange = 45..49
-      when "50代前半"
-        @ageRange = 50..54
-      when "50代後半"
-        @ageRange = 55..59
-      when "60歳以上"
-        @ageRange = 60..120
-
+      ageArr = ["10代前半","10代後半","20代前半","20代後半","30代前半","30代後半","40代前半","40代後半","50代前半","50代後半","60歳以上"]
+      rangeArr = [10..14 , 15..19, 20..24, 25..29, 30..34, 35..39, 40..44, 45..49, 50..54, 55..59, 60..150]
+      
+      for index in 0..ageArr.length - 1 do
+        if age == ageArr[index]
+          @ageRange = rangeArr[index]
+        end
       end
       
       @serach_keys.push('age')

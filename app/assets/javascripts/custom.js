@@ -252,12 +252,4 @@ function highlight() {
         location.href = $(this).find("a").eq(0).attr("href");
     });
     
-    adjustmentHeaderStyle();
-}
-
-// ヘッダーMDLの高さを消す
-function adjustmentHeaderStyle() {
-    var mdlHeaderHeight = document.getElementsByClassName("mdl-layout__container")
-    console.log(mdlHeaderHeight)
-    mdlHeaderHeight.style.height = "0% !important";
 }

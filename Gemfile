@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'pusher'
+gem 'jp_prefecture'
 
 group :production do
   gem 'pg'
