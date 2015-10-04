@@ -15,14 +15,10 @@ gem 'omniauth-facebook'
 gem 'pusher'
 gem 'fql'
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+gem "pg", groups: %w(production), require: false
+gem 'rails_12factor', groups: %w(production), require: false
+gem 'sqlite3', '1.3.9', groups: %w(test development), require: false
 
-group :development do
-  gem 'sqlite3', '1.3.9'
-end
 
 gem 'sass-rails', '4.0.3'
 gem 'uglifier', '2.5.3'

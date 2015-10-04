@@ -16,15 +16,15 @@
 
 <div class="Friend-Name-Field">
 	<div class="image-area">
-	    <% if @partner_inf.image.nil? %>
-	        <%= image_tag @partner_image.image, :size => "150x50" %>
+	    <% if @friend_img.nil? %>  
+	        <%= image_tag @friend_img, :size => "150x50" %>
 	        <% else if ! @friend_id.nil? %>
 	            <%= image_tag "link/noImage.png", :size => "150x50" %>
 	        <% end %>
 	    <% end %>
 	</div>
     <div class="name-area">
-        <input type="button" value= <%=@partner_inf.name %> 
+        <input type="button" value= <%=@friend_name %> 
 	    class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--blue-grey-50">
 	    <input type="hidden" id="talking_friend_id" value=<%=@friend_id %> >
 	</div>
@@ -61,24 +61,6 @@
             <% end %>
         </tbody>
     </table>
-
-    <table id="newArraivalMessageTable">
-        <tbody>
-            <% if ! @newArraivalMessages.count == 0 %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
-                <div class="newArraivalPoint"><p>↓ ここから下が新着メッセージです ↓</p><div>
-                <% @newArraivalMessages.each do |message| %>
-                    <!-- @発言元はフレンドからのみを想定 -->
-                    <!-- フレンド側にメッセージを出す -->
-                    <tr>
-                        <td class="user-timestamp-cell"></td>
-                        <td class="user-message-cell"></td>
-                        <td class="friend-message-cell"><div class="msg-baroon-new"><%=message.message %></div></td>
-                        <td class="friend-timestamp-cell"><%=message.created_at %></td>
-                    </tr>                             
-                <% end %>
-            <% end %>
-        </tbody>
-    </table>
     
     <table id="newMessageTable">
             <tr>
@@ -103,7 +85,6 @@
         </div>
             <input id="current_user_id" name="current_user_id" type="hidden" value= <%=@user.id %> >
             <input id="partner_user_id" name="partner_user_id" type="hidden" value= <%=@friend_id%> >
-            <input id="partner_user_name" name="partner_user_name" type="hidden" value= <%=@friend_name%> >
             <%= submit_tag 'メッセージ送信', :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
             mdl-button--accent mdl-color--teal-300" %>
         <% end %>

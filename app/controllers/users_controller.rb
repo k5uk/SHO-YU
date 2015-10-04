@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
   
   def index
-    p "paramutyekku"
     @users = User.searchUser(params[:user]["area"], params[:user]["kiryoku"], params[:user]["age"], params[:user]["id"])
     @users = @users.paginate(:page => params[:page], :per_page => 8)
   end

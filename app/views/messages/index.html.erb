@@ -13,7 +13,7 @@
                 <% else %>
                     <%= image_tag user.image.url, :size => "50x50" %>
                 <% end %>
-                <%= link_to user.name, message_path(friend_id: user.id, friend_name: user.name, friend_img: user.image) %>
+                <%= link_to user.name, message_path(friend_id: user.id) %>
             </li>
         <% end %>
         <%= will_paginate @users%>

@@ -238,6 +238,11 @@ class User < ActiveRecord::Base
     
   end
   
+  # ユーザーの情報取得
+  def self.getPartnerInformation(partner_id)
+      @partner_inf = User.find(partner_id)
+      @partner_inf
+  end
 
     scope :search, lambda { |search_keys, search_values, myid| 
 

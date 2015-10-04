@@ -1,8 +1,17 @@
 <!-- New-Arraivals-Field Start -->
 <div class="New-Arraivals-Field">
     <div class="navigation-area">
+        <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
     </div>
     <div class="message-area">
+            <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
+                <li class="partner">
+                    <%=newArraivalMessage.partner_name %>
+                    <%=newArraivalMessage.message %>
+                    <%=newArraivalMessage.created_at %>
+                    <%= link_to "メッセージを確認する", message_path(friend_id: newArraivalMessage.uid2) %>
+                </li>
+      		<% end %>
     </div>
 </div>
 <!-- New-Arraivals-Field End -->
@@ -10,6 +19,7 @@
 <!-- Notification-Field Start -->
 <div class="Notification-Field">
     <div class="navigation-area">
+        <strong>件の新着情報があります</strong>
     </div>
     <div class="message-area">
     </div>
