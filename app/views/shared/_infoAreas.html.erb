@@ -4,14 +4,19 @@
         <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
     </div>
     <div class="message-area">
+        <table>
+            <tbody>
             <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
-                <li class="partner">
-                    <%=newArraivalMessage.partner_name %>
-                    <%=newArraivalMessage.message %>
-                    <%=newArraivalMessage.created_at %>
-                    <%= link_to "メッセージを確認する", message_path(friend_id: newArraivalMessage.uid2) %>
-                </li>
-      		<% end %>
+                <tr class="newArraivalMessages">
+                    <td class="nameInfo"><%=newArraivalMessage.speaker_name %></td>
+                    <td class="messageInfo"><%=newArraivalMessage.message %></td>
+                    <td class="timestampInfo"><%=newArraivalMessage.created_at %></td>
+                    <td class="detailInfo"><%= link_to "", message_path(friend_id: newArraivalMessage.speaker_id) %></td>
+                </tr>  
+            <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @newArraivalMessagesAll%>
     </div>
 </div>
 <!-- New-Arraivals-Field End -->

@@ -228,7 +228,23 @@ function formatDate(date, format) {
   return format;
 };
 
-function highlight() {
+function highlight_messagelist() {
+    $('.message-area').on('mouseenter','.newArraivalMessages',function(){
+	    $(this).addClass("hover")
+    });
+
+    $('.message-area').on('mouseleave','.newArraivalMessages',function(){
+        if ($(this).hasClass("hover")) { 
+            $(this).removeClass("hover") 
+        }
+    });
+    
+    $('.message-area').on('click','.newArraivalMessages',function(){
+        location.href = $(this).find("a").eq(0).attr("href");
+    });
+}
+
+function highlight_friendlist() {
     
     if(document.getElementById("talking_friend_id") != null) {
         
@@ -252,4 +268,21 @@ function highlight() {
         location.href = $(this).find("a").eq(0).attr("href");
     });
     
+}
+
+function trimMessage() {
+    var $setElm = $('.messageInfo');
+    var cutFigure = '30';
+    var afterTxt = ' …';
+    
+    $setElm.each(function(){
+        var textLength = $(this).text().length;
+        var textTrim = $(this).text().substr(0,(cutFigure))
+ 
+        if(cutFigure < textLength) {
+            $(this).html(textTrim + afterTxt).css({visibility:'visible'});
+        } else if(cutFigure >= textLength) {
+            $(this).css({visibility:'visible'});
+        }
+    });
 }

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
         if params[:startMessage] 
         
         else
-            Pusher['general_channel'].trigger('chat_event',{message: params[:message],speaker: params[:current_user_id]})
+            Pusher['general_channel'].trigger('chat_event',{message: params[:message],speaker: params[:speaker_id]})
             render :text => 'OK', :status => 200
             Message.saveMessage(params)
         end
@@ -23,6 +23,7 @@ class MessagesController < ApplicationController
         @users = @users.paginate(:page => params[:page], :per_page => 8)
         @newArraivalMessagesAll = Message.getNewArraivalMessagesAll(current_user.id)
         @newArraivalMessagesCount = @newArraivalMessagesAll.count
+        @newArraivalMessagesAll = @newArraivalMessagesAll.paginate(:page => params[:page], :per_page => 5)
     end
     
 end

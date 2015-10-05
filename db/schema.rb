@@ -23,12 +23,13 @@ ActiveRecord::Schema.define(version: 20151002084853) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "uid1"
-    t.integer  "uid2"
+    t.integer  "speaker_id"
+    t.integer  "listener_id"
     t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "partner_name"
+    t.string   "speaker_name"
+    t.string   "listener_name"
     t.integer  "read_flag"
     t.string   "subject"
   end

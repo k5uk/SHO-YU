@@ -34,7 +34,9 @@
 </div>
 
 <script type="text/javascript">
-highlight();
+highlight_friendlist();
+highlight_messagelist();
+trimMessage();
 // pusher script start
 Pusher.log = function(message) {
     if (window.console && window.console.log) {
@@ -45,7 +47,7 @@ var pusher = new Pusher('<%= @pusher_access_key %>');
 var channel = pusher.subscribe('general_channel');
 channel.bind('chat_event', function(data) {
     // 発言元を判定して表示位置を制御する
-    var current_user = document.getElementById("current_user_id").value;
+    var current_user = document.getElementById("speaker_id").value;
     if (current_user == data.speaker) {
         insertRow('newMessageTable',data.message,'User');
     }
