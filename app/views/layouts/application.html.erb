@@ -16,6 +16,16 @@
 <!-- before script-->
 
 <script type="text/javascript" src="https://sho-yu.herokuapp.com/assets/custom.js"> readyAction();</script>
+<script type="text/javascript">
+    if (window.name != "reloadFlag") {
+        location.reload();
+        window.name = "reloadFlag";
+    }
+    else {
+        window.name = "notReload";   
+    }  
+</script>
+
 
 <!-- header start -->
 
