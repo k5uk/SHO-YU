@@ -230,6 +230,16 @@ class User < ActiveRecord::Base
       @partner_inf = User.find(partner_id)
       @partner_inf
   end
+  
+  # フレンド登録有無 フラグ返却
+  def self.checkFriend(friends, partner_id)
+      if friends.where(uid: partner_id).nil?
+        friend_flag = false
+      else
+        friend_flag = true
+      end
+      friend_flag
+  end
 
     scope :search, lambda { |search_keys, search_values, myid| 
 

@@ -14,12 +14,21 @@
         </li>
         <% @users.each do |user| %>
             <li class="partner" id=<%=user.id%>>
-                <% if user.image_file_name.nil? %>
-                    <%= image_tag "link/noImage.png", :size => "50x50" %>
-                <% else %>
-                    <%= image_tag user.image.url, :size => "50x50" %>
-                <% end %>
-                <%= link_to user.name, message_path(friend_id: user.id) %>
+                <div class="partnerArea">
+                    <% if user.image_file_name.nil? %>
+                        <%= image_tag "link/noImage.png", :size => "50x50" %>
+                    <% else %>
+                        <%= image_tag user.image.url, :size => "50x50" %>
+                    <% end %>
+                    <%= link_to user.name, message_path(friend_id: user.id) %>
+                </div>
+                <div class="baloonArea">
+                    <% if ! @messageCountMap[user.id].nil? %>
+                        <div class="countBaloon">
+                            <p><%= @messageCountMap[user.id] %></p>
+                        </div>
+                    <% end %>
+                </div>
             </li>
         <% end %>
         <%= will_paginate @users%>

@@ -65,7 +65,12 @@
     <table id="newArraivalMessageTable">
         <tbody>
             <% if ! @newArraivalMessages.count == 0 %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
-                <div class="newArraivalPoint"><p>↓ ここから下が新着メッセージです ↓</p><div>
+                <div class="newArraivalPoint">
+                    <% if ! @friend_flag %>
+                        <p>友達登録していないユーザーからのメッセージです</p>
+                    <% end %>
+                    <p>↓ ここから下が新着メッセージです ↓</p>
+                <div>
                 <% @newArraivalMessages.each do |message| %>
                     <!-- @発言元はフレンドからのみを想定 -->
                     <!-- フレンド側にメッセージを出す -->

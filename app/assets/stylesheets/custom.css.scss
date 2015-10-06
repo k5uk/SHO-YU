@@ -816,6 +816,32 @@ html {
 .partner {
     height: 60px;
     width: 100%;
+    .partnerArea {
+        height: 100%;
+        width: 80%;
+        float: left;
+    }
+    .baloonArea {
+        height: 100%;
+        width: 20%;
+        float: right;
+            .countBaloon {
+				width: 90%;
+				height: 90%;
+				background: #19283C;
+				border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                margin-left: auto;
+                p {
+                    text-align: center;
+                    color: #fff; /* 文字を白色に */
+                    margin: 0;
+                    padding-top: 30%;
+                }
+			}
+        
+    }
 }
 
 .hover {
