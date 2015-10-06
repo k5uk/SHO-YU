@@ -190,6 +190,7 @@ function insertRow(id,message,speaker) {
 
         cell2.className = "user-message-cell";
         var messagediv2 = document.createElement('div');
+        messagediv2.id = "ランダムな文字列"
         messagediv2.innerHTML = message;
         messagediv2.className = "msg-baroon-left";
         cell2.appendChild(messagediv2);
@@ -227,6 +228,45 @@ function formatDate(date, format) {
   }
   return format;
 };
+
+// ランダムな文字列を生成する
+function makeRundomStr() {
+    var strLength = 50;
+    var pattern = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var patternLength = pattern.length;
+    var returnStr = "";
+    for(var i=0; i<strLength; i++) {
+        returnStr += pattern[Math.floor(Math.random()*patternLength)];
+    }
+    return returnStr;
+}
+
+// 文字列に改行を入れる
+function addBr() {
+    var message = document.getElementById("message_text"); //40
+    var messageVal = message.value;
+    var addReturnMessage = ""; //最終的なリターンメッセージ
+    var addMessage = "";       //文字列追加用メッセージ
+    var fromIndex = 0;
+    var toIndex = 34;
+    var addBrCount = Math.floor(messageVal.length / 35); 
+    if(!(message % 35 == 0 )) {
+        addBrCount += 1
+    }
+    
+    for(var i = 1 ; i <= addBrCount ; i++) {
+        
+        if (addBrCount == i) {
+            addMessage = messageVal.substring(fromIndex,messageVal.length);
+            message.value = addReturnMessage + addMessage;
+        }
+        addMessage = messageVal.substring(fromIndex,toIndex);
+        addMessage += "\n";
+        addReturnMessage += addMessage
+        fromIndex += 35;
+        toIndex += 35;
+    }
+}
 
 function highlight_messagelist() {
     $('.message-area').on('mouseenter','.newArraivalMessages',function(){

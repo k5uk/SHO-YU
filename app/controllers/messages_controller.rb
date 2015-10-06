@@ -23,8 +23,6 @@ class MessagesController < ApplicationController
             @friend_id = params[:friend_id]
             @partner_inf = User.getPartnerInformation(@friend_id)
             @friend_flag = User.checkFriend(@users, @friend_id)
-            puts "ちぇっく"
-            puts @friend_flag
         end
         
         @newArraivalMessagesAll = Message.getNewArraivalMessagesAll(current_user.id)
