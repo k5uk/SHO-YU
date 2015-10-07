@@ -1,5 +1,4 @@
 function readyAction() {
-    editCheck();
     _reload();
 }
 
@@ -35,6 +34,7 @@ function newSubmit() {
 function editSubmit() {
     settingAge();
     window.name = "editFlag"
+    editCheck();
 }
 
 // 変更後にアラートを表示する

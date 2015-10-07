@@ -37,6 +37,9 @@ class MessagesController < ApplicationController
                 puts @messageCountMap[user.id]
             end
         end
+        
+        @notificationMessage = Message.getNotificationMessage(current_user.id)
+        @notificationMessage[0] = @notificationMessage[0].paginate(:page => params[:page], :per_page => 5)
     end
     
 end

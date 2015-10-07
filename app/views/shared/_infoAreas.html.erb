@@ -1,10 +1,11 @@
 <!-- New-Arraivals-Field Start -->
 <div class="New-Arraivals-Field">
     <div class="navigation-area">
+        <strong><i>新着メッセージ</i></strong> <br />
         <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
     </div>
     <div class="message-area">
-        <table>
+        <table rules="rows">
             <tbody>
             <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
                 <tr class="newArraivalMessages">
@@ -24,9 +25,23 @@
 <!-- Notification-Field Start -->
 <div class="Notification-Field">
     <div class="navigation-area">
-        <strong>件の新着情報があります</strong>
+        <strong><i>新着情報</i></strong> <br />
+        <strong><%= @notificationMessage[1] %>件の新着情報があります</strong>
     </div>
     <div class="message-area">
+        <table rules="rows">
+            <tbody>
+            <% @notificationMessage[0].each do |notificationMessage| %>
+                <tr class="newArraivalMessages">
+                    <td class="nameInfo"><%=notificationMessage.subject %></td>
+                    <td class="messageInfo"><%=notificationMessage.message %></td>
+                    <td class="timestampInfo"><%=notificationMessage.created_at %></td>
+                    <td class="detailInfo"><!-- ページ遷移の魔法 --></td>
+                </tr>  
+            <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @notificationMessage[0]%>        
     </div>
 </div>
 <!-- Notification-Field End -->

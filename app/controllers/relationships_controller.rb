@@ -3,6 +3,7 @@ class RelationshipsController < ApplicationController
     def create
         @user = User.find(params[:relationship][:followed_id])
         current_user.follow!(@user)
+        Message.notificationAddFriend(current_user.id, current_user.name, @user.id)
         redirect_to @user
     end
     
