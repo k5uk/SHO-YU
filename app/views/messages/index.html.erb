@@ -31,7 +31,7 @@
                 </div>
             </li>
         <% end %>
-        <%= will_paginate @users%>
+        <%= will_paginate @users, :param_name  => 'friendList_page'%>
     </div>
     <div class="Message-Field">
     <% if @friend_id.nil?%>
@@ -45,6 +45,7 @@
 <script type="text/javascript">
 highlight_friendlist();
 highlight_messagelist();
+highlight_notificationList();
 trimMessage();
 // pusher script start
 Pusher.log = function(message) {

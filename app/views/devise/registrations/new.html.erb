@@ -33,21 +33,51 @@
 												</div>
 												
 										        <!-- sex field -->
-										        <input id="user_sex" name="user[sex]" type="hidden" value= 0 %>>
-										        
+										        <%= f.hidden_field :sex %>
+										        										       
 										        <div class="sex-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										        	<label class="mdl-textfield__label"> 性別</label>
 										        </div>
 
-                      							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
-  													<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
-  													<span class="mdl-checkbox__label">男性</span>
-												</label>
-										
-												<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
-  													<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
-  													<span class="mdl-checkbox__label">女性</span>
-												</label>
+												<% if @user.sex == 1 %>
+													
+                      								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+  														<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()" checked/>
+  														<span class="mdl-checkbox__label">男性</span>
+													</label>
+												
+													<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+  														<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
+  														<span class="mdl-checkbox__label">女性</span>
+													</label>
+												
+												<% else if @user.sex == 2%>
+												
+                      								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+  														<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
+  														<span class="mdl-checkbox__label">男性</span>
+													</label>
+												
+													<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+  														<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()" checked/>
+  														<span class="mdl-checkbox__label">女性</span>
+													</label>
+												
+												
+													<% else %>
+
+                      									<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+  															<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
+  															<span class="mdl-checkbox__label">男性</span>
+														</label>
+												
+														<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+  															<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
+  															<span class="mdl-checkbox__label">女性</span>
+														</label>
+													<% end %>
+												
+												<% end %>
 										       
                       					        <!-- sex field -->
 												
@@ -62,17 +92,17 @@
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
-												  		<input type="text" name="user[area]" id="user_area" onFocus="this.blur()" 
-														class="mdl-textfield__input" >
+														<%= f.text_field :area, { class:"mdl-textfield__input" } %>
 												</div>
 												
 												<%= render 'shared/area' %>
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
-												  		<input type="text" name="user[kiryoku]" id="user_kiryoku" onFocus="this.blur()" 
-														class="mdl-textfield__input" >
+												  		<%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
 												</div>
+												
+												<!-- onFocus="this.blur()"  -->
 												
 												<%= render 'shared/kiryoku' %>
 												
@@ -106,3 +136,7 @@
 		<!-- Main Contents Field END -->
 </div>
 <!-- Contents Field END -->
+
+<scirpt type="text/javascript">
+setFieldElement();
+</scirpt>

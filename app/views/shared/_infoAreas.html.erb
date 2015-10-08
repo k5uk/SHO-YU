@@ -5,6 +5,7 @@
         <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
     </div>
     <div class="message-area">
+        <%= will_paginate @newArraivalMessagesAll, :param_name  => 'newArraival_page' %>
         <table rules="rows">
             <tbody>
             <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
@@ -17,7 +18,6 @@
             <% end %>
             </tbody>
         </table>
-        <%= will_paginate @newArraivalMessagesAll%>
     </div>
 </div>
 <!-- New-Arraivals-Field End -->
@@ -28,20 +28,37 @@
         <strong><i>新着情報</i></strong> <br />
         <strong><%= @notificationMessage[1] %>件の新着情報があります</strong>
     </div>
-    <div class="message-area">
+    <div class="notification-area">
+        <%= will_paginate @notificationMessage[0], :param_name  => 'notificate_page'%>
         <table rules="rows">
             <tbody>
             <% @notificationMessage[0].each do |notificationMessage| %>
                 <tr class="newArraivalMessages">
-                    <td class="nameInfo"><%=notificationMessage.subject %></td>
+                    <td class="subjectInfo"><%=notificationMessage.subject %></td>
                     <td class="messageInfo"><%=notificationMessage.message %></td>
                     <td class="timestampInfo"><%=notificationMessage.created_at %></td>
                     <td class="detailInfo"><!-- ページ遷移の魔法 --></td>
+                    <input class="notificaton_msg_id" type="hidden" value= <%=notificationMessage.id%> >
+                    <input id="speaker_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.speaker_name %> >
+                    <input id="subject_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.subject %> >
+                    <input id="message_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.message %> >
+                    <input id="timestamp_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.created_at %> >
                 </tr>  
             <% end %>
             </tbody>
         </table>
-        <%= will_paginate @notificationMessage[0]%>        
+    </div>
+    <!-- 動的メッセージ出力領域 -->
+    <div class="display-area">
+        <div class="display-title">
+            <div id="subject-item"></div>
+        </div>
+        <div class="display-message">
+            <div id="speaker-item"></div>
+            <div id="timestamp-item"></div>
+            <div id="message-item"><br />
+            </div>
+        </div>
     </div>
 </div>
 <!-- Notification-Field End -->

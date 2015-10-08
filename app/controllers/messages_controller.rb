@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
 
         if ! params[:friend_id].nil?
             @messages = Message.getOldMessage(current_user,params[:friend_id])
-            @newArraivalMessages = Message.getNewArraivalMessages(current_user,params[:friend_id])
+            @newArraivalMessages = Message.getNewArraivalMessages(current_user,params[:friendList_page])
             @friend_id = params[:friend_id]
             @partner_inf = User.getPartnerInformation(@friend_id)
             @friend_flag = User.checkFriend(@users, @friend_id)
@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
         
         @newArraivalMessagesAll = Message.getNewArraivalMessagesAll(current_user.id)
         @newArraivalMessagesCount = @newArraivalMessagesAll.count
-        @newArraivalMessagesAll = @newArraivalMessagesAll.paginate(:page => params[:page], :per_page => 5)
+        @newArraivalMessagesAll = @newArraivalMessagesAll.paginate(:page => params[:newArraival_page], :per_page => 5)
         
         if @users.present? and @newArraivalMessagesAll.present?
             @messageCountMap = Hash.new
@@ -39,7 +39,7 @@ class MessagesController < ApplicationController
         end
         
         @notificationMessage = Message.getNotificationMessage(current_user.id)
-        @notificationMessage[0] = @notificationMessage[0].paginate(:page => params[:page], :per_page => 5)
+        @notificationMessage[0] = @notificationMessage[0].paginate(:page => params[:notificate_page], :per_page => 5)
     end
     
 end

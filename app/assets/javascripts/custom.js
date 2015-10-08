@@ -190,7 +190,6 @@ function insertRow(id,message,speaker) {
 
         cell2.className = "user-message-cell";
         var messagediv2 = document.createElement('div');
-        messagediv2.id = "ランダムな文字列"
         messagediv2.innerHTML = message;
         messagediv2.className = "msg-baroon-left";
         cell2.appendChild(messagediv2);
@@ -310,6 +309,40 @@ function highlight_friendlist() {
     
 }
 
+function highlight_notificationList() {
+    $('.notification-area').on('mouseenter','.newArraivalMessages',function(){
+	    $(this).addClass("hover")
+    });
+
+    $('.notification-area').on('mouseleave','.newArraivalMessages',function(){
+        if ($(this).hasClass("hover")) { 
+            $(this).removeClass("hover") 
+        }
+    });
+
+    $('.notification-area').on('click','.newArraivalMessages',function(){
+        var notificationId = $(this).find("input").eq(0).attr("value");
+        var speaker = document.getElementById("speaker_info" + notificationId ).value;
+        var subject = document.getElementById("subject_info" + notificationId ).value;
+        var message = document.getElementById("message_info" + notificationId).value;
+        var timestamp = document.getElementById("timestamp_info" + notificationId).value;
+        outputDisplay(speaker, subject, message, timestamp);
+    });
+    
+}
+
+// 進捗情報メッセージを表示する
+function outputDisplay(speaker,subject,message,timestamp) {
+    var speaker_item = document.getElementById('speaker-item');
+    speaker_item.innerHTML = speaker;
+    var subject_item = document.getElementById('subject-item');
+    subject_item.innerHTML = subject;
+    var timestamp_item = document.getElementById('timestamp-item');
+    timestamp_item.innerHTML = timestamp;
+    var message_item = document.getElementById('message-item');
+    message_item.innerHTML = message;
+}
+
 function trimMessage() {
     var $setElm = $('.messageInfo');
     var cutFigure = '30';
@@ -325,4 +358,17 @@ function trimMessage() {
             $(this).css({visibility:'visible'});
         }
     });
+}
+
+function setFieldElement() {
+    
+console.log("よばれてます")
+
+    $(document).on('onFocus', '.user[area]', function(){
+        var area = document.getElementById("user_area");
+        var func = "this.blur();";
+        area.setAttribute('onFocus',func);
+        console.log("よばれてます")
+    });
+
 }
