@@ -1,13 +1,13 @@
 class Message < ActiveRecord::Base
     
     def self.saveMessage(param)
-        @speaker_id = param[:speaker_id]
-        @listener_id = param[:listener_id]
-        @speaker_name = param[:speaker_name]
-        @listener_name = param[:listener_name]
-        @message = param[:message]
-        Message.create(speaker_id: @speaker_id, listener_id: @listener_id, speaker_name: @speaker_name,
-        listener_name: @listener_name, message: @message, read_flag: 0)
+        speaker_id = param[:speaker_id]
+        listener_id = param[:listener_id]
+        speaker_name = param[:speaker_name]
+        listener_name = param[:listener_name]
+        message = param[:message]
+        Message.create(speaker_id: speaker_id, listener_id: listener_id, speaker_name: speaker_name,
+        listener_name: listener_name, message: message, read_flag: 0)
     end
     
     def self.getOldMessage(user_id,friend_id)
@@ -53,16 +53,16 @@ class Message < ActiveRecord::Base
     
     # 新着メッセージの取得処理（全部）
     def self.getNewArraivalMessagesAll(user_id)
-        @newArraivalMessagesAll = Message.where(listener_id: user_id, read_flag: 0).where.not(speaker_id: 9999999999)
-        @newArraivalMessagesAll
+        newArraivalMessagesAll = Message.where(listener_id: user_id, read_flag: 0).where.not(speaker_id: 9999999999)
+        newArraivalMessagesAll
     end
     
     # 運営からの通知メッセージの取得 [0]メッセージ [1]未読メッセージの件数
     def self.getNotificationMessage(user_id)
-        @NotificationMessages = Array.new
-        @NotificationMessages[0] = Message.where(speaker_id: 9999999999, listener_id: user_id).order("created_at")
-        @NotificationMessages[1] = @NotificationMessages[0].where(read_flag: 0).count
-        @NotificationMessages
+        notificationMessages = Array.new
+        notificationMessages[0] = Message.where(speaker_id: 9999999999, listener_id: user_id).order("created_at")
+        notificationMessages[1] = notificationMessages[0].where(read_flag: 0).count
+        nNotificationMessages
     end
     
     # 新規友達登録の通知メール

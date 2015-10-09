@@ -190,19 +190,19 @@ class User < ActiveRecord::Base
       return User.all.where.not(id: myid)
     end
     
-    @serach_keys = Array.new
-    @serach_values = Array.new
+    serach_keys = Array.new
+    serach_values = Array.new
 
     # 地域チェック
     if area.present?
-      @serach_keys.push('area')
-      @serach_values.push(area)
+      serach_keys.push('area')
+      serach_values.push(area)
     end
     
     # 棋力チェック
     if kiryoku.present?
-      @serach_keys.push('kiryoku')
-      @serach_values.push(kiryoku)
+      serach_keys.push('kiryoku')
+      serach_values.push(kiryoku)
     end
     
     # 年齢チェック
@@ -213,23 +213,23 @@ class User < ActiveRecord::Base
       
       for index in 0..ageArr.length - 1 do
         if age == ageArr[index]
-          @ageRange = rangeArr[index]
+          ageRange = rangeArr[index]
         end
       end
       
-      @serach_keys.push('age')
-      @serach_values.push(@ageRange)
+      serach_keys.push('age')
+      serach_values.push(ageRange)
     end
     
-    @users = User.search(@serach_keys,@serach_values,myid)
-    @users
+    users = User.search(serach_keys,serach_values,myid)
+    users
     
   end
   
   # ユーザーの情報取得
   def self.getPartnerInformation(partner_id)
-      @partner_inf = User.find(partner_id)
-      @partner_inf
+      partner_inf = User.find(partner_id)
+      partner_inf
   end
   
   # フレンド登録有無 フラグ返却
