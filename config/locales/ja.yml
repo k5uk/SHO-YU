@@ -11,3 +11,5 @@ ja:
     password: パスワード    
     password_confirmation: パスワード(確認)
     
+    mail: メールアドレス
+    content: お問い合わせ内容

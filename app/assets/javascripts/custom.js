@@ -374,5 +374,13 @@ function setFieldElement() {
         area.setAttribute('onkeyup',func);
         area.setAttribute('maxlength',10);
     });   
-    
+
+}
+
+function setElementForContact() {
+    $(document).on('focus click', '.age-label', function(){
+        var area = document.getElementById("contact_age");
+        var func = "this.blur();";
+        area.setAttribute('onFocus',func);
+    });   
 }

@@ -5,10 +5,13 @@ class ContactsController < ApplicationController
   
   def create
     @contact = Contact.new(contact_params)
+    
     if @contact.save
         ContactMailer.sent(@contact).deliver
         ContactMailer.sent_toAdmin(@contact).deliver
         redirect_to sending_contact_path
+    else
+        render new_contact_path
     end
   end
   

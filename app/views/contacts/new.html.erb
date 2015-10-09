@@ -28,7 +28,7 @@
       
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <%= f.label :age,'年齢', { class:"mdl-textfield__label" } %><br />
-                      <%= f.text_field :age, { class:"mdl-textfield__input" } %>
+                      <%= f.text_field :age, { class:"mdl-textfield__input age-label" } %>
                     </div>
                     <%= render 'shared/contactAge' %>
                     
@@ -59,3 +59,7 @@
     <!-- Main Contents Field END -->
 </div>
 <!-- Contents Field END -->
+
+<script>
+setElementForContact();
+</script>
