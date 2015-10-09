@@ -25,16 +25,9 @@ function counter(str,seq) {
 }
 
 // 登録確定ボタン 
-function newSubmit() {
+function fromSubmit() {
     // 年齢のセット
     settingAge();
-}
-
-// 変更確定ボタン
-function editSubmit() {
-    settingAge();
-    window.name = "editFlag"
-    editCheck();
 }
 
 // 変更後にアラートを表示する
@@ -53,6 +46,7 @@ function settingAge() {
     age.value = userAge    
 }
 
+// 暫定メソッド
 // 年齢計算
 function calculateAge(birthday) {
     var birth = birthday.split('/');
@@ -362,13 +356,23 @@ function trimMessage() {
 
 function setFieldElement() {
     
-console.log("よばれてます")
-
-    $(document).on('onFocus', '.user[area]', function(){
+    $(document).on('focus click', '.area-label', function(){
         var area = document.getElementById("user_area");
         var func = "this.blur();";
         area.setAttribute('onFocus',func);
-        console.log("よばれてます")
     });
 
+    $(document).on('focus click', '.kiryoku-label', function(){
+        var area = document.getElementById("user_kiryoku");
+        var func = "this.blur();";
+        area.setAttribute('onFocus',func);
+    });    
+
+    $(document).on('focus click', '.birthday-label', function(){
+        var area = document.getElementById("user_birthday");
+        var func = "addSlash(this)";
+        area.setAttribute('onkeyup',func);
+        area.setAttribute('maxlength',10);
+    });   
+    
 }

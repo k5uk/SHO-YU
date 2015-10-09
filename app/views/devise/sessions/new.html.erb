@@ -11,7 +11,10 @@
             	        <h3>メールアドレスでログイン&nbsp;&nbsp;&nbsp;</h3>
             	    </div>
             	    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+						
             	        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                        <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
       
             	        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             	            <%= f.label :email,'メールアドレス', { class:"mdl-textfield__label" } %><br />

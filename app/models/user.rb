@@ -19,12 +19,13 @@ class User < ActiveRecord::Base
   
   validate :sex_check
   validate :birthday_check
-  #validate :area_check
+  validate :area_check
+  validate :kiryoku_check
   validate :password_confirmation_check, on: [:new]
 
   def sex_check
     
-    if sex == 0
+    if sex.blank?
         errors.add(:sex, "を入力してください")
     end  
   
@@ -186,7 +187,7 @@ class User < ActiveRecord::Base
 
     # 検索条件が全く設定されていなければ返却
     if area.blank? && kiryoku.blank? && age.blank?
-      return User.all
+      return User.all.where.not(id: myid)
     end
     
     @serach_keys = Array.new

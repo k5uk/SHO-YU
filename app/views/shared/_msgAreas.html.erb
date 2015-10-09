@@ -64,21 +64,22 @@
 
     <table id="newArraivalMessageTable">
         <tbody>
-            <% if ! @newArraivalMessages.count == 0 %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
+            <% if ! @newArraivalMessages.length == 0 %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
                 <div class="newArraivalPoint">
+                    <p>↓ ここから下が新着メッセージです ↓</p>
                     <% if ! @friend_flag %>
                         <p>友達登録していないユーザーからのメッセージです</p>
                     <% end %>
-                    <p>↓ ここから下が新着メッセージです ↓</p>
                 <div>
+                
                 <% @newArraivalMessages.each do |message| %>
                     <!-- @発言元はフレンドからのみを想定 -->
                     <!-- フレンド側にメッセージを出す -->
                     <tr>
                         <td class="user-timestamp-cell"></td>
                         <td class="user-message-cell"></td>
-                        <td class="friend-message-cell"><div class="msg-baroon-new"><%=message.message %></div></td>
-                        <td class="friend-timestamp-cell"><%=message.created_at %></td>
+                        <td class="friend-message-cell"><div class="msg-baroon-new"><%=message["message"] %></div></td>
+                        <td class="friend-timestamp-cell"><%=message["created_at"] %></td>
                     </tr>                             
                 <% end %>
             <% end %>

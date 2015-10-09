@@ -82,9 +82,8 @@
                       					        <!-- sex field -->
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :birthday,'生年月日 (1989年8月23日の場合、1989/08/23と入力)', { class:"mdl-textfield__label" } %> 
-												  		<input type="text" name="user[birthday]" id="user_birthday" 
-										  				onkeyup="addSlash(this)" maxlength="10" class="mdl-textfield__input" >
+												  		<%= f.label :birthday,'生年月日 (1989年8月23日の場合、1989/08/23と入力)', { class:"mdl-textfield__label birthday-label" } %> 
+										  				<%= f.text_field :birthday, { class:"mdl-textfield__input birthday-label" } %>
 												</div>
 												<br /><label>※生年月日のスラッシュは自動で入力されます</label><br />
 											
@@ -92,14 +91,14 @@
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
-														<%= f.text_field :area, { class:"mdl-textfield__input" } %>
+														<%= f.text_field :area, { class:"mdl-textfield__input area-label" } %>
 												</div>
 												
 												<%= render 'shared/area' %>
 												
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												  		<%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :kiryoku, { class:"mdl-textfield__input" } %>
+												  		<%= f.text_field :kiryoku, { class:"mdl-textfield__input kiryoku-label" } %>
 												</div>
 												
 												<!-- onFocus="this.blur()"  -->
@@ -123,7 +122,7 @@
 
 												<div class="action-buttons-field">
 													<div class = "action-item"> 
-														<input type="submit" name="commit" value="アカウント新規作成" onClick="newSubmit()" 
+														<input type="submit" name="commit" value="アカウント新規作成" onClick="fromSubmit()" 
 														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" >
 												  	</div>
 												</div>
@@ -137,6 +136,6 @@
 </div>
 <!-- Contents Field END -->
 
-<scirpt type="text/javascript">
+<script>
 setFieldElement();
-</scirpt>
+</script>

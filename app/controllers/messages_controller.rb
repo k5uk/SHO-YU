@@ -15,11 +15,11 @@ class MessagesController < ApplicationController
         
         @user = current_user
         @users = @user.followed_users
-        @users = @users.paginate(:page => params[:page], :per_page => 8)
+        @users = @users.paginate(:page => params[:friendList_page], :per_page => 8)
 
         if ! params[:friend_id].nil?
             @messages = Message.getOldMessage(current_user,params[:friend_id])
-            @newArraivalMessages = Message.getNewArraivalMessages(current_user,params[:friendList_page])
+            @newArraivalMessages = Message.getNewArraivalMessages(current_user.id,params[:friend_id])
             @friend_id = params[:friend_id]
             @partner_inf = User.getPartnerInformation(@friend_id)
             @friend_flag = User.checkFriend(@users, @friend_id)
@@ -40,6 +40,9 @@ class MessagesController < ApplicationController
         
         @notificationMessage = Message.getNotificationMessage(current_user.id)
         @notificationMessage[0] = @notificationMessage[0].paginate(:page => params[:notificate_page], :per_page => 5)
+        
+        puts "コントローラーチェック"
+        puts @newArraivalMessages
     end
     
 end

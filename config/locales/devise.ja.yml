@@ -219,10 +219,10 @@ ja:
     failure:
       already_authenticated: "既にログインしています"
       inactive: "アカウント登録はまだ完了していません"
-      invalid: "Invalid %{authentication_keys} or password."
+      invalid: "メールアドレス または パスワードが正しくありません"
       locked: "利用規制されているアカウントです"
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "メールアドレス または パスワードが正しくありません"
       timeout: "セッションがタイムアウトしました。再度ログインしてください。"
       unauthenticated: "登録済アカウントでログインを行うか、新規でアカウント登録を行ってください。"
       unconfirmed: "メール認証が完了していません。確認メールからメール認証を完了させてください。"

@@ -11,19 +11,39 @@ class Message < ActiveRecord::Base
     end
     
     def self.getOldMessage(user_id,friend_id)
-        @user_Messages = Message.where(speaker_id: user_id, listener_id: friend_id, read_flag: 1)
-        @partner_Messages = Message.where(speaker_id: friend_id, listener_id: user_id, read_flag: 1)
-        @sql1 = @user_Messages.where_values.reduce(:and)
-        @sql2 = @partner_Messages.where_values.reduce(:and)
-        @messages = Message.where(@sql1.or @sql2).order("created_at")
-        @messages
+        user_Messages = Message.where(speaker_id: user_id, listener_id: friend_id, read_flag: 1)
+        partner_Messages = Message.where(speaker_id: friend_id, listener_id: user_id, read_flag: 1)
+        sql1 = user_Messages.where_values.reduce(:and)
+        sql2 = partner_Messages.where_values.reduce(:and)
+        messages = Message.where(sql1.or sql2).order("created_at")
+        messages
     end
 
     # 新着メッセージの取得処理（フレンド指定）
     def self.getNewArraivalMessages(user_id,friend_id)
-        @partner_Messages = Message.where(speaker_id: friend_id, listener_id: user_id, read_flag: 0).order("created_at")
-        #updateReadFlag(friend_id, user_id)
-        @partner_Messages
+        sql = "SELECT messages.* FROM messages WHERE messages.speaker_id = " + friend_id.to_s + " AND messages.listener_id = " + user_id.to_s + " AND read_flag = 0"
+        partner_Messages = Message.find_by_sql(sql)
+        
+        puts "戻り値チェック　フラグアップデート前"
+        puts partner_Messages
+        
+        if ! partner_Messages.nil?
+            # ハッシュへの詰め替え処理
+            partner_Messages_map = Array.new
+            for message in partner_Messages do
+                partner_Messages_Hash = message.attributes
+                partner_Messages_map.push(partner_Messages_Hash)
+            end
+            updateReadFlag(friend_id, user_id)
+        end
+        puts "戻り値チェック　フラグアップデート後"
+        puts partner_Messages
+        puts partner_Messages_map
+        partner_Messages_map
+    end
+    
+    def to_hash(partner_Messages)
+        partner_Messages[*self.map{ |i| [i.id, i]}.flatten]
     end
     
     # 既読フラグの更新
