@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validate :sex_check
   validate :birthday_check
   validate :area_check
-  validate :kiryoku_check
+  #validate :kiryoku_check
   validate :password_confirmation_check, on: [:new]
 
   # nilチェック
