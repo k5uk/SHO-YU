@@ -13,10 +13,26 @@ function _reload() {
     }
 }
 
-// スクロールバーを一番下に移動する
+// 新着メッセージがあれまそこまで　なければ一番下までスクロール
+function moveScrollbar() {
+    if($('#newArraivalPoint').length){
+        if($("#scroll").val() == "scroll") {
+            var scrollbar = document.getElementById("Both-Field");
+            $(scrollbar).animate({scrollTop:$('#newArraivalPoint').offset().top - 200});
+            $("#scroll").val('scrollOnly');
+        }
+        else {
+            moveScrollbarToBottom();
+        }
+    }
+    else {
+        moveScrollbarToBottom();
+    }
+}
+
 function moveScrollbarToBottom() {
     var scrollbar = document.getElementById("Both-Field");
-    scrollbar.scrollTop = scrollbar.scrollHeight;
+    scrollbar.scrollTop = scrollbar.scrollHeight;    
 }
 
 // 特定の文字列の個数を返却する部品
@@ -202,7 +218,7 @@ function insertRow(id,message,speaker) {
         cell4.appendChild(messagediv4);
     }
     
-    moveScrollbarToBottom();
+    moveScrollbar();
 }
 
 // 日付の書式を置換する
@@ -383,4 +399,48 @@ function setElementForContact() {
         var func = "this.blur();";
         area.setAttribute('onFocus',func);
     });   
+}
+
+// 動的にイベントを生成する
+(function($) {
+    $.each(['updateFlag'],function(i,ev) {
+        var el = $.fn[ev];
+        $.fn[ev] = function () {
+            this.trigger(ev);
+            return el.apply(this, arguments);
+        };
+    });
+})(jQuery);
+
+$(function(){
+    $(window).scroll(function(){
+        $('.newArraivalMsg').each(function(){
+            // [0]:read_flag [1]:messageId
+            var read_flag = $(this).children('input').eq(0).val()
+            var messageId = $(this).children('input').eq(1).val()
+            if(read_flag == 0){ 
+                var msgHeight = $(this).offset().top; // メッセージ要素の位置
+                var scroll = $(window).scrollTop();   // ユーザーがスクロールした量
+                var windowHeight = $(window).height();  // ウィンドウの高さ
+                if (scroll > msgHeight - windowHeight + 10 ) {
+                    //イベント追加呼出
+                    updateMessageFlag(messageId);
+                    $(this).css("background","#fffde7");
+                };   
+            }
+        });
+    });
+});
+
+function updateMessageFlag(messageId) {
+    $.ajax({
+        url: "messages/read_session",
+        type: "POST",
+        dataType: "json",
+        contentType: 'application/json',
+        data: JSON.stringify(messageId),
+        success: function(msg,status) {
+            // 成功時処理
+        }
+    })
 }

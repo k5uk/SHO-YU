@@ -64,22 +64,25 @@
 
     <table id="newArraivalMessageTable">
         <tbody>
-            <% if ! @newArraivalMessages.length == 0 %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
-                <div class="newArraivalPoint">
+            <% if @newArraivalMessages.present? %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
+                <div id="newArraivalPoint">
+                    <input type="hidden" id='scroll' value="scroll" >
                     <p>↓ ここから下が新着メッセージです ↓</p>
                     <% if ! @friend_flag %>
                         <p>友達登録していないユーザーからのメッセージです</p>
                     <% end %>
-                <div>
+                </div>
                 
                 <% @newArraivalMessages.each do |message| %>
                     <!-- @発言元はフレンドからのみを想定 -->
                     <!-- フレンド側にメッセージを出す -->
-                    <tr>
+                    <tr class ="newArraivalMsg">
                         <td class="user-timestamp-cell"></td>
                         <td class="user-message-cell"></td>
-                        <td class="friend-message-cell"><div class="msg-baroon-new"><%=message["message"] %></div></td>
-                        <td class="friend-timestamp-cell"><%=message["created_at"] %></td>
+                        <td class="friend-message-cell"><div class="msg-baroon-new"><%=message.message %></div></td>
+                        <td class="friend-timestamp-cell"><%=message.created_at %></td>
+                        <input type="hidden" value=<%=message.read_flag %> >
+                        <input type="hidden" value=<%=message.id %> >
                     </tr>                             
                 <% end %>
             <% end %>
@@ -97,13 +100,11 @@
     
 </div>
 
-<!-- スクロールバーを一番下に移動する -->
-<script>moveScrollbarToBottom()</script>
-
 <div class="Input-Field">
     <div class="Input-text-area">
     <!-- メッセージ入力フィールド -->
         <%= form_tag('/post', :remote => true) do %>
+        <%= hidden_field_tag :ajax_handler, 'pusher' %>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <%= label_tag 'text', 'ここにメッセージを入力', :class => "mdl-textfield__label" %>
             <%= text_area_tag 'message', '', :id => "message_text", :class => "mdl-textfield__input" %>
@@ -120,3 +121,7 @@
     </div>
     <!-- メッセージ入力フィールド -->   
 </div>
+
+<script>
+    moveScrollbar();
+</script>

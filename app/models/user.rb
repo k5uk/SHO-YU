@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   validate :kiryoku_check
   validate :password_confirmation_check, on: [:new]
 
+  # nilチェック
   def sex_check
     
     if sex.blank?
@@ -31,10 +32,24 @@ class User < ActiveRecord::Base
   
   end
   
+  # nilチェック 書式チェック 存在チェック
   def birthday_check
     
     if birthday.empty?
         errors.add(:birthday, "を入力してください")
+      else if ! birthday =~ /\dD{4}\/\dD{2}\/\dD{2}/
+        errors.add(:birthday, "の書式が正しくありません \n/は自動で入力されます")
+      else
+        birthdayArr = Array.new
+        birthdayArr = birthday.split('/')
+        year = birthdayArr[0].to_i
+        month = birthdayArr[1].to_i
+        day = birthdayArr[2].to_i
+        unless Date.valid_date?(year,month,day)
+          errors.add(:birthday, "に存在しない日付が入力されています")
+        end
+      end
+        
     end
   
   end

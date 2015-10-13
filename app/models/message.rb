@@ -23,32 +23,12 @@ class Message < ActiveRecord::Base
     def self.getNewArraivalMessages(user_id,friend_id)
         sql = "SELECT messages.* FROM messages WHERE messages.speaker_id = " + friend_id.to_s + " AND messages.listener_id = " + user_id.to_s + " AND read_flag = 0"
         partner_Messages = Message.find_by_sql(sql)
-        
-        puts "戻り値チェック　フラグアップデート前"
-        puts partner_Messages
-        
-        if ! partner_Messages.nil?
-            # ハッシュへの詰め替え処理
-            partner_Messages_map = Array.new
-            for message in partner_Messages do
-                partner_Messages_Hash = message.attributes
-                partner_Messages_map.push(partner_Messages_Hash)
-            end
-            updateReadFlag(friend_id, user_id)
-        end
-        puts "戻り値チェック　フラグアップデート後"
-        puts partner_Messages
-        puts partner_Messages_map
-        partner_Messages_map
-    end
-    
-    def to_hash(partner_Messages)
-        partner_Messages[*self.map{ |i| [i.id, i]}.flatten]
+        partner_Messages
     end
     
     # 既読フラグの更新
-    def self.updateReadFlag(friend_id,user_id)
-        Message.where(speaker_id: friend_id, listener_id: user_id).update_all(read_flag: 1)
+    def self.updateReadFlag(id)
+        Message.where(id: id).update_all(read_flag: 1)
     end
     
     # 新着メッセージの取得処理（全部）
@@ -62,7 +42,7 @@ class Message < ActiveRecord::Base
         notificationMessages = Array.new
         notificationMessages[0] = Message.where(speaker_id: 9999999999, listener_id: user_id).order("created_at")
         notificationMessages[1] = notificationMessages[0].where(read_flag: 0).count
-        nNotificationMessages
+        notificationMessages
     end
     
     # 新規友達登録の通知メール

@@ -1,18 +1,12 @@
 class MessagesController < ApplicationController
-    protect_from_forgery :except => [:read_session]
-    
     def post
-        if params[:ajax_handler] == "pusher"
+        if params[:startMessage] 
+        
+        else
             Pusher['general_channel'].trigger('chat_event',{message: params[:message],speaker: params[:speaker_id]})
             render :text => 'OK', :status => 200
             Message.saveMessage(params)
         end
-    end
-    
-    def read_session
-            messageId = params[:_json]
-            puts params[:messageId]
-            Message.updateReadFlag(messageId)       
     end
     
     def index

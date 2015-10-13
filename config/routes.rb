@@ -26,6 +26,7 @@ ShoYu::Application.routes.draw do
   
   match '/message', to: 'messages#index' , via:'get'
   post 'post' => 'messages#post'
+  post "messages/read_session"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
