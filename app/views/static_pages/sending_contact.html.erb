@@ -1,34 +1,23 @@
+<div class="sending_contact-card-container mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+        <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
+            <h3>問い合わせメール送信完了</h3>
+        </div>
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <p>
+            問い合わせメールのを承りました。</br >
+            担当者が対応致します。しばらくお待ちください。</br >
+            </br >
+            10秒後にトップ画面へ移動します。</br >
+            （移動しない場合は下記ボタンをクリックしてください）</br >
+            </p>
+            <%= link_to "トップ画面に移動する", root_path,
+		       { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+		       mdl-button--accent mdl-color--teal-300" }%>
+        </div>
+    </div>
+</div>
+
 <script>
     setTimeout("location.href='https://work-ritaame.c9.io/'",1000*10);
 </script>
-
-<!-- Contents Field Start -->
-<div class="Contents-Field mdl-color--brown-50">
-    <!-- Main Contents Field Start -->
-    <div class="Main-Contents-Field">
-        <!-- Single Card Field Start -->
-        <div class="Single-Card-Field">
-            <div class="contents-card mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
-                <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
-                    <h3>問い合わせメール送信完了</h3>
-                </div>
-                <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-                    <p>
-                    問い合わせメールのを承りました。</br >
-                    担当者が対応致します。しばらくお待ちください。</br >
-                    </br >
-                    10秒後にトップ画面へ移動します。</br >
-                    （移動しない場合は下記ボタンをクリックしてください）</br >
-                    </p>
-                    <%= link_to "トップ画面に移動する", root_path,
-		            { :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-		            mdl-button--accent mdl-color--teal-300" }%>
-                </div>
-            </div>
-        </div>
-        <!-- Single Card Field END -->
-    </div>
-    <!-- Main Contents Field END -->
-
-</div>
-<!-- Contents Field END -->

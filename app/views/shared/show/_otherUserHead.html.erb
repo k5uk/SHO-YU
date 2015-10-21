@@ -1,0 +1,15 @@
+<% if current_user.following?(@user) %>
+	<%= form_for(current_user.relationships.find_by(followed_id: @user.id),html: { method: :delete }) do |f| %>
+	    <%= f.submit "フレンド登録を解除する", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+	    mdl-button--accent mdl-color--teal-300" %>
+	<% end %>
+<% else %>
+	    <%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
+	        <%= f.hidden_field :followed_id %>
+	        <%= f.submit "フレンドリストに登録する", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+	        mdl-button--accent mdl-color--teal-300" %>
+        <% end %>
+<% end %>
+
+<%= link_to "メッセージを送信する", message_path(friend_id: @user.id,friend_name: @user.name, friend_img: @user.image), 
+{ :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300"} %>

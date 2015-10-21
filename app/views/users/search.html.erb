@@ -1,53 +1,43 @@
-<!-- Contents Field Start -->
-<div class="Contents-Field mdl-color--brown-50">
-    <!-- Main Contents Field Start -->
-    <div class="Main-Contents-Field">
-        <!-- Single Card Field Start -->
-        <div class="Single-Card-Field">
-            <div class="contents-card mdl-card mdl-shadow--4dp mdl-cell mdl-cell--4-col mdl-color--lime-50">
-                <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
-                    <h3>ユーザーを探す&nbsp;&nbsp;&nbsp;</h3>
-                </div>
-                
-                <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+<div class="search-card-container mdl-grid">
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+	    <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
+	        <h3>ユーザーを探す</h3>
+	    </div>
+	    
+	    <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
 
-                    <%= form_for(@user, url: users_path, html: { method: :get }) do |f| %>
-                
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <%= f.label :'地域', { class:"mdl-textfield__label" } %><br />
-                        <input type="text" name="user[area]" id="user_area" onFocus="this.blur()"
-                        class="mdl-textfield__input" >
-                    </div> 
-                    <%= render 'shared/area' %>
-                  
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <%= f.label :'棋力', { class:"mdl-textfield__label" } %><br />
-                        <input type="text" name="user[kiryoku]" id="user_kiryoku" onFocus="this.blur()"
-                        class="mdl-textfield__input" >
-                    </div>
-                    <%= render 'shared/kiryoku' %>
+	        <%= form_for(@user, url: users_path, html: { method: :get }) do |f| %>
+	    
+        	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	    <%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
+        	    <%= f.text_field :area, { class:"mdl-textfield__input area-label" } %>
+        	</div>
+	        <%= render 'shared/area' %>
+	      
+        	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	    <%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
+        	    <%= f.text_field :kiryoku, { class:"mdl-textfield__input kiryoku-label" } %>
+        	</div>
+	        <%= render 'shared/kiryoku' %>
 
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <%= f.label :'年齢', { class:"mdl-textfield__label" } %><br />
-                        <input type="text" name="user[age]" id="user_age" onFocus="this.blur()"
-                        class="mdl-textfield__input" >
-                    </div>
-                    <%= render 'shared/age' %>
-                    
-                    <input class="mdl-textfield__input" id="user_id" name="user[id]" type="hidden" value=<%=current_user.id%>>
-                    
-                    <div class="action-buttons-field">
-                        <%= f.submit "検索実行", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                        mdl-button--accent mdl-color--teal-300", id:"search_button" %>
-                    </div>
-                    
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <!-- Single Card Field END -->
-    </div>
-    <!-- Main Contents Field END -->
-
+        	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	    <%= f.label :age,'年齢', { class:"mdl-textfield__label" } %><br />
+        	    <%= f.text_field :age, { class:"mdl-textfield__input age-label" } %>
+        	</div>
+	        <%= render 'shared/age' %>
+	        
+	        <div class="mdl-card__actions">
+	            <%= f.submit "検索実行", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+	            mdl-button--accent mdl-color--teal-300", id:"search_button" %>
+	        </div>
+	        
+	        <input type="hidden" class="mdl-textfield__input" id="user_id" name="user[id]" value=<%=current_user.id%>>
+	        
+	        <% end %>
+	    </div>
+	</div>
 </div>
-<!-- Contents Field END -->
+
+<script>
+setFieldAttribute();
+</script>

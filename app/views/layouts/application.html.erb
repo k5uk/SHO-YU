@@ -4,19 +4,19 @@
   <title>ShoYu</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%=  yield :extend_menu %>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <%= csrf_meta_tags %>
   
-  <!-- <script type="text/javascript" src="https://sho-yu.herokuapp.com/assets/custom.js"></script> -->
 </head>
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
   
 <!-- before script-->
 
-<script>readyAction();</script>
+<script>reload();</script>
 
 <!-- header start -->
 
@@ -24,7 +24,7 @@
 
 <!-- header end -->
 
-<%= yield %>
+<%= render 'layouts/main' %>
 
 <!-- footer start -->
 

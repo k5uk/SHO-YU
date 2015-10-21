@@ -1,0 +1,39 @@
+<div class="guest-card-container mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--5-col mdl-color--lime-50">
+		<div class="mdl-card__supporting-text" style="text-align:center">
+			<h4>
+			棋力、地域、年齢など<br /><br />
+			自分好みの対戦相手と出会える<br /><br />
+			将棋のマッチングサイト<br /><br />
+			</h4>
+		</div>
+		<div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
+	 		<h3 style="text-align: center">将友&nbsp;&nbsp;&nbsp;SHO-YU</h3>
+		</div>
+	</div>
+	
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--4-col mdl-color--lime-50">
+		<div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500" style="text-align:center">
+	  		<h3>アカウント登録</h3>
+		</div>
+		<div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+	  		<ul class="navi-button">
+	      		<li>
+	        		<%= link_to "メールアドレスで登録 / ログイン", new_user_session_path, 
+	        		{ :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+	        		mdl-button--accent mdl-color--teal-300", :id => "registMail_button" } %>
+	      		</li>
+	      			<br />
+	      		<li>
+	        		<%= link_to "FACEBOOKで登録 / ログイン", user_omniauth_authorize_path(:facebook),
+	        		{ :class => "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+	        		mdl-button--accent mdl-color--teal-300", :id => "bookface_button" }%>
+	      		</li>
+	  		</ul>
+		</div>
+		<div class="mdl-card__supporting-text" style="text-align:center">
+	  		<p>当サイトの利用にはアカウント登録が必要です</p>
+	  		<p>上記ボタンよりアカウント登録を行ってください</p>
+		</div>
+	</div>	
+</div>

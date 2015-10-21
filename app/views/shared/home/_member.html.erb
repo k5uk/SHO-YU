@@ -1,0 +1,89 @@
+<div class="main-section-head mdl-typography--display-1">
+	<div class="main-section-head__title">
+		メインメニュー
+	</div>	
+</div>
+
+<div class="member-card-container mdl-grid">
+	
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+		<div class="mdl-card__media">
+			<%= image_tag "main/profile.jpg"%>
+		</div>
+		<div class="mdl-card__title">
+			<h4 class="mdl-card__title-text">プロフィール設定</h4>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<span class="mdl-typography--font-light mdl-typography--subhead">
+			自分のプロフィール情報を変更</span>
+		</div>
+		<div class="mdl-card__actions">
+			<%= link_to current_user, { :class => "card-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		   		<span class="icon-link">Change My Profile 
+		  		<i class="material-icons">chevron_right</i>
+		   		</span>
+			<% end %>
+		</div>		
+	</div>
+	
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+		<div class="mdl-card__media">
+			<%= image_tag "main/search.png" %>
+		</div>
+		<div class="mdl-card__title">
+			<h4 class="mdl-card__title-text">ユーザ検索</h4>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<span class="mdl-typography--font-light mdl-typography--subhead">
+			ユーザーを検索</span>
+		</div>
+		<div class="mdl-card__actions">
+		    <%= link_to search_path, { :class => "card-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		    	<span class="icon-link">Search User 
+		    	<i class="material-icons">chevron_right</i>
+		    	</span>
+		    <% end %>
+		</div>		
+	</div>
+	
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+		<div class="mdl-card__media">
+			<%= image_tag "main/friend.jpg" %>
+		</div>
+		<div class="mdl-card__title">
+			<h4 class="mdl-card__title-text">フレンドリスト</h4>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<span class="mdl-typography--font-light mdl-typography--subhead">
+			フレンドリストを開く</span>
+		</div>
+		<div class="mdl-card__actions">
+		   	<%= link_to following_user_path(current_user.id), { :class => "card-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		        <span class="icon-link">See My FreindList
+		        <i class="material-icons">chevron_right</i>
+		        </span>
+		    <% end %>
+		</div>		
+	</div>
+	
+	<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+		<div class="mdl-card__media">
+			<%= image_tag "main/message.jpg" %>
+		</div>
+		<div class="mdl-card__title">
+			<h4 class="mdl-card__title-text">メッセージ</h4>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<span class="mdl-typography--font-light mdl-typography--subhead">
+			メッセージを交換する</span>
+		</div>
+		<div class="mdl-card__actions">
+		    <%= link_to message_path, { :class => "card-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+		       	<span class="icon-link">Exchange Messages
+		       	<i class="material-icons">chevron_right</i>
+		       	</span>
+		    <% end %>
+		</div>		
+	</div>
+
+</div>

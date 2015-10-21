@@ -1,6 +1,6 @@
-/*default settings*/
-html {
-    width: 1350px;
+/* Common CSS */
+.hover {
+    background:#4db6ac !important;    
 }
 
 /* Header Field Start */
@@ -34,887 +34,6 @@ html {
   
 }
 
-/* Header Field End */
-
-/* Contents Field Start */
-.Contents-Field { 
-  width: 100%;
-  height: auto;
-    
-   .Main-Contents-Field { /* Main-Contents-Field Start */
-      padding-top: 100px;
-      padding-left: 5%;
-      width: 85%;
-      height: auto;
-      min-height: 400px;
-      
-        .Guest-Card-Field {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            
-            
-            h3 {
-                text-align: center;
-            }
-    
-            ul {
-                width: 100%;
-                
-                li {
-                    width: 90%;
-                    margin: 0 auto;
-                    .mdl-button {
-                        width: 65%;
-                    }
-                    
-                }
-                
-            }
-            
-            p {
-                text-align: center;
-            }
-            
-            .navigate-card-area {
-                width: 50%;
-                height: 100%;
-                float: left;
-                position: relative;
-                overflow: hidden;
-                
-                .mdl-card {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 80%;
-                    height: 85%;
-                    clear: both;
-                }
-            }            
-            
-            .registrate-card-area {
-                width: 50%;
-                height: 100%;
-                float: right;
-                position: relative;
-                overflow: hidden;
-                
-                .mdl-card {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 80%;
-                    height: 85%;
-                    clear: both;
-                }
-                
-            }
-
-            .session-card-area {
-                width: 66.6%;
-                height: 100%;
-                float: left;
-                position: relative;
-                overflow: hidden;
-                
-                .mdl-card {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 80%;
-                    height: 85%;
-                    clear: both;
-                }
-                
-                .action-item {
-                    width: 100%;
-                    
-                    .password-field {
-                        float: left;
-                        width: 50%;
-                    }
-                    
-                    .login-field {
-                        float: right;
-                        width: 50%;
-                        #login_button {
-                            float: right;
-                            width: 60%;
-                        }
-                    }
-                    
-                }
-                
-            } 
-            
-            .new-registrate-card-area {
-                width: 33.3%;
-                height: 100%;
-                float: right;
-                position: relative;
-                overflow: hidden;
-                
-                .mdl-card {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 80%;
-                    height: 85%;
-                    clear: both;
-                }
-                
-                .navi-item {
-                    width: 100%;
-                    height: 50%;
-                    
-                    p {
-                        font-size: 16px;
-                        color: red;
-                        text-decoration: underline;
-                    }
-                    
-                }
-                
-                .action-item {
-                    width: 100%;
-                    height: 50%;
-                    margin: 0 auto;
-                    a {
-                        margin: 0 auto;
-                        width: 90%;
-                    }
-                }
-            }
-            
-            
-        }
-        
-        .Single-Card-Field {
-            width: 100%;
-            
-            .contents-card {
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;
-                
-                .session-input-field {
-                width: 100%;
-                height: 64%;
-                }
-                
-                .action-buttons-field {
-                    width: 100%;
-                    height: 36%;
-                    overflow: hidden;
-                
-                    .action-item {
-                        float: right;
-                        width: 40%;
-                        margin-bottom: 3%;
-                    }
-                
-                } 
-                
-            }
-            
-            #contact_button {
-                padding-left: 65px;
-                padding-right: 65px;
-            }
-            
-            #search_button {
-                float: right;
-                width: 30%;
-            }
-            
-            h3 {
-                text-align: center;
-            }
-            
-            .mdl-checkbox {
-                float: left;
-                width: 50%;
-            }
-            
-        }
-        
-        
-        .multiple-section-title {
-				  margin-left: 12px;
-				  padding-bottom: 24px;
-				}
-
-				.Multiple-Card-Container {
-				  
-				  .cards-title-area {
-                    height: 100px;
-                    width: 100%;
-                    
-                    .cards-section-title {
-                        float: left;  
-                    }
-                    
-                    .cards-section-button {
-                        float: right;  
-                    }
-                    
-                  }
-				  
-					.mdl-card__media {
-					  overflow: hidden;
-					  background: transparent;
-					}
-
-					.mdl-card__media img {
-					  width: 100%;
-					}
-
-					.mdl-card__title {
-					  background: transparent;
-					  height: auto;
-					}
-
-					.mdl-card__title-text {
-					  color: black;
-					  height: auto;
-					}
-
-					.mdl-card__supporting-text {
-					  height: auto;
-					  color: black;
-					  padding-bottom: 20%;
-					}
-
-					.mdl-card__actions {
-					  position: absolute;
-					  bottom: 0;
-					}
-
-					.mdl-card__actions a {
-					  border-top: none;
-					  line-height: 32px;
-					  font-size: 16px;
-					}
-
-					.mdl-card__actions span {
-					  color: #8bc34a;
-					}
-
-					.multiple-link .material-icons {
-					  position: relative;
-					  top: 6px;
-					}
-
-				}
-        
-    }  /* Main-Contents-Field End */
-    
-   .Show-Contents-Field { /* Show-Contents-Field Start */
-      padding-top: 80px;
-      padding-left: 16%;
-      width: 67%;
-      height: 600px;
-      
-        .Contents-Head-Field {
-            width: 100%;
-            height: 7.5%;
-            background-color: #795548;
-            
-            .head-title-field {
-                float: left;
-                width: 50%;
-                height: 100%;
-                
-                h3 {
-                    width: 100%;
-                    height: 50px;
-                    display: table-cell;
-                    vertical-align: middle;
-                    color: #ffffff;
-                }
-                
-            }
-      
-            .head-action-field {
-                float: right;
-                width: 50%;
-                height: 100%;
-                .action-item {
-                    float: right;
-                    width: 50%;
-                    margin-top: 1%;
-                    overflow: hidden;
-                    .mdl-button {
-                        width: 85%;
-                        height: 40%;
-                        clear: both;
-                    }
-                }
-        
-            }
-    
-        }
-        
-        .Contents-Left-Field {
-            float: left;
-            width: 33.3%;
-            height: 500px;
-            background-color: #fffde7;
-                
-            .image-area {
-                width: 100%;
-                height: 50%;
-                position: relative;
-                overflow: hidden;
-                .image {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 75%;
-                    height: 80%;
-                    clear: both;
-                }
-            }
-            
-            .friend-area {
-                width: 100%;
-                height: 50%;
-                position: relative;
-                overflow: hidden;
-                .mdl-card {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 80%;
-                    height: 80%;
-                    clear: both;
-                }
-                
-                #following_button {
-                    padding-left: 15px;
-                    padding-right: 15px;
-                }
-                
-                .follow_buttons {
-                    width: 100%;
-                    height: 80%;
-                    li {
-                        width: 90%;
-                        margin: 0 auto;
-                        padding: 5px 0;
-                    }
-                }
-            }
-      
-        }
-        
-        .Contents-Right-Field {
-            float: right;
-            width: 66.6%;
-            height: 500px;
-            background-color: #fffde7;
-                
-      
-                .personal-table-area {
-                    height: 50%;
-                    width: 100%;
-                    position: relative;
-                    overflow: hidden;
-                    
-                    table {
-                        width: 80%;
-                        height: 30%;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        margin: auto;
-                        clear: both;
-                    }
-                
-                }
-                
-                .profile-table-area {
-                    height: 50%;
-                    width: 100%;
-                    position: relative;
-                    
-                    table {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        margin: auto;
-                        width: 80%;
-                        height: 150px;
-                    }
-                }
-                
-      
-            
-
-        }
-      
-    } /* Show-Contents-Field End */
-    
-  
-}  /* Contents Field End */
-
-.Message_Container {    /* Message Container Start */
-
-    padding-top: 70px;
-    width: 100%;
-    height: auto;
-    
-    .Friend-Field {
-        margin-left: 0.5%;
-        width: 25%;
-        height: 750px;
-        background-color: #f9fbe7;
-        float: left;
-        list-style: none;
-        
-        li {
-            overflow: auto;
-            padding: 3% 0 0 2%;
-            border-top: 1px solid #DCDCDC;
-            overflow: hidden;
-            
-            &:last-child {
-                border-bottom: 1px solid #DCDCDC;
-            }
-        }
-    }
-    
-    .Message-Field {
-        margin-right: 0.5%;
-        width: 73%;
-        height: 750px;
-        float: right;
-        
-        .User-Name-Field {
-            width: 48.5%;
-            height: 6%;
-            background-color: #f9fbe7;
-            float: left;
-            
-            .name-area {
-                float: left;
-                width: 50%;
-                height: 100%;
-                overflow: hidden;
-                
-                .mdl-button {
-                    height: 100%;
-                    width: 70%;
-                    color: black;
-                    font-size: 1.2em;
-                    clear: both;
-                }
-            }
-            
-            .image-area {
-                float: right;
-                width: 50%;
-                height: 100%;
-                overflow: hidden;
-                
-                .image-item {
-                    height: 100%;
-                    float: right;
-                    clear: both;
-                }
-            }
-        }
-
-        .Friend-Name-Field {
-            width: 48.5%;
-            height: 6;
-            background-color: #f9fbe7;
-            float: right;
-            margin-right: 1.8%;
-            
-            .name-area {
-                float: right;
-                width: 50%;
-                height: 100%;
-                font-weight: 700;
-                font-size: 14px;
-                overflow: hidden;
-                
-                .mdl-button {
-                    height: 100%;
-                    width: 70%;
-                    float: right;
-                    color: black;
-                    font-size: 1.2em;
-                    clear: both;
-                }
-            }
-            
-            .image-area {
-                float: left;
-                width: 50%;
-                height: 100%;
-                overflow: hidden;
-                
-                .image-item {
-                    height: 100%;
-                    clear: both;
-                }
-            }
-            
-        }
-        
-        #Both-Field {
-            width: 100%;
-            height: 455px;
-            background-color: #f9fbe7;
-            background-image: 
-                linear-gradient(#eee .1em, transparent .1em);
-                background-size: 100% 1.2em;
-            overflow: scroll;
-            
-            td {
-                /* width: 488px; */
-            }
-            
-            .user-timestamp-cell {
-                text-align: left;
-                width: 8%;
-            }
-            
-            .user-message-cell {
-                text-align: left;
-                width: 47%;
-            }
-            .friend-message-cell {
-                text-align: right;
-                width: 47%;
-            }
-            
-            .friend-timestamp-cell {
-                text-align: right;
-                width: 8%;
-            }
-            
-            /* 吹き出し要素 */
-            .msg-baroon-left {
-                white-space: pre;
-                position: relative;
-	            display: inline-block;
-	            padding: 0 15px;
-	            width: auto;
-	            min-width: 115px;
-	            height: auto;
-	            color: #F6F6F6;
-	            line-height: 30px;
-	            text-align: left;
-	            background: #19283C;
-	            border-radius: 50px;
-	            z-index: 0;
-            }
-	            
-	       .msg-baroon-left:before {
-	            content: "";
-	            position: absolute;
-	            top: -17px; left: 15px;
-	            margin-right: 0;
-	            display: block;
-	            width: 15px;
-	            height: 15px;
-	            background: #19283C;
-	            border-radius: 50%;
-	            z-index: -1;
-	        }
-	            
-	       .msg-baroon-left:after {
-	            content: "";
-	            position: absolute;
-	            top: -25px; left: 25px;
-	            margin-right: 0;
-	            display: block;
-	            width: 8px;
-	            height: 8px;
-	            background: #19283C;
-	            border-radius: 50%;
-	            z-index: -1;
-            }
-            
-            .msg-baroon-right {
-                white-space: pre;
-				position: relative;
-				display: inline-block;
-				padding: 0 15px;
-				width: auto;
-				min-width: 115px;
-				height: auto;
-				color: #F6F6F6;
-				line-height: 30px;
-				text-align: left;
-				background: #19283C;
-				border-radius: 50px;
-				z-index: 0;
-			}
-			
-			.msg-baroon-right:before {
-				content: "";
-				position: absolute;
-				top: -17px; right: 15px;
-				margin-right: 0;
-				display: block;
-				width: 15px;
-				height: 15px;
-				background: #19283C;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			
-			.msg-baroon-right:after {
-				content: "";
-				position: absolute;
-				top: -25px; right: 25px;
-				margin-right: 0;
-				display: block;
-				width: 8px;
-				height: 8px;
-				background: #19283C;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			
-			 .msg-baroon-new {
-			    white-space: pre;
-				position: relative;
-				display: inline-block;
-				padding: 0 15px;
-				width: auto;
-				min-width: 115px;
-				height: auto;
-				color: #F6F6F6;
-				line-height: 30px;
-				text-align: left;
-				background: #E896C9;
-				border-radius: 50px;
-				z-index: 0;
-			}
-			
-			.msg-baroon-new:before {
-				content: "";
-				position: absolute;
-				top: -17px; right: 15px;
-				margin-right: 0;
-				display: block;
-				width: 15px;
-				height: 15px;
-				background: #E896C9;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			
-			.msg-baroon-new:after {
-				content: "";
-				position: absolute;
-				top: -25px; right: 25px;
-				margin-right: 0;
-				display: block;
-				width: 8px;
-				height: 8px;
-				background: #E896C9;
-				border-radius: 50%;
-				z-index: -1;
-			}
-			/* 吹き出し要素 */
-            
-            #newArraivalPoint {
-                width: 100%;
-                background: #E896C9;
-                p{
-                    text-align: center;
-                    font-size: 25px;
-                }
-            }
-            
-        }
-        
-        .New-Arraivals-Field {
-            width: 100%;
-            height: 35%;
-            background-image: url("background/liteBrown.gif");
-            .navigation-area {
-                width: 100%;
-                height: 25%;
-                i {
-                    text-decoration: underline;
-                }
-            }
-            .message-area {
-                width: 100%;
-                height: 75%;
-                
-                td {
-                    font-size: 1.0em;
-                    height: 2.2em;
-                }
-                
-                .newArraivalMessages {
-                    width: 100%;
-                    height: 100%;
-                    .nameInfo {
-                        width: 20%;
-                    }
-                    .messageInfo {
-                        width: 50%;
-                        visibility: hidden;
-                    }
-                    .timestampInfo {
-                        width: 20%;
-                    }
-                    .detailInfo {
-                        width: 1%;
-                    }
-                }
-            }
-        }
-        
-        .Notification-Field {
-            margin-top: 2%;
-            width: 100%;
-            height: 60%;
-            .navigation-area {
-                width: 100%;
-                height: 25%;
-                background-image: url("background/liteBrown.gif");
-                i {
-                    text-decoration: underline;
-                }
-            }
-            .notification-area {
-                width: 100%;
-                height: 35%;
-                background-image: url("background/liteBrown.gif");
-            }
-            .display-area {
-                width: 100%;
-                height: 40%;
-                .display-title {
-                    width: 100%;
-                    height: 20%;
-                    background-color: #4db6ac;
-                    #subject-item {
-                        font-weight: bold;
-                        font-size: 20px;
-                        padding-top: 5px;
-                        color: white;
-                    }
-                }
-                .display-message {
-                    width: 100%;
-                    height: 60%;
-                    background-color: #FFFFFF;
-                }
-            }
-            td {
-                font-size: 1.0em;
-                height: 2.2em;
-            }
-                .newArraivalMessages {
-                width: 100%;
-                height: 100%;
-                .nameInfo {
-                    width: 20%;
-                }
-                .subjectInfo {
-                    width: 20%;
-                }
-                .messageInfo {
-                    width: 50%;
-                    visibility: hidden;
-                }
-                .timestampInfo {
-                    width: 20%;
-                }
-                .detailInfo {
-                    width: 1%;
-                }
-            }            
-        }
-    }
-    
-    .Input-Field {
-        width: 74%;
-        height: 50px;
-        .Input-text-area {
-            width: 40%;
-            height: 100%;
-            float: left;
-        }
-        .Input-button-area {
-            width: 20%;
-            height: 100%;
-            float: left;
-        }
-    }
-    
-}    /* Message Container End */
-
-.partner {
-    height: 60px;
-    width: 100%;
-    .partnerArea {
-        height: 100%;
-        width: 80%;
-        float: left;
-    }
-    .baloonArea {
-        height: 100%;
-        width: 20%;
-        float: right;
-            .countBaloon {
-				width: 90%;
-				height: 90%;
-				background: #19283C;
-				border-radius: 50%;
-                -webkit-border-radius: 50%;
-                -moz-border-radius: 50%;
-                margin-left: auto;
-                p {
-                    text-align: center;
-                    color: #fff; /* 文字を白色に */
-                    margin: 0;
-                    padding-top: 30%;
-                }
-			}
-        
-    }
-}
-
-.hover {
-        background:#4db6ac !important;    
-}
-
-
 /* Footer Contents Start */
 
   .footer {
@@ -923,26 +42,835 @@ html {
   width: 100%;
 }
 
-/* Footer Contents End */
+.main-section {
+    padding-top: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    min-height: 400px;
 
-/* common css */
-#flash_alert {
-    color: red;
+    .main-section .main-section-head {
+        width: 100%;
+        height: 100px;
+    }
+    
+    .main-section-head .main-section-head__title {
+        float: left;
+        width: 50%;
+    }
+    
+    .main-section-head .main-section-head__button {
+        float: right;
+        width: 50%;
+    }
+}
+    
+.member-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+    }
+    
+	.mdl-card__media {
+	  overflow: hidden;
+	  background: transparent;
+	}
+
+	.mdl-card__media img {
+	  width: 100%;
+	}
+
+	.mdl-card__title {
+	  background: transparent;
+	  height: auto;
+	}
+
+	.mdl-card__title-text {
+	  color: black;
+	  height: auto;
+	}
+
+	.mdl-card__supporting-text {
+	  height: auto;
+	  color: black;
+	  padding-bottom: 20%;
+	}
+
+	.mdl-card__actions {
+	  position: absolute;
+	  bottom: 0;
+	}
+
+	.mdl-card__actions a {
+	  border-top: none;
+	  line-height: 32px;
+	  font-size: 16px;
+	}
+
+	.mdl-card__actions span {
+	  color: #8bc34a;
+	}
+
+	.card-link .material-icons {
+	  position: relative;
+	  top: 6px;
+	} 
+	
 }
 
-/* common css */
-
-/* Debug Css */
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.guest-card-container {
+    width: 100%;
+  
+    .mdl-card {
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .navi-button {
+        list-style: none;
+        
+        .mdl-button {
+          width: 75%;
+        }
+        
+    }
+    
 }
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+.signin-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .login-card {
+        .mdl-card__media h3{
+            text-align: center;
+        }
+        .mdl-card__fields .mdl-textfield {
+          width: 80%;
+        }
+        .mdl-card__actions .mdl-button {
+          float: right;
+          width: 40%;
+        }
+        
+    }
+    
+    .regist-card {
+        .mdl-card__media h3 {
+            text-align: center;
+        }
+        .mdl-card__supporting-text p {
+            text-align: center;
+            color: red;
+            font-size: 20px;
+            text-decoration: underline; 
+        }
+        .mdl-card__actions { 
+            width: 60%;
+            margin: 0 auto;
+        }
+        .mdl-card__actions .mdl-button {
+            width: 80%;
+        }
+        
+    }
+    
+    
+      
+}
+
+.signup-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }    
+    
+}
+
+.about-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+}
+
+.contact-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }     
+}
+
+.link-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+    }
+    
+	.mdl-card__media {
+	  overflow: hidden;
+	  background: transparent;
+	}
+
+	.mdl-card__media img {
+	  width: 100%;
+	}
+
+	.mdl-card__title {
+	  background: transparent;
+	  height: auto;
+	}
+
+	.mdl-card__title-text {
+	  color: black;
+	  height: auto;
+	}
+
+	.mdl-card__supporting-text {
+	  height: auto;
+	  color: black;
+	  padding-bottom: 20%;
+	}
+
+	.mdl-card__actions {
+	  position: absolute;
+	  bottom: 0;
+	}
+
+	.mdl-card__actions a {
+	  border-top: none;
+	  line-height: 32px;
+	  font-size: 16px;
+	}
+
+	.mdl-card__actions span {
+	  color: #8bc34a;
+	}
+
+	.card-link .material-icons {
+	  position: relative;
+	  top: 6px;
+	}
+}
+
+.search-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }     
+}
+
+.index-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+    }
+    
+	.mdl-card__media {
+	  overflow: hidden;
+	  background: transparent;
+	}
+
+	.mdl-card__media img {
+	  width: 100%;
+	}
+
+	.mdl-card__title {
+	  background: transparent;
+	  height: auto;
+	}
+
+	.mdl-card__title-text {
+	  color: black;
+	  height: auto;
+	}
+
+	.mdl-card__supporting-text {
+	  height: auto;
+	  color: black;
+	  padding-bottom: 20%;
+	}
+
+	.mdl-card__actions {
+	  position: absolute;
+	  bottom: 0;
+	}
+
+	.mdl-card__actions a {
+	  border-top: none;
+	  line-height: 32px;
+	  font-size: 16px;
+	}
+
+	.mdl-card__actions span {
+	  color: #8bc34a;
+	}
+
+	.card-link .material-icons {
+	  position: relative;
+	  top: 6px;
+	}
+}
+
+.relation-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+    }
+    
+	.mdl-card__media {
+	  overflow: hidden;
+	  background: transparent;
+	}
+
+	.mdl-card__media img {
+	  width: 100%;
+	}
+
+	.mdl-card__title {
+	  background: transparent;
+	  height: auto;
+	}
+
+	.mdl-card__title-text {
+	  color: black;
+	  height: auto;
+	}
+
+	.mdl-card__supporting-text {
+	  height: auto;
+	  color: black;
+	  padding-bottom: 20%;
+	}
+
+	.mdl-card__actions {
+	  position: absolute;
+	  bottom: 0;
+	}
+
+	.mdl-card__actions a {
+	  border-top: none;
+	  line-height: 32px;
+	  font-size: 16px;
+	}
+
+	.mdl-card__actions span {
+	  color: #8bc34a;
+	}
+
+	.card-link .material-icons {
+	  position: relative;
+	  top: 6px;
+	}
+}
+
+.edit-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }
+}
+
+.sending-card-container {
+    width: 100%;
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }    
+}
+
+.sending_contact-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }
+}
+
+.confirm-card-container {
+    width: 100%;
+    
+    .mdl-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }
+}
+
+.profile-container {
+    width: 80%;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
+.profile-container .head {
+    width: 100%;
+    height: 10%;
+    background-color: #795548;
+}
+    
+.profile-container .head__name {
+    width: 40%;
+    height: 10%;
+    float: left;
+    color: #ffffff;
+    vertical-align: middle;
+}
+    
+.profile-container .head__button {
+    width: 60%;
+    height: 10%;
+    float: right;
+
+    .mdl-button {
+        float: left;
+        margin-top: 3%;
+        margin-right: 5%;
+        width: 40%;
+    }
+    #current-user-button {
+        float: right;
+    }
+}
+
+.profile-container .media-division {
+    float: left;
+    width: 33.3%;
+    height: 500px;
+    background-color: #fffde7;
+    position: relative;
+}
+
+.profile-container .media-division__image {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 75%;
+        height: 80%;
+        clear: both;
+    }
+}
+
+.profile-container .mdl-card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .mdl-button {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+}
+
+.profile-container .table-division {
+    float: right;
+    width: 66.6%;
+    height: 500px;
+    background-color: #fffde7;
+    table {
+        width: 80%;
+        height: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+    }
+}
+
+.friend-container {
+    float: left;
+    width: 25%;
+    height: 650px;
+    background-color: #f9fbe7;
+    list-style: none;
+}
+
+.friend-container .partner-list {
+    overflow: auto;
+    padding: 3% 0 0 2%;
+    border-top: 1px solid #DCDCDC;
+    overflow: hidden;
+        &:last-child {
+            border-bottom: 1px solid #DCDCDC;
+        }
+}
+
+.newArrivalsContainer {
+    float: right;
+    width: 75%;
+    height: 200px;
+    background-image: url("background/liteBrown.gif");
+}
+
+.newArrivalsContainer-navi {
+    width: 100%;
+    height: 25%;
+    i {
+        text-decoration: underline;
+    }
+}
+
+.newArrivalsContainer-message {
+    width: 100%;
+    height: 75%;
+    .newMsgLine td {
+        font-size: 1.0em;
+        height: 2.2em;
+    }
+    .newMsgLine--nameInfo {
+        width: 20%;
+    }
+    .newMsgLine--messageInfo {
+        width: 50%;
+        visibility: hidden;
+    }
+    .newMsgLine--timestampInfo {
+        width: 20%;
+    }
+    .newMsgLine--detailInfo {
+        width: 1%;
+    }
+}
+
+.infoContainer {
+    float: right;
+    margin-top: 50px;
+    width: 75%;
+    height: 400px;
+    background-image: url("background/liteBrown.gif");
+}
+
+.infoContainer-navi {
+    width: 100%;
+    height: 25%;
+    i {
+        text-decoration: underline;
+    }
+}
+
+.infoContainer-message {
+    width: 100%;
+    height: 35%;
+}
+
+.infoContainer-message .infoMsgTable {
+    width: 90%;
+    td {
+        font-size: 1.0em;
+        height: 2.2em;
+    }
+    .newMsgLine {
+        width: 100%;
+        height: 100%;
+        .newMsgLine--subjectInfo {
+            width: 20%;
+        }
+        .newMsgLine--messageInfo {
+            width: 50%;
+        }
+        .newMsgLine--timestampInfo {
+            width: 20%;
+        }
+        .newMsgLine--detailInfo {
+            width: 1%;
+        }
+    }
+}
+
+.infoContainer-display {
+    width: 100%;
+    height: 40%;
+}
+
+.infoContainer-display .display__title {
+    width: 100%;
+    height: 20%;
+    background-color: #4db6ac;
+}
+
+.infoContainer-display #display__title--subjectItem {
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 5px;
+    color: white;
+}
+
+.infoContainer-display .display__message {
+    width: 100%;
+    height: 60%;
+    background-color: #FFFFFF;
+}
+
+.speakerContainer {
+    width: 75%;
+    height: 100px;
+    float: right;
+}
+
+.speakerContainer .messageContainer-userMedia {
+    width: 48%;
+    height: 100%;
+    background-color: #f9fbe7;
+    float: left;
+}
+
+.speakerContainer .messageContainer-userMedia__name {
+    float: left;
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 5%;
+    .mdl-button {
+        font-size: 1.2em;
+        width: 80%;
+    }
+
+}
+
+.speakerContainer .messageContainer-userMedia__image {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.speakerContainer .messageContainer-friendMedia {
+    width: 48%;
+    height: 100%;
+    background-color: #f9fbe7;
+    float: right;
+}
+
+.speakerContainer .messageContainer-friendMedia__name {
+    float: right;
+    width: 60%;
+    margin-top: 5%;
+    margin-right: 5%;
+    .mdl-button {
+        font-size: 1.2em;
+        width: 80%;
+        float: right;
+    }
+}
+
+.speakerContainer .messageContainer-friendMedia__image {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#messageContainer {
+    width: 75%;
+    height: 450px;
+    background-color: #f9fbe7;
+    background-image: 
+        linear-gradient(#eee .1em, transparent .1em);
+        background-size: 90% 1.2em;
+    overflow: scroll;
+    
+    &.oldMsgLine__userTimeCell {
+        text-align: left;
+        width: 8%;
+    }
+    
+    &.oldMsgLine__userMsgCell {
+        text-align: left;
+        width: 47%;
+    }
+    
+    &.oldMsgLine__friendMsgCell {
+        text-align: right;
+        width: 47%;
+    }
+    
+    &.oldMsgLine__friendTimeCell {
+        text-align: right;
+        width: 8%;
+    }
+}
+
+%msg-baroon {
+	white-space: pre;
+	position: relative;
+	display: inline-block;
+	padding: 0 15px;
+	width: auto;
+	min-width: 115px;
+	height: auto;
+	color: #F6F6F6;
+	line-height: 30px;
+	text-align: left;
+	border-radius: 50px;
+	z-index: 0;
+	background: #19283C;
+}
+
+.msg-baroon-left {
+    @extend %msg-baroon;
+}
+
+.msg-baroon-right {
+    @extend %msg-baroon;
+}
+
+.msg-baroon-new {
+    @extend %msg-baroon;
+    background: #E896C9;
+}
+
+%msg-baroon-before {
+	content: "";
+	position: absolute;
+	margin-right: 0;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: #19283C;
+	border-radius: 50%;
+	z-index: -1;    
+}
+
+.msg-baroon-left:before {
+    @extend %msg-baroon-before;
+    top: -17px; left: 15px;
+}
+
+.msg-baroon-right:before {
+    @extend %msg-baroon-before;
+    top: -17px; right: 15px;
+}
+
+.msg-baroon-new:before {
+    @extend %msg-baroon-before;
+    top: -17px; right: 15px;
+    background: #E896C9;
+}
+
+%msg-baroon-after {
+	content: "";
+	position: absolute;
+	top: -25px; left: 25px;
+	margin-right: 0;
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: #19283C;
+	border-radius: 50%;
+	z-index: -1;
+}
+
+.msg-baroon-left:after {
+    @extend %msg-baroon-after;
+    top: -25px; left: 25px;
+}
+
+.msg-baroon-right:after {
+    @extend %msg-baroon-after;
+    top: -25px; right: 25px;
+}
+
+.msg-baroon-new:after {
+    @extend %msg-baroon-after;
+    top: -25px; right: 25px;
+    background: #E896C9;
+}
+
+.newMsgTable__newArrvlPoint {
+    width: 100%;
+    background: #E896C9;
+    p {
+        text-align: center;
+        font-size: 25px;
+    }
+}
+
+.inputContainer {
+    float: right;
+    width: 75%;
+    height: 100px;
+}
+
+.inputContainer__textForm {
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+.inputContainer__button {
+    float: left;
+    height: 100%;
+    margin-top: 25px;
 }

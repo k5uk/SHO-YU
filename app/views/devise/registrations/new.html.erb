@@ -1,141 +1,119 @@
-<!-- Contents Field Start -->
-<div class="Contents-Field mdl-color--brown-50">
-		<!-- Main Contents Field Start -->
-		<div class="Main-Contents-Field">
-				<!-- Single Card Field Start -->
-				<div class="Single-Card-Field">
-	
-						<div class="contents-card mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
-						  		<div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
-						  		  <h3>アカウント新規登録&nbsp;&nbsp;&nbsp;</h3>
-						  		</div>
-								<div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+<div class="signup-card-container mdl-grid">
 
-										<% if @user.errors.any? %>
-											<h2><%= @user.errors.count %>件のエラーがあります</h2>
-											<ul>
-    											<% @user.errors.full_messages.each do |msg| %>
-      											<li><%= msg %></li>
-    											<% end %>
-    										</ul>
-										<% end %>
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+    	<div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
+        	<h3>アカウント新規登録</h3>
+    	</div>
+    	<div class="mdl-card__supporting-text">
 
-										<%= form_for(resource, as: resource_name, url: registration_path(resource_name, html: {id:'regist_form' } )) do |f| %>
+        	<% if @user.errors.any? %>
+        	  <h2><%= @user.errors.count %>件のエラーがあります</h2>
+        	  <ul>
+        	      <% @user.errors.full_messages.each do |msg| %>
+        	        <li><%= msg %></li>
+        	      <% end %>
+        	    </ul>
+        	<% end %>
 
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :name,'お名前', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :name, { class:"mdl-textfield__input" } %>
-												</div>
-												
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :email,'メールアドレス', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.email_field :email, { class:"mdl-textfield__input" } %>
-												</div>
-												
-										        <!-- sex field -->
-										        <%= f.hidden_field :sex %>
-										        										       
-										        <div class="sex-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										        	<label class="mdl-textfield__label"> 性別</label>
-										        </div>
+        	<%= form_for(resource, as: resource_name, url: registration_path(resource_name, html: {id:'regist_form' } )) do |f| %>
 
-												<% if @user.sex == 1 %>
-													
-                      								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
-  														<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()" checked/>
-  														<span class="mdl-checkbox__label">男性</span>
-													</label>
-												
-													<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
-  														<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
-  														<span class="mdl-checkbox__label">女性</span>
-													</label>
-												
-												<% else if @user.sex == 2%>
-												
-                      								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
-  														<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
-  														<span class="mdl-checkbox__label">男性</span>
-													</label>
-												
-													<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
-  														<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()" checked/>
-  														<span class="mdl-checkbox__label">女性</span>
-													</label>
-												
-												
-													<% else %>
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :name,'お名前', { class:"mdl-textfield__label" } %><br />
+        	          <%= f.text_field :name, { class:"mdl-textfield__input" } %>
+        	    </div>
+        	    
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :email,'メールアドレス', { class:"mdl-textfield__label" } %><br />
+        	          <%= f.email_field :email, { class:"mdl-textfield__input" } %>
+        	    </div>
+        	    
+              <!-- sex field -->
+        	    <%= f.hidden_field :sex %>
+        	    <div class="sex-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	      <label class="mdl-textfield__label"> 性別</label>
+        	    </div>
 
-                      									<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
-  															<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
-  															<span class="mdl-checkbox__label">男性</span>
-														</label>
-												
-														<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
-  															<input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
-  															<span class="mdl-checkbox__label">女性</span>
-														</label>
-													<% end %>
-												
-												<% end %>
-										       
-                      					        <!-- sex field -->
-												
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :birthday,'生年月日 (1989年8月23日の場合、1989/08/23と入力)', { class:"mdl-textfield__label birthday-label" } %> 
-										  				<%= f.text_field :birthday, { class:"mdl-textfield__input birthday-label" } %>
-												</div>
-												<br /><label>※生年月日のスラッシュは自動で入力されます</label><br />
-											
-												<input id="user_age" name="user[age]" type="hidden">
-												
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
-														<%= f.text_field :area, { class:"mdl-textfield__input area-label" } %>
-												</div>
-												
-												<%= render 'shared/area' %>
-												
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :kiryoku, { class:"mdl-textfield__input kiryoku-label" } %>
-												</div>
-												
-												<!-- onFocus="this.blur()"  -->
-												
-												<%= render 'shared/kiryoku' %>
-												
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :comment,'コメント', { class:"mdl-textfield__label" } %><br />
-												  		<%= f.text_field :comment, { class:"mdl-textfield__input" } %>
-												</div>
+                <% if @user.sex == 1 %>
+        	  
+        	    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+        	    	    <input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()" checked/>
+        	    	    <span class="mdl-checkbox__label">男性</span>
+        	    	</label>
+        	    	
+        	    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+        	    	    <input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
+        	    	    <span class="mdl-checkbox__label">女性</span>
+        	    	</label>
+        	    	
+        	    <% else if @user.sex == 2%>
+        	    
+        	        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+        	        	<input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
+        	        	<span class="mdl-checkbox__label">男性</span>
+        	        </label>
+        	    
+        	        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+        	            <input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()" checked/>
+        	            <span class="mdl-checkbox__label">女性</span>
+        	        </label>
+        	    <% else %>
 
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :password,'パスワード', { class:"mdl-textfield__label" }  %><br />
-												  		<%= f.password_field :password, { class:"mdl-textfield__input" } %>
-												</div>
+        	    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxMan_label" for="checkboxMan">
+        	    	    <input type="checkbox" id="checkboxMan" class="mdl-checkbox__input" onClick="controlCheckMan()"/>
+        	    	    <span class="mdl-checkbox__label">男性</span>
+        	    	</label>
+        	  
+        	    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id = "checkboxLady_label" for="checkboxLady">
+        	    	    <input type="checkbox" id="checkboxLady" class="mdl-checkbox__input" onClick="controlCheckLady()"/>
+        	    	    <span class="mdl-checkbox__label">女性</span>
+        	    	</label>
+        	  	<% end %>
+        	    <% end %>
+        	    
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :birthday,'生年月日 (1989年8月23日の場合、1989/08/23と入力)', { class:"mdl-textfield__label birthday-label" } %> 
+        	          <%= f.text_field :birthday, { class:"mdl-textfield__input birthday-label" } %>
+        	    </div>
+        	    <br /><label>※生年月日のスラッシュは自動で入力されます</label><br />
+        	  
+        	    <input id="user_age" name="user[age]" type="hidden">
+        	    
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :area,'地域', { class:"mdl-textfield__label" } %><br />
+        	          <%= f.text_field :area, { class:"mdl-textfield__input area-label" } %>
+        	    </div>
+        	    <%= render 'shared/area' %>
+        	    
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :kiryoku,'棋力', { class:"mdl-textfield__label" } %><br />
+        	          <%= f.text_field :kiryoku, { class:"mdl-textfield__input kiryoku-label" } %>
+        	    </div>        	    
+        	    <%= render 'shared/kiryoku' %>
+        	    
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :comment,'コメント', { class:"mdl-textfield__label" } %><br />
+        	          <%= f.text_field :comment, { class:"mdl-textfield__input" } %>
+        	    </div>
 
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												  		<%= f.label :password_confirmation,'パスワード（確認)', { class:"mdl-textfield__label" }  %><br />
-												  		<%= f.password_field :password_confirmation, { class:"mdl-textfield__input" } %>
-												</div>
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :password,'パスワード', { class:"mdl-textfield__label" }  %><br />
+        	          <%= f.password_field :password, { class:"mdl-textfield__input" } %>
+        	    </div>
 
-												<div class="action-buttons-field">
-													<div class = "action-item"> 
-														<input type="submit" name="commit" value="アカウント新規作成" onClick="fromSubmit()" 
-														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" >
-												  	</div>
-												</div>
-										<% end %>
-								</div>
-						</div>
-				</div>
-				  <!-- Single Card Field END -->
-		</div>
-		<!-- Main Contents Field END -->
+        	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        	          <%= f.label :password_confirmation,'パスワード（確認)', { class:"mdl-textfield__label" }  %><br />
+        	          <%= f.password_field :password_confirmation, { class:"mdl-textfield__input" } %>
+        	    </div>
+
+        	    <div class="mdl-card__actions">
+        	        <input type="submit" name="commit" value="アカウント新規作成" onClick="pressSubmit()" 
+        	        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" >
+        	    </div>
+        	<% end %>
+    	</div>
+    </div>
 </div>
-<!-- Contents Field END -->
 
 <script>
-setFieldElement();
+setFieldAttribute();
 </script>

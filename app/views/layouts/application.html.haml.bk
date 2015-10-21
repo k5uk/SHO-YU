@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+  %title ShoYu
+  = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => true
+  = csrf_meta_tags
+  %link{:rel => :stylesheet, :type => :"text/css", :href => "https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css"}
+  %script(src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js")
+  %link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/icon?family=Material+Icons"}
+  
+  %body{:class => "mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base"}
+    %script{:type => 'text/javascript'}reload();
+  
+  /this is header layout
+  = render partial:'layouts/header'
+  /this is main layout
+  = render partial:'layouts/main'
+  /this is fotter layout
+  = render partial:'layouts/footer'
+  
+  = yield :home

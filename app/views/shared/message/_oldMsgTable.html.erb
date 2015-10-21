@@ -1,0 +1,27 @@
+<table id="oldMsgTable">
+    <tbody>
+        <% if @messages.nil? %> <!-- @messageは整列されたメッセージの集合-->
+        <% else %>
+            <% @messages.each do |message| %>
+                <% if (message.speaker_id) == @user.id %> <!-- @発言元がユーザかフレンドかを判定 -->
+                <!-- ユーザ側にメッセージを出す -->
+                <tr class="oldMsgLine">
+                    <td class="oldMsgLine__userTimeCell"><%=message.created_at %></td>
+                    <td class="oldMsgLine__userMsgCell"><div class="msg-baroon-left"><%=message.message %></div></td>
+                    <td class="oldMsgLine__friendMsgCell"></td>
+                    <td class="oldMsgLine__friendTimeCell"></td>
+                </tr>     
+                <% else %>
+                <!-- フレンド側にメッセージを出す -->
+                <tr>
+                    <td class="oldMsgLine__userTimeCell"></td>
+                    <td class="oldMsgLine__userMsgCell"></td>
+                    <td class="oldMsgLine__friendMsgCell"><div class="msg-baroon-right"><%=message.message %></div></td>
+                    <td class="oldMsgLine__friendTimeCell"><%=message.created_at %></td>
+                </tr>                             
+
+                <% end %>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

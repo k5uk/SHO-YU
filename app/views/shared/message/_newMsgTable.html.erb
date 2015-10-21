@@ -1,0 +1,25 @@
+<table id="newMsgTable">
+    <tbody>
+        <% if @newArraivalMessages.present? %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
+            <div id="newMsgTable__newArrvlPoint">
+                <input type="hidden" id='scroll' value="scroll" >
+                <p>↓ ここから下が新着メッセージです ↓</p>
+                <% if ! @friend_flag %>
+                    <p>友達登録していないユーザーからのメッセージです</p>
+                <% end %>
+            </div>
+            
+            <% @newArraivalMessages.each do |message| %>
+                <!-- フレンド側にメッセージを出す -->
+                <tr class ="newMsgLine">
+                    <td class="newMsgLine__userTimeCell"></td>
+                    <td class="newMsgLine__userMsgCell"></td>
+                    <td class="newMsgLine__friendMsgCell"><div class="msg-baroon-new"><%=message.message %></div></td>
+                    <td class="newMsgLine__friendTimeCell"><%=message.created_at %></td>
+                    <input type="hidden" value=<%=message.read_flag %> >
+                    <input type="hidden" value=<%=message.id %> >
+                </tr>                             
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

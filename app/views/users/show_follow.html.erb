@@ -1,13 +1,8 @@
-<!-- Contents Field Start -->
-<div class="Contents-Field mdl-color--brown-50">
-<!-- Main Contents Field Start -->
-<div class="Main-Contents-Field">
-    
-  <!-- Users Card Field Start -->
-  <div class="Multiple-Card-Container mdl-grid">
-    <div class="cards-title-area">
-        <div class="cards-section-title mdl-typography--display-1-color-contrast"><i class="material-icons">content_copy</i><%= @title %></div>
-        <!-- FollowingユーザかFolowerユーザを表示しているかによって、ボタン表示を制御する -->
+<div class="main-section-head mdl-typography--display-1">
+	<div class="main-section-head__title">
+		<i class="material-icons">content_copy</i><%= @title %>
+	</div>
+	<div class="main-section-head__button">    
         <% if current_page?(following_user_path(@user))%>
           <div class="cards-section-button">  
               <%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
@@ -21,46 +16,46 @@
               mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
           </div>
         <% end %>
-    </div>
-    
-    <% @users.each do |user| %>
-    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
-      <div class="mdl-card__media">
-        <% if ! user.image_file_name.nil? %>
-          <%= image_tag user.image.url %>
-        <% else %>
-          <%= image_tag "link/noImage.png" %>
-        <% end %>
-      </div>
-      <div class="mdl-card__title">
-        <h4 class="mdl-card__title-text"><%= user.name %></h4>
-      </div>
-      <div class="mdl-card__supporting-text">
-        <span class="mdl-typography--font-light mdl-typography--subhead">
-        <ul style="list-style:none">
-          <li>性別: <% if user.sex == 1 %> 男性 <% else %> 女性 <% end %></li>
-          <li>棋力: <%= user.kiryoku %></li>
-          <li>地域: <%= user.area %></li>
-          <li>年齢: <%= user.age %></li>
-        </ul>
-        </span>
-      </div>
-      <div class="mdl-card__actions">
-       <%= link_to user, { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
-    　     <span class="icon-link">プロフィールを開く
-    　     <i class="material-icons">chevron_right</i>
-    　     </span>
-    　  <% end %>
-      </div>
-    </div>
-  <% end %>
-  <%= will_paginate @users%>
-    
-    </div>
-    <!-- Users Card Field Start -->
-    
+	</div>
 </div>
-<!-- Main Contents Field END -->
 
+<div class="relation-card-container mdl-grid">
+	<% if @users.count == 0 %>
+		<h4>検索条件に一致するユーザーが見つかりませんでした</h4>
+	<% end %>
+	
+	<% @users.each do |user| %>
+		<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--3-col mdl-color--lime-50">
+			<div class="mdl-card__media">
+				<% if ! user.image_file_name.nil? %>
+					<%= image_tag user.image.url , :size => "200x200" %>
+				<% else %>
+					<%= image_tag "link/noImage.png" , :size => "200x200" %>
+				<% end %>
+			</div>
+			<div class="mdl-card__title">
+				<h4 class="mdl-card__title-text"><%= user.name %></h4>
+			</div>
+			<div class="mdl-card__supporting-text">
+				<span class="mdl-typography--font-light mdl-typography--subhead">
+					<ul style="list-style:none">
+						<li>性別: <% if user.sex == 1 %> 男性 <% else %> 女性 <% end %></li>
+  		  		    	<li>棋力: <%= user.kiryoku %></li>
+  		  		    	<li>地域: <%= user.area %></li>
+  		  		    	<li>年齢: <%= user.age %></li>
+  		  		    </ul>
+  		  		</span>
+  		  	</div>
+			<div class="mdl-card__actions">
+				<%= link_to user, { :class => "multiple-link mdl-button mdl-js-button mdl-typography--text-uppercase" }  do %>
+					<span class="icon-link">プロフィールを開く
+						<i class="material-icons">chevron_right</i>
+					</span>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+  <%= will_paginate @users%>
+		
 </div>
-<!-- Contents Field END -->

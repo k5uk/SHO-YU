@@ -1,52 +1,42 @@
+<div class="friend-container">
+    <li class="friend-container__label">
+        <strong><i>フレンド一覧</i></strong>
+    </li>
+    <% @users.each do |user| %>
+        <li class="partner-list" id=<%=user.id%>>
+            <div class="partnerArea">
+                <% if user.image_file_name.nil? %>
+                    <%= image_tag "link/noImage.png", :size => "50x50" %>
+                <% else %>
+                    <%= image_tag user.image.url, :size => "50x50" %>
+                <% end %>
+                <%= link_to user.name, message_path(friend_id: user.id) %>
+            </div>
+            <div class="baloonArea">
+                <% if ! @messageCountMap.nil? %>
+                    <div class="countBaloon">
+                        <p><%= @messageCountMap[user.id] %></p>
+                    </div>
+                <% end %>
+            </div>
+        </li>
+    <% end %>
+    <%= will_paginate @users, :param_name  => 'friendList_page'%>
+</div>
+<% if @friend_id.nil?%>
+    <%= render 'shared/message/infoMessage' %>
+<% else %>
+    <%= render 'shared/message/friendMessage' %>
+<% end %>
+
 <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<style type="text/css">
- .mdl-layout__container {
-     height: 0% !important;
-}
-</style>
-
-<div class="Message_Container">
-    <div class="Friend-Field">
-        <li class="label">
-            <strong><i>フレンド一覧</i></strong>
-        </li>
-        <% @users.each do |user| %>
-            <li class="partner" id=<%=user.id%>>
-                <div class="partnerArea">
-                    <% if user.image_file_name.nil? %>
-                        <%= image_tag "link/noImage.png", :size => "50x50" %>
-                    <% else %>
-                        <%= image_tag user.image.url, :size => "50x50" %>
-                    <% end %>
-                    <%= link_to user.name, message_path(friend_id: user.id) %>
-                </div>
-                <div class="baloonArea">
-                    <% if ! @messageCountMap.nil? %>
-                        <div class="countBaloon">
-                            <p><%= @messageCountMap[user.id] %></p>
-                        </div>
-                    <% end %>
-                </div>
-            </li>
-        <% end %>
-        <%= will_paginate @users, :param_name  => 'friendList_page'%>
-    </div>
-    <div class="Message-Field">
-    <% if @friend_id.nil?%>
-        <%= render 'shared/infoAreas' %>
-    <% else %>
-        <%= render 'shared/msgAreas' %>
-    <% end %>
-    </div>
-</div>
-
 <script type="text/javascript">
-highlight_friendlist();
-highlight_messagelist();
-highlight_notificationList();
+highlightFriendlist();
+highlightMessagelist();
+highlightNotificationList();
 trimMessage();
+
 // pusher script start
 Pusher.log = function(message) {
     if (window.console && window.console.log) {
@@ -56,13 +46,12 @@ Pusher.log = function(message) {
 var pusher = new Pusher('<%= @pusher_access_key %>');
 var channel = pusher.subscribe('general_channel');
 channel.bind('chat_event', function(data) {
-    // 発言元を判定して表示位置を制御する
     var current_user = document.getElementById("speaker_id").value;
     if (current_user == data.speaker) {
-        insertRow('newMessageTable',data.message,'User');
+        outputMessage('nowMsgTable',data.message,'User');
     }
     else {
-        insertRow('newMessageTable',data.message,'Friend');
+        outputMessage('nowMsgTable',data.message,'Friend');
     }
     // テキストボックスを初期化
     var message_text = document.getElementById('message_text');
@@ -70,3 +59,9 @@ channel.bind('chat_event', function(data) {
 });
 // pusher script end
 </script>
+
+<style type="text/css">
+ .mdl-layout__container {
+     height: 0% !important;
+}
+</style>

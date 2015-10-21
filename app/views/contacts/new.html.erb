@@ -1,64 +1,50 @@
-<!-- Contents Field Start -->
-<div class="Contents-Field mdl-color--brown-50">
-    <!-- Main Contents Field Start -->
-    <div class="Main-Contents-Field">
-        <!-- Single Card Field Start -->
-        <div class="Single-Card-Field">
-            <div class="contents-card mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
-                <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
-                    <h3>お問い合わせフォーム&nbsp;&nbsp;&nbsp;</h3>
-                </div>
-                <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-										
-					<% if @contact.errors.any? %>
-						<h2><%= @contact.errors.count %>件のエラーがあります</h2>
-						<ul>
-    					    <% @contact.errors.full_messages.each do |msg| %>
-      						<li><%= msg %></li>
-    						<% end %>
-    					</ul>
-					<% end %>
-										
-                    <%= form_for(@contact) do |f| %>
-
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <%= f.label :name,'お名前', { class:"mdl-textfield__label" } %><br />
-                        <%= f.text_field :name, { class:"mdl-textfield__input" } %>
-                    </div>
-      
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <%= f.label :age,'年齢', { class:"mdl-textfield__label" } %><br />
-                      <%= f.text_field :age, { class:"mdl-textfield__input age-label" } %>
-                    </div>
-                    <%= render 'shared/contactAge' %>
-                    
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <%= f.label :mail,'メールアドレス', { class:"mdl-textfield__label" } %><br />
-                      <%= f.text_field :mail, { class:"mdl-textfield__input" } %>
-                    </div>
-                    
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <%= f.label :content,'お問い合わせ内容', { class:"mdl-textfield__label" } %><br />
-                      <%= f.text_area :content, { class:"mdl-textfield__input" } %>
-                    </div>
-                    <br />
-                    
-                    <div class="action-buttons-field">
-                        <div class = "action-item"> 
-                            <%= f.submit "送信する" , class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                            mdl-button--accent mdl-color--teal-300", id:"contact_button" %>
-                            <% end %>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+<div class="contact-card-container mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
+        <div class="mdl-card__media mdl-color-text--grey-50 mdl-color--brown-500">
+            <h3>お問い合わせフォーム&nbsp;&nbsp;&nbsp;</h3>
         </div>
-        <!-- Single Card Field END -->
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <% if @contact.errors.any? %>
+                <h2><%= @contact.errors.count %>件のエラーがあります</h2>
+                    <ul>
+                        <% @contact.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+            <% end %>
+        
+            <%= form_for(@contact) do |f| %>
+            
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <%= f.label :name,'お名前', { class:"mdl-textfield__label" } %><br />
+                    <%= f.text_field :name, { class:"mdl-textfield__input" } %>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <%= f.label :age,'年齢', { class:"mdl-textfield__label" } %><br />
+                    <%= f.text_field :age, { class:"mdl-textfield__input age-label" } %>
+                </div>
+                <%= render 'shared/contactAge' %>
+                    
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <%= f.label :mail,'メールアドレス', { class:"mdl-textfield__label" } %><br />
+                    <%= f.text_field :mail, { class:"mdl-textfield__input" } %>
+                </div>
+                    
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <%= f.label :content,'お問い合わせ内容', { class:"mdl-textfield__label" } %><br />
+                    <%= f.text_area :content, { class:"mdl-textfield__input" } %>
+                </div>
+                <br />
+                    
+                <div class="mdl-card__actions">
+                <%= f.submit "送信する" , class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                            mdl-button--accent mdl-color--teal-300", id:"contact_button" %>
+                </div>
+            <% end %>
+        </div>
     </div>
-    <!-- Main Contents Field END -->
 </div>
-<!-- Contents Field END -->
 
 <script>
 setElementForContact();
