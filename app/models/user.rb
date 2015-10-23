@@ -20,18 +20,80 @@ class User < ActiveRecord::Base
   validate :area_check
   validate :password_confirmation_check, on: [:new]
 
-  # nilチェック
-  def sex_check
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         
+         
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
     
+    unless user
+    
+      birthday = self.birthdayEditer(auth.extra.raw_info.birthday)
+      age = self.ageEditer(birthday)
+      sex = self.sexEditer(auth.extra.raw_info.gender)
+      location = locationEditer(auth.info.location)
+      imageUrl = auth.info.image + "?type=large"
+      require 'open-uri'
+      require 'open_uri_redirections'
+      image = open(imageUrl, :allow_redirections => :safe)
+    
+      user = User.new(
+          uid: auth.uid,
+          provider: auth.provider,
+          name: auth.info.name,
+          email: auth.info.email,
+          image: image,
+          birthday: birthday,
+          age: age,
+          sex: sex,
+          area: location,
+          password: Devise.friendly_token[10, 15],
+          confirmed_at: Time.now)
+      user.save
+    end
+
+    user
+    
+  end
+  
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+ 
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+ 
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+  
+  # relationship utility
+  
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+  
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
+  end
+  
+  # original varidate method 
+  def sex_check
     if sex.blank?
         errors.add(:sex, "を入力してください")
     end  
-  
   end
   
-  # nilチェック 書式チェック 存在チェック
   def birthday_check
-    
     if birthday.empty?
         errors.add(:birthday, "を入力してください")
       else if ! birthday =~ /\dD{4}\/\dD{2}\/\dD{2}/
@@ -46,86 +108,30 @@ class User < ActiveRecord::Base
           errors.add(:birthday, "に存在しない日付が入力されています")
         end
       end
-        
     end
-  
   end
     
   def area_check
-    
     if area.empty?
         errors.add(:area, "を入力してください")
     end
-  
   end
   
   def kiryoku_check
-    
     if kiryoku.empty?
         errors.add(:kiryoku, "を入力してください")
     end 
-  
   end
   
   def password_confirmation_check
-    
     if password.present?
       if password_confirmation.empty?
         errors.add(:password_confirmation, "を入力してください")
       end
     end
-  
-  end
-
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-         
-         
-  def self.find_for_oauth(auth)
-
-    user = User.where(uid: auth.uid, provider: auth.provider).first
-    
-    unless user
-    
-    #making with utility
-    birthday = self.birthdayEditer(auth.extra.raw_info.birthday)
-    age = self.ageEditer(birthday)
-    sex = self.sexEditer(auth.extra.raw_info.gender)
-    
-    imageUrl = auth.info.image + "?type=large"
-    require 'open-uri'
-    require 'open_uri_redirections'
-    image = open(imageUrl, :allow_redirections => :safe)
-    
-    location = auth.info.location
-    prefecture = locationEditer(location)
-    
-       user = User.new(
-          uid: auth.uid,
-          provider: auth.provider,
-          name: auth.info.name,
-          email: auth.info.email,
-          image: image,
-          birthday: birthday,
-          age: age,
-          sex: sex,
-          area: prefecture,
-          password: Devise.friendly_token[10, 15],
-          confirmed_at: Time.now
-          )
-
-      user.save
-    
-    end
-    
-    user
-    
   end
   
-  ### FaceBook Data Editer ###
+  #faceBook data edit
   def self.sexEditer(sex)
     if sex == "male"
       return 1
@@ -155,49 +161,9 @@ class User < ActiveRecord::Base
     pref = JpPrefecture::Prefecture.find name: userPrefectures
     return pref.name
   end
-  
-  ### パスワード不要で編集できるように ###
-  
-  def update_without_current_password(params, *options)
-    params.delete(:current_password)
- 
-    if params[:password].blank? && params[:password_confirmation].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation)
-    end
- 
-    result = update_attributes(params, *options)
-    clean_up_passwords
-    result
-  end
 
-  ### FaceBook Utility ###  
-  def self.create_unique_email
-    User.create_unique_string + "@sample.com"
-  end
-  
-  def self.create_unique_string
-    SecureRandom.uuid
-  end
-  
-  ### Relation Utility ###
-  
-  def following?(other_user)
-    relationships.find_by(followed_id: other_user.id)
-  end
-  
-  def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
-  end
-  
-  def unfollow!(other_user)
-    relationships.find_by(followed_id: other_user.id).destroy
-  end
-  
-  ### User Sarch Utility ###
   def self.searchUser(area,kiryoku,age,myid)
 
-    # 検索条件が全く設定されていなければ返却
     if area.blank? && kiryoku.blank? && age.blank?
       return User.all.where.not(id: myid)
     end
@@ -205,21 +171,17 @@ class User < ActiveRecord::Base
     serach_keys = Array.new
     serach_values = Array.new
 
-    # 地域チェック
     if area.present?
       serach_keys.push('area')
       serach_values.push(area)
     end
     
-    # 棋力チェック
     if kiryoku.present?
       serach_keys.push('kiryoku')
       serach_values.push(kiryoku)
     end
     
-    # 年齢チェック
     if age.present?
-    
       ageArr = ["10代前半","10代後半","20代前半","20代後半","30代前半","30代後半","40代前半","40代後半","50代前半","50代後半","60歳以上"]
       rangeArr = [10..14 , 15..19, 20..24, 25..29, 30..34, 35..39, 40..44, 45..49, 50..54, 55..59, 60..150]
       
@@ -233,32 +195,14 @@ class User < ActiveRecord::Base
       serach_values.push(ageRange)
     end
     
-    users = User.search(serach_keys,serach_values,myid)
+    users = User.getUser(serach_keys,serach_values,myid)
     users
     
   end
   
-  # ユーザーの情報取得
-  def self.getPartnerInformation(partner_id)
-      partner_inf = User.find(partner_id)
-      partner_inf
-  end
-  
-  # フレンド登録有無 フラグ返却
-  def self.checkFriend(friends, partner_id)
-      if friends.where(uid: partner_id).nil?
-        friend_flag = false
-      else
-        friend_flag = true
-      end
-      friend_flag
-  end
-
-    scope :search, lambda { |search_keys, search_values, myid| 
-
+  def self.getUser (search_keys, search_values, myid)
     conditions = nil
     search_keys.each_with_index do |search_key, i|
-      
       if conditions.present?
         
         if(search_key == "age") 
@@ -279,6 +223,20 @@ class User < ActiveRecord::Base
     
     conditions = conditions.and(arel_table["id"].not_eq(myid))
     where(conditions)
-  }
+  end
+  
+  def self.getPartnerInf(partner_id)
+      partner_inf = User.find(partner_id)
+      partner_inf
+  end
+  
+  def self.checkFriend(friends, partner_id)
+      if friends.where(uid: partner_id).nil?
+        friend_flag = false
+      else
+        friend_flag = true
+      end
+      friend_flag
+  end
   
 end

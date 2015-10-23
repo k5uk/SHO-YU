@@ -6,7 +6,7 @@
 <div class="newArrivalsContainer">
     <div class="newArrivalsContainer-navi">
         <strong><i>新着メッセージ</i></strong> <br />
-        <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
+        <strong><%= @allNewMsgCnt %>件の新着メッセージがあります</strong>
     </div>
     <div class="newArrivalsContainer-message">
         <%= render 'shared/element/newArrvlList' %>
@@ -15,7 +15,7 @@
 <div class="infoContainer">
     <div class="infoContainer-navi">
         <strong><i>新着情報</i></strong> <br />
-        <strong><%= @notificationMessage[1] %>件の新着情報があります</strong>
+        <strong><%= @notificationMsgCnt %>件の新着情報があります</strong>
     </div>
     <div class="infoContainer-message">
         <%= render 'shared/element/infoMsgList' %>

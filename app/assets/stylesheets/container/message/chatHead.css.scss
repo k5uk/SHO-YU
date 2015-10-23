@@ -1,17 +1,17 @@
-.speakerContainer {
+.chatHead {
     width: 75%;
     height: 100px;
     float: right;
 }
 
-.speakerContainer .messageContainer-userMedia {
+.chatHead .messageContainer-userMedia {
     width: 48%;
     height: 100%;
     background-color: #f9fbe7;
     float: left;
 }
 
-.speakerContainer .messageContainer-userMedia__name {
+.chatHead .messageContainer-userMedia__name {
     float: left;
     width: 60%;
     margin-top: 5%;
@@ -23,20 +23,20 @@
 
 }
 
-.speakerContainer .messageContainer-userMedia__image {
+.chatHead .messageContainer-userMedia__image {
     float: right;
     margin-right: 5%;
     margin-top: 5%;
 }
 
-.speakerContainer .messageContainer-friendMedia {
+.chatHead .messageContainer-friendMedia {
     width: 48%;
     height: 100%;
     background-color: #f9fbe7;
     float: right;
 }
 
-.speakerContainer .messageContainer-friendMedia__name {
+.chatHead .messageContainer-friendMedia__name {
     float: right;
     width: 60%;
     margin-top: 5%;
@@ -48,7 +48,7 @@
     }
 }
 
-.speakerContainer .messageContainer-friendMedia__image {
+.chatHead .messageContainer-friendMedia__image {
     float: left;
     margin-left: 5%;
     margin-top: 5%;

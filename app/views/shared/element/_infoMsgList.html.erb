@@ -1,17 +1,17 @@
-<%= will_paginate @notificationMessage[0], :param_name  => 'notificate_page'%>
+<%= will_paginate @notificationMsgs, :param_name  => 'notificate_page'%>
 <table class="infoMsgTable" rules="rows">
     <tbody>
-    <% @notificationMessage[0].each do |notificationMessage| %>
+    <% @notificationMsgs.each do |notificationMsg| %>
         <tr class="newMsgLine">
-            <td class="newMsgLine--subjectInfo"><%=notificationMessage.subject %></td>
-            <td class="newMsgLine--messageInfo"><%=notificationMessage.message %></td>
-            <td class="newMsgLine--timestampInfo"><%=notificationMessage.created_at %></td>
+            <td class="newMsgLine--subjectInfo"><%=notificationMsg.subject %></td>
+            <td class="newMsgLine--messageInfo"><%=notificationMsg.message %></td>
+            <td class="newMsgLine--timestampInfo"><%=notificationMsg.created_at %></td>
             <td class="newMsgLine--detailInfo"><!-- ページ遷移の魔法 --></td>
-            <input class="notificaton_msg_id" type="hidden" value= <%=notificationMessage.id%> >
-            <input id="speaker_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.speaker_name %> >
-            <input id="subject_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.subject %> >
-            <input id="message_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.message %> >
-            <input id="timestamp_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.created_at %> >
+            <input class="notificaton_msg_id" type="hidden" value= <%=notificationMsg.id%> >
+            <input id="speaker_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.speaker_name %> >
+            <input id="subject_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.subject %> >
+            <input id="message_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.message %> >
+            <input id="timestamp_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.created_at %> >
         </tr>  
     <% end %>
     </tbody>

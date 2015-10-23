@@ -1,7 +1,7 @@
-<%= will_paginate @newArraivalMessagesAll, :param_name  => 'newArraival_page' %>
+<%= will_paginate @allNewMsg, :param_name  => 'newArraival_page' %>
 <table class="newMsgTable" rules="rows">
     <tbody>
-    <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
+    <% @allNewMsg.each do |newArraivalMessage| %>
         <tr class="newMsgLine">
             <td class="newMsgLine--nameInfo"><%=newArraivalMessage.speaker_name %></td>
             <td class="newMsgLine--messageInfo"><%=newArraivalMessage.message %></td>

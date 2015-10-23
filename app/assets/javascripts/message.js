@@ -77,17 +77,17 @@ function outputDisplay(speaker,subject,message,timestamp) {
     timestampItem.innerHTML = timestamp;
 }
 
-// break line for each 35 number of characters
+// break line for each 30 number of characters
 function addBreakLine() {
     var message = document.getElementById("message_text");
     var messageVal = message.value;
     var addReturnMessage = ""; //
     var addMessage = "";       //文字列追加用メッセージ
     var fromIndex = 0;
-    var toIndex = 34;
-    var addBrCount = Math.floor(messageVal.length / 35);
+    var toIndex = 29;
+    var addBrCount = Math.floor(messageVal.length / 30);
     
-    if(!(message % 35 == 0 )) {
+    if(!(message % 30 == 0 )) {
         addBrCount += 1
     }
     
@@ -99,8 +99,8 @@ function addBreakLine() {
         addMessage = messageVal.substring(fromIndex,toIndex);
         addMessage += "\n";
         addReturnMessage += addMessage
-        fromIndex += 35;
-        toIndex += 35;
+        fromIndex += 30;
+        toIndex += 30;
     }
 }
 

@@ -2,14 +2,13 @@
     <div class="messageContainer-friendMedia__image">
         <% if @partner_inf.image_file_name.nil? %>
             <%= image_tag @partner_inf.image, :size => "100x50" %>
-            <% else if ! @friend_id.nil? %>
-                <%= image_tag "link/noImage.png", :size => "100x50" %>
-            <% end %>
-        <% end %>            
+        <% else %>
+            <%= image_tag "link/noImage.png", :size => "100x50" %>
+        <% end %>
     </div>
     <div class="messageContainer-friendMedia__name">
         <input type="button" value= <%=@partner_inf.name %> 
         class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--brown-500">
-        <input type="hidden" id="talking_friend_id" value=<%=@friend_id %> >            
+        <input type="hidden" id="talking_friend_id" value=<%=@partner_inf.id %> >            
     </div>
 </div>

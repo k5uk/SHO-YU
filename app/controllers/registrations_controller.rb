@@ -12,14 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     sending_path
   end
   
-  # GET /resource/sign_up
-  def new
-    super
-  end 
-  
-  # PUT /resource
-  # We need to use a copy of the resource because we don't want to change
-  # the current user in place.
+  # add calling update_without_current_password
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
@@ -38,8 +31,6 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
-
-
 
   private
 

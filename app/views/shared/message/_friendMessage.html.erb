@@ -1,5 +1,5 @@
 <% content_for :message_chat do %>
-    <%= stylesheet_link_tag "container/message/speaker" %>
+    <%= stylesheet_link_tag "container/message/chatHead" %>
     <%= stylesheet_link_tag "container/message/message" %>
     <%= stylesheet_link_tag "container/message/input" %>
     <%= stylesheet_link_tag "element/baroon" %>
@@ -7,7 +7,7 @@
     <%= javascript_include_tag "util" %>
 <% end %>
 
-<div class="speakerContainer">
+<div class="chatHead">
     <%= render 'shared/element/userHead' %>
     <%= render 'shared/element/friendHead' %>
 </div>
@@ -28,9 +28,9 @@
         </div>
     </div>
     <div class="inputContainer__button">
-            <input id="speaker_id" name="speaker_id" type="hidden" value= <%=@user.id %> >
+            <input id="speaker_id" name="speaker_id" type="hidden" value= <%=current_user.id %> >
             <input id="listener_id" name="listener_id" type="hidden" value= <%=@friend_id%> >
-            <input id="speaker_name" name="speaker_name" type="hidden" value= <%=@user.name%> >
+            <input id="speaker_name" name="speaker_name" type="hidden" value= <%=current_user.name%> >
             <input id="listener_name" name="listener_name" type="hidden" value= <%=@partner_inf.name%> >
             <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" 
             name="commit" type="submit" value="メッセージ送信" onClick="addBreakLine()"></input>

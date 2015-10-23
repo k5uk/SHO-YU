@@ -1,6 +1,6 @@
 <table id="newMsgTable">
     <tbody>
-        <% if @newArraivalMessages.present? %> <!-- @newArraivalMessagesは整列されたメッセージの集合-->
+        <% if @newArraivalMessages.present? %>
             <div id="newMsgTable__newArrvlPoint">
                 <input type="hidden" id='scroll' value="scroll" >
                 <p>↓ ここから下が新着メッセージです ↓</p>
@@ -9,8 +9,7 @@
                 <% end %>
             </div>
             
-            <% @newArraivalMessages.each do |message| %>
-                <!-- フレンド側にメッセージを出す -->
+            <% @newArrvlMsg.each do |message| %>
                 <tr class ="newMsgLine">
                     <td class="newMsgLine__userTimeCell"></td>
                     <td class="newMsgLine__userMsgCell"></td>

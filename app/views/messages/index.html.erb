@@ -31,7 +31,7 @@
     <% end %>
     <%= will_paginate @users, :param_name  => 'friendList_page'%>
 </div>
-<% if @friend_id.nil?%>
+<% if @partner_inf.nil? %>
     <%= render 'shared/message/infoMessage' %>
 <% else %>
     <%= render 'shared/message/friendMessage' %>

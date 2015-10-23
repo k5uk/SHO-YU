@@ -7,22 +7,22 @@
         background-size: 90% 1.2em;
     overflow: scroll;
     
-    &.oldMsgLine__userTimeCell {
+    .oldMsgLine__userTimeCell {
         text-align: left;
         width: 8%;
     }
     
-    &.oldMsgLine__userMsgCell {
+    .oldMsgLine__userMsgCell {
         text-align: left;
-        width: 47%;
+        width: 42%;
     }
     
-    &.oldMsgLine__friendMsgCell {
+    .oldMsgLine__friendMsgCell {
         text-align: right;
-        width: 47%;
+        width: 42%;
     }
     
-    &.oldMsgLine__friendTimeCell {
+    .oldMsgLine__friendTimeCell {
         text-align: right;
         width: 8%;
     }
