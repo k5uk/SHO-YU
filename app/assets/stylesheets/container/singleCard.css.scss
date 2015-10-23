@@ -1,0 +1,22 @@
+%singleCardContainer {
+    width: 100%;
+    .mdl-card {
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mdl-card .mdl-card__media {
+        text-align: center;
+    }
+}
+
+////// is inherited by
+// SingIn
+// SingUp
+// About
+// Contact
+// Sending
+// Sending_contact
+// Confirm
+// Search
+// edit

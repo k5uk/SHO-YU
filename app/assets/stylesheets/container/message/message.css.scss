@@ -1,0 +1,29 @@
+#messageContainer {
+    width: 75%;
+    height: 450px;
+    background-color: #f9fbe7;
+    background-image: 
+        linear-gradient(#eee .1em, transparent .1em);
+        background-size: 90% 1.2em;
+    overflow: scroll;
+    
+    &.oldMsgLine__userTimeCell {
+        text-align: left;
+        width: 8%;
+    }
+    
+    &.oldMsgLine__userMsgCell {
+        text-align: left;
+        width: 47%;
+    }
+    
+    &.oldMsgLine__friendMsgCell {
+        text-align: right;
+        width: 47%;
+    }
+    
+    &.oldMsgLine__friendTimeCell {
+        text-align: right;
+        width: 8%;
+    }
+}

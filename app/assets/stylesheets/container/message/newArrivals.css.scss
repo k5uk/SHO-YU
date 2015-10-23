@@ -1,0 +1,36 @@
+.newArrivalsContainer {
+    float: right;
+    width: 75%;
+    height: 200px;
+    background-image: url("background/liteBrown.gif");
+}
+
+.newArrivalsContainer-navi {
+    width: 100%;
+    height: 25%;
+    i {
+        text-decoration: underline;
+    }
+}
+
+.newArrivalsContainer-message {
+    width: 100%;
+    height: 75%;
+    .newMsgLine td {
+        font-size: 1.0em;
+        height: 2.2em;
+    }
+    .newMsgLine--nameInfo {
+        width: 20%;
+    }
+    .newMsgLine--messageInfo {
+        width: 50%;
+        visibility: hidden;
+    }
+    .newMsgLine--timestampInfo {
+        width: 20%;
+    }
+    .newMsgLine--detailInfo {
+        width: 1%;
+    }
+}

@@ -1,4 +1,8 @@
-<div class="profile-container">
+<% content_for :show do %>
+	<%= stylesheet_link_tag "layout/main" %>
+	<%= stylesheet_link_tag "container/show" %>
+<% end %>
+<div class="show-container">
 	<div class="head">
 	    <h3 class="head__name"><%= @user.name %></h3>
 	    <div class="head__button">

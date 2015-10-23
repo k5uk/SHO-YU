@@ -1,0 +1,85 @@
+%msg-baroon {
+	white-space: pre;
+	position: relative;
+	display: inline-block;
+	padding: 0 15px;
+	width: auto;
+	min-width: 115px;
+	height: auto;
+	color: #F6F6F6;
+	line-height: 30px;
+	text-align: left;
+	border-radius: 50px;
+	z-index: 0;
+	background: #19283C;
+}
+
+.msg-baroon-left {
+    @extend %msg-baroon;
+}
+
+.msg-baroon-right {
+    @extend %msg-baroon;
+}
+
+.msg-baroon-new {
+    @extend %msg-baroon;
+    background: #E896C9;
+}
+
+%msg-baroon-before {
+	content: "";
+	position: absolute;
+	margin-right: 0;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: #19283C;
+	border-radius: 50%;
+	z-index: -1;    
+}
+
+.msg-baroon-left:before {
+    @extend %msg-baroon-before;
+    top: -17px; left: 15px;
+}
+
+.msg-baroon-right:before {
+    @extend %msg-baroon-before;
+    top: -17px; right: 15px;
+}
+
+.msg-baroon-new:before {
+    @extend %msg-baroon-before;
+    top: -17px; right: 15px;
+    background: #E896C9;
+}
+
+%msg-baroon-after {
+	content: "";
+	position: absolute;
+	top: -25px; left: 25px;
+	margin-right: 0;
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: #19283C;
+	border-radius: 50%;
+	z-index: -1;
+}
+
+.msg-baroon-left:after {
+    @extend %msg-baroon-after;
+    top: -25px; left: 25px;
+}
+
+.msg-baroon-right:after {
+    @extend %msg-baroon-after;
+    top: -25px; right: 25px;
+}
+
+.msg-baroon-new:after {
+    @extend %msg-baroon-after;
+    top: -25px; right: 25px;
+    background: #E896C9;
+}

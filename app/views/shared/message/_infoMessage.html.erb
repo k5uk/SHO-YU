@@ -1,22 +1,15 @@
+<% content_for :message_info do %>
+    <%= stylesheet_link_tag "container/message/info" %>
+    <%= stylesheet_link_tag "container/message/newArrivals" %>
+<% end %>
+
 <div class="newArrivalsContainer">
     <div class="newArrivalsContainer-navi">
         <strong><i>新着メッセージ</i></strong> <br />
         <strong><%= @newArraivalMessagesCount %>件の新着メッセージがあります</strong>
     </div>
     <div class="newArrivalsContainer-message">
-        <%= will_paginate @newArraivalMessagesAll, :param_name  => 'newArraival_page' %>
-        <table class="newMsgTable" rules="rows">
-            <tbody>
-            <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
-                <tr class="newMsgLine">
-                    <td class="newMsgLine--nameInfo"><%=newArraivalMessage.speaker_name %></td>
-                    <td class="newMsgLine--messageInfo"><%=newArraivalMessage.message %></td>
-                    <td class="newMsgLine--timestampInfo"><%=newArraivalMessage.created_at %></td>
-                    <td class="newMsgLine--detailInfo"><%= link_to "", message_path(friend_id: newArraivalMessage.speaker_id) %></td>
-                </tr>  
-            <% end %>
-            </tbody>
-        </table>
+        <%= render 'shared/element/newArrvlList' %>
     </div>
 </div>
 <div class="infoContainer">
@@ -25,24 +18,7 @@
         <strong><%= @notificationMessage[1] %>件の新着情報があります</strong>
     </div>
     <div class="infoContainer-message">
-        <%= will_paginate @notificationMessage[0], :param_name  => 'notificate_page'%>
-        <table class="infoMsgTable" rules="rows">
-            <tbody>
-            <% @notificationMessage[0].each do |notificationMessage| %>
-                <tr class="newMsgLine">
-                    <td class="newMsgLine--subjectInfo"><%=notificationMessage.subject %></td>
-                    <td class="newMsgLine--messageInfo"><%=notificationMessage.message %></td>
-                    <td class="newMsgLine--timestampInfo"><%=notificationMessage.created_at %></td>
-                    <td class="newMsgLine--detailInfo"><!-- ページ遷移の魔法 --></td>
-                    <input class="notificaton_msg_id" type="hidden" value= <%=notificationMessage.id%> >
-                    <input id="speaker_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.speaker_name %> >
-                    <input id="subject_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.subject %> >
-                    <input id="message_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.message %> >
-                    <input id="timestamp_info<%=notificationMessage.id%>" type="hidden" value= <%=notificationMessage.created_at %> >
-                </tr>  
-            <% end %>
-            </tbody>
-        </table>
+        <%= render 'shared/element/infoMsgList' %>
     </div>
     <!-- 動的メッセージ出力領域 -->
     <div class="infoContainer-display">
@@ -57,3 +33,8 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    highlightForNewMsg();
+    highlightForNotification();
+</script>

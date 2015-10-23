@@ -1,12 +1,21 @@
+<% content_for :message_chat do %>
+    <%= stylesheet_link_tag "container/message/speaker" %>
+    <%= stylesheet_link_tag "container/message/message" %>
+    <%= stylesheet_link_tag "container/message/input" %>
+    <%= stylesheet_link_tag "element/baroon" %>
+    <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+    <%= javascript_include_tag "util" %>
+<% end %>
+
 <div class="speakerContainer">
-    <%= render 'shared/message/userHead' %>
-    <%= render 'shared/message/friendHead' %>
+    <%= render 'shared/element/userHead' %>
+    <%= render 'shared/element/friendHead' %>
 </div>
 
 <div id="messageContainer">
-    <%= render 'shared/message/oldMsgTable' %>
-    <%= render 'shared/message/newMsgTable' %>
-    <%= render 'shared/message/nowMsgTable' %>
+    <%= render 'shared/element/oldMsgTable' %>
+    <%= render 'shared/element/newMsgTable' %>
+    <%= render 'shared/element/nowMsgTable' %>
 </div>
 
 <div class="inputContainer">
@@ -29,6 +38,26 @@
     </div>  
 </div>
 
-<script>
+<script type="text/javascript">
     moveScrollbar();
+    
+    // pusher websocket
+    Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+            window.console.log(message);
+        }
+    }
+    var pusher = new Pusher('<%= @pusher_access_key %>');
+    var channel = pusher.subscribe('general_channel');
+    channel.bind('chat_event', function(data) {
+        var current_user = document.getElementById("speaker_id").value;
+        if (current_user == data.speaker) {
+            outputMessage('nowMsgTable',data.message,'User');
+        }
+        else {
+            outputMessage('nowMsgTable',data.message,'Friend');
+        }
+        var message_text = document.getElementById('message_text');
+        message_text.value = "";
+    });
 </script>

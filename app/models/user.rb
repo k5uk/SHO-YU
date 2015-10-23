@@ -9,18 +9,15 @@ class User < ActiveRecord::Base
   
   #peperclip
   has_attached_file :image, styles: { medium: "200x200>", thumb: "100x100>" }
-  
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
   
-  # setting validates
+  #validates
   validates :name, presence: true, length:  { maximum: 30 }
   validates :name, uniqueness: true
   validates :password, length:  { minimum: 8 }, on: [:new] 
-  
   validate :sex_check
   validate :birthday_check
   validate :area_check
-  #validate :kiryoku_check
   validate :password_confirmation_check, on: [:new]
 
   # nilチェック

@@ -1,0 +1,22 @@
+.friend-container {
+    float: left;
+    width: 25%;
+    height: 650px;
+    background-color: #f9fbe7;
+    list-style: none;
+}
+
+.friend-container .partner-list {
+    overflow: auto;
+    padding: 3% 0 0 2%;
+    border-top: 1px solid #DCDCDC;
+    overflow: hidden;
+        &:last-child {
+            border-bottom: 1px solid #DCDCDC;
+        }
+}
+
+// フレンド領域表示のため
+.mdl-layout__container {
+     height: 0% !important;
+}

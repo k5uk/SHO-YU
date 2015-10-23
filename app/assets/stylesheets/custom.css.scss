@@ -3,479 +3,20 @@
     background:#4db6ac !important;    
 }
 
-/* Header Field Start */
-.sho-header {
-  overflow: visible;
-  
-  .sho-navigation-container {
-    width: 70%;
-  }
-  
-  .sho-navigation {
-    justify-content: flex-end;
-    width: 100%;
-  }
-  
-  .sho-navigation .mdl-navigation__link {
-    display: inline-block;
-    height: 60px;
-    line-height: 68px;
-  }
-  
-  .sho-navigation .mdl-navigation__link:hover {
-    border-bottom: 4px solid #8bc34a;
-  }
-  
-  .mdl-navigation__link {
-    color: #757575;
-    font-weight: 700;
-    font-size: 14px;    
-  }
-  
-}
-
-/* Footer Contents Start */
-
-  .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.main-section {
-    padding-top: 100px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    min-height: 400px;
-
-    .main-section .main-section-head {
-        width: 100%;
-        height: 100px;
-    }
-    
-    .main-section-head .main-section-head__title {
-        float: left;
-        width: 50%;
-    }
-    
-    .main-section-head .main-section-head__button {
-        float: right;
-        width: 50%;
-    }
-}
-    
-.member-card-container {
-    width: 100%;
-    .mdl-card {
-        float: left;
-    }
-    
-	.mdl-card__media {
-	  overflow: hidden;
-	  background: transparent;
-	}
-
-	.mdl-card__media img {
-	  width: 100%;
-	}
-
-	.mdl-card__title {
-	  background: transparent;
-	  height: auto;
-	}
-
-	.mdl-card__title-text {
-	  color: black;
-	  height: auto;
-	}
-
-	.mdl-card__supporting-text {
-	  height: auto;
-	  color: black;
-	  padding-bottom: 20%;
-	}
-
-	.mdl-card__actions {
-	  position: absolute;
-	  bottom: 0;
-	}
-
-	.mdl-card__actions a {
-	  border-top: none;
-	  line-height: 32px;
-	  font-size: 16px;
-	}
-
-	.mdl-card__actions span {
-	  color: #8bc34a;
-	}
-
-	.card-link .material-icons {
-	  position: relative;
-	  top: 6px;
-	} 
-	
-}
-
-.guest-card-container {
-    width: 100%;
-  
-    .mdl-card {
-        float: left;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .navi-button {
-        list-style: none;
-        
-        .mdl-button {
-          width: 75%;
-        }
-        
-    }
-    
-}
-
-.signin-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        float: left;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .login-card {
-        .mdl-card__media h3{
-            text-align: center;
-        }
-        .mdl-card__fields .mdl-textfield {
-          width: 80%;
-        }
-        .mdl-card__actions .mdl-button {
-          float: right;
-          width: 40%;
-        }
-        
-    }
-    
-    .regist-card {
-        .mdl-card__media h3 {
-            text-align: center;
-        }
-        .mdl-card__supporting-text p {
-            text-align: center;
-            color: red;
-            font-size: 20px;
-            text-decoration: underline; 
-        }
-        .mdl-card__actions { 
-            width: 60%;
-            margin: 0 auto;
-        }
-        .mdl-card__actions .mdl-button {
-            width: 80%;
-        }
-        
-    }
-    
-    
-      
-}
-
-.signup-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    } 
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }    
-    
-}
-
-.about-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-}
-
-.contact-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }     
-}
-
-.link-card-container {
-    width: 100%;
-    .mdl-card {
-        float: left;
-    }
-    
-	.mdl-card__media {
-	  overflow: hidden;
-	  background: transparent;
-	}
-
-	.mdl-card__media img {
-	  width: 100%;
-	}
-
-	.mdl-card__title {
-	  background: transparent;
-	  height: auto;
-	}
-
-	.mdl-card__title-text {
-	  color: black;
-	  height: auto;
-	}
-
-	.mdl-card__supporting-text {
-	  height: auto;
-	  color: black;
-	  padding-bottom: 20%;
-	}
-
-	.mdl-card__actions {
-	  position: absolute;
-	  bottom: 0;
-	}
-
-	.mdl-card__actions a {
-	  border-top: none;
-	  line-height: 32px;
-	  font-size: 16px;
-	}
-
-	.mdl-card__actions span {
-	  color: #8bc34a;
-	}
-
-	.card-link .material-icons {
-	  position: relative;
-	  top: 6px;
-	}
-}
-
-.search-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }     
-}
-
-.index-card-container {
-    width: 100%;
-    .mdl-card {
-        float: left;
-    }
-    
-	.mdl-card__media {
-	  overflow: hidden;
-	  background: transparent;
-	}
-
-	.mdl-card__media img {
-	  width: 100%;
-	}
-
-	.mdl-card__title {
-	  background: transparent;
-	  height: auto;
-	}
-
-	.mdl-card__title-text {
-	  color: black;
-	  height: auto;
-	}
-
-	.mdl-card__supporting-text {
-	  height: auto;
-	  color: black;
-	  padding-bottom: 20%;
-	}
-
-	.mdl-card__actions {
-	  position: absolute;
-	  bottom: 0;
-	}
-
-	.mdl-card__actions a {
-	  border-top: none;
-	  line-height: 32px;
-	  font-size: 16px;
-	}
-
-	.mdl-card__actions span {
-	  color: #8bc34a;
-	}
-
-	.card-link .material-icons {
-	  position: relative;
-	  top: 6px;
-	}
-}
-
-.relation-card-container {
-    width: 100%;
-    .mdl-card {
-        float: left;
-    }
-    
-	.mdl-card__media {
-	  overflow: hidden;
-	  background: transparent;
-	}
-
-	.mdl-card__media img {
-	  width: 100%;
-	}
-
-	.mdl-card__title {
-	  background: transparent;
-	  height: auto;
-	}
-
-	.mdl-card__title-text {
-	  color: black;
-	  height: auto;
-	}
-
-	.mdl-card__supporting-text {
-	  height: auto;
-	  color: black;
-	  padding-bottom: 20%;
-	}
-
-	.mdl-card__actions {
-	  position: absolute;
-	  bottom: 0;
-	}
-
-	.mdl-card__actions a {
-	  border-top: none;
-	  line-height: 32px;
-	  font-size: 16px;
-	}
-
-	.mdl-card__actions span {
-	  color: #8bc34a;
-	}
-
-	.card-link .material-icons {
-	  position: relative;
-	  top: 6px;
-	}
-}
-
-.edit-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }
-}
-
-.sending-card-container {
-    width: 100%;
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }    
-}
-
-.sending_contact-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }
-}
-
-.confirm-card-container {
-    width: 100%;
-    
-    .mdl-card {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .mdl-card .mdl-card__media {
-        text-align: center;
-    }
-    .mdl-card__actions .mdl-button {
-        float: right;
-        width: 40%;
-    }
-}
-
-.profile-container {
+.show-container {
     width: 80%;
     height: 600px;
     margin-left: auto;
     margin-right: auto;
 }
     
-.profile-container .head {
+.show-container .head {
     width: 100%;
     height: 10%;
     background-color: #795548;
 }
     
-.profile-container .head__name {
+.show-container .head__name {
     width: 40%;
     height: 10%;
     float: left;
@@ -483,7 +24,7 @@
     vertical-align: middle;
 }
     
-.profile-container .head__button {
+.show-container .head__button {
     width: 60%;
     height: 10%;
     float: right;
@@ -499,7 +40,7 @@
     }
 }
 
-.profile-container .media-division {
+.show-container .media-division {
     float: left;
     width: 33.3%;
     height: 500px;
@@ -507,7 +48,7 @@
     position: relative;
 }
 
-.profile-container .media-division__image {
+.show-container .media-division__image {
     width: 100%;
     height: 50%;
     position: relative;
@@ -525,7 +66,7 @@
     }
 }
 
-.profile-container .mdl-card {
+.show-container .mdl-card {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -538,7 +79,7 @@
     }
 }
 
-.profile-container .table-division {
+.show-container .table-division {
     float: right;
     width: 66.6%;
     height: 500px;

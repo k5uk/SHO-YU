@@ -1,0 +1,43 @@
+.signin-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .login-card {
+        .mdl-card__media h3{
+            text-align: center;
+        }
+        .mdl-card__fields .mdl-textfield {
+          width: 80%;
+        }
+        .mdl-card__actions .mdl-button {
+          float: right;
+          width: 40%;
+        }
+        
+    }
+    
+    .regist-card {
+        .mdl-card__media h3 {
+            text-align: center;
+        }
+        .mdl-card__supporting-text p {
+            text-align: center;
+            color: red;
+            font-size: 20px;
+            text-decoration: underline; 
+        }
+        .mdl-card__actions { 
+            width: 60%;
+            margin: 0 auto;
+        }
+        .mdl-card__actions .mdl-button {
+            width: 80%;
+        }
+        
+    }
+      
+}

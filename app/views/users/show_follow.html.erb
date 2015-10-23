@@ -1,22 +1,27 @@
+<% content_for :relation do %>
+		<%= stylesheet_link_tag "layout/main" %>
+		<%= stylesheet_link_tag "container/relation" %>
+<% end %>
+
 <div class="main-section-head mdl-typography--display-1">
-	<div class="main-section-head__title">
-		<i class="material-icons">content_copy</i><%= @title %>
-	</div>
-	<div class="main-section-head__button">    
+		<div class="main-section-head__title">
+				<i class="material-icons">content_copy</i><%= @title %>
+		</div>
+		<div class="main-section-head__button">    
         <% if current_page?(following_user_path(@user))%>
-          <div class="cards-section-button">  
-              <%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
-              { :class => "mdl-button mdl-js-button mdl-button--raised 
-              mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
-          </div>
+          	<div class="cards-section-button">  
+              	<%= link_to "友達登録されているユーザを開く", followers_user_path(@user),
+              	{ :class => "mdl-button mdl-js-button mdl-button--raised 
+              	mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
+          	</div>
         <% else %>
-          <div class="cards-section-button">  
-              <%= link_to "友達登録しているユーザを開く", following_user_path(@user),
-              { :class => "mdl-button mdl-js-button mdl-button--raised 
-              mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
-          </div>
+          	<div class="cards-section-button">  
+              	<%= link_to "友達登録しているユーザを開く", following_user_path(@user),
+              	{ :class => "mdl-button mdl-js-button mdl-button--raised 
+              	mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" }%>
+          	</div>
         <% end %>
-	</div>
+		</div>
 </div>
 
 <div class="relation-card-container mdl-grid">

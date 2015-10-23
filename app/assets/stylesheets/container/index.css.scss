@@ -1,0 +1,5 @@
+@import "container/multiCard";
+
+.index-card-container {
+    @extend %multiCardContainer;
+}

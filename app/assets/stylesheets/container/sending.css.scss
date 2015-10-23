@@ -1,0 +1,5 @@
+@import "container/singleCard";
+
+.sending-card-container {
+    @extend %singleCardContainer;
+}

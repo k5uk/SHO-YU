@@ -1,0 +1,5 @@
+@import "container/multiCard";
+
+.link-card-container {
+	@extend %multiCardContainer;
+}

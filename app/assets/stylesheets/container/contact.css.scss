@@ -1,0 +1,8 @@
+@import "container/singleCard";
+.contact-card-container {
+    @extend %singleCardContainer;
+    .mdl-card__actions .mdl-button {
+        float: right;
+        width: 40%;
+    }     
+}

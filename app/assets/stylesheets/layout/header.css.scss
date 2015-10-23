@@ -1,0 +1,30 @@
+/* Header Field Start */
+.sho-header {
+  overflow: visible;
+  
+  .sho-navigation-container {
+    width: 70%;
+  }
+  
+  .sho-navigation {
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .sho-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+  }
+  
+  .sho-navigation .mdl-navigation__link:hover {
+    border-bottom: 4px solid #8bc34a;
+  }
+  
+  .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;    
+  }
+  
+}

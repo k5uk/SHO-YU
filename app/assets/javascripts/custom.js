@@ -1,8 +1,5 @@
-// コントローラー系関数
-
 // 登録確定ボタン 
-function pressSubmit() {
-    // 誕生日を計算し年齢をセット
+function pressFormSubmit() {
     var age = document.getElementById("user_age");
     age.value = calculateAge(document.getElementById("user_birthday").value);
 }
@@ -32,11 +29,9 @@ function setFieldAttribute() {
         var func = "addSlash(this)";
         area.setAttribute('onkeyup',func);
         area.setAttribute('maxlength',10);
-    });   
+    });
 
 }
-
-//機能系関数(プロジェクト機能)
 
 function reload() {
     if (window.name != "reloadFlag") {
@@ -51,9 +46,7 @@ function reload() {
 function moveScrollbar() {
     if($('#newArraivalPoint').length){
         if($("#scroll").val() == "scroll") {
-            var scrollbar = document.getElementById("messageContainer");
-            $(scrollbar).animate({scrollTop:$('#newArraivalPoint').offset().top - 200});
-            $("#scroll").val('scrollOnly');
+            moveScrollbarToNewArrvl();
         }
         if($("#scroll").val() == "scrollOnly") {
             moveScrollbarToBottom();
@@ -62,6 +55,12 @@ function moveScrollbar() {
     else {
         moveScrollbarToBottom();
     }
+}
+
+function moveScrollbarToNewArrvl() {
+    var scrollbar = document.getElementById("messageContainer");
+    $(scrollbar).animate({scrollTop:$('#newArraivalPoint').offset().top - 200});
+    $("#scroll").val('scrollOnly');    
 }
 
 function moveScrollbarToBottom() {
@@ -146,46 +145,6 @@ function controlCheckLady() {
     sex.value = 2;
     var checkboxMan = document.getElementById("checkboxMan_label");
     checkboxMan.className = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded"
-}
-
-function outputMessageTest(id,message,speaker) {
-    var table = document.getElementById(id);
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(-1);
-    var cell2 = row.insertCell(-1);
-    var cell3 = row.insertCell(-1);
-    var cell4 = row.insertCell(-1);
-    var row_len = table.rows.length;
-    
-    var nowDateTime = formatDate(new Date(),'YYYY/MM/DD hh:mm');
-    
-    if(speaker == 'User') {
-        cell1.className = "user-timestamp-cell";
-        var messagediv1 = document.createElement('div');
-        messagediv1.innerHTML = nowDateTime;
-        cell1.appendChild(messagediv1);
-
-        cell2.className = "user-message-cell";
-        var messagediv2 = document.createElement('div');
-        messagediv2.innerHTML = message;
-        messagediv2.className = "msg-baroon-left";
-        cell2.appendChild(messagediv2);
-    }
-    
-    else {
-        cell3.className = "friend-message-cell";
-        var messagediv3 = document.createElement('div');
-        messagediv3.innerHTML = message;
-        messagediv3.className = "msg-baroon-right";
-        cell3.appendChild(messagediv3);
-
-        cell4.className = "friend-timestamp-cell";
-        var messagediv4 = document.createElement('div');
-        messagediv4.innerHTML = nowDateTime;
-        cell4.appendChild(messagediv4);
-    }
-    
-    moveScrollbar();
 }
 
 function outputMessage(id,message,speaker) {
@@ -286,12 +245,12 @@ function getAnchorOnClick(targetElm,parentElm) {
     });
 }
 
-function highlightMessagelist() {
+function highlightForNewMsg() {
     highlightMessage('.newMsgLine','.infoContainer-message');
     getAnchorOnClick('.newMsgLine','.infoContainer-message');
 }
 
-function highlightFriendlist() {
+function highlightForFriendli() {
     if(document.getElementById("talking_friend_id") != null) {
         var talkingFriendId = document.getElementById('talking_friend_id').value;
         var taikingFriendListId = document.getElementById(talkingFriendId);
@@ -302,7 +261,7 @@ function highlightFriendlist() {
     getAnchorOnClick('.partner-list','.friend-container');    
 }
 
-function highlightNotificationList() {
+function highlightForNotification() {
     highlightMessage('newMsgLine','.notification-area');
     getAnchorOnClick('newMsgLine','.notification-area');
     
@@ -349,7 +308,7 @@ function trimMessage() {
     });
 }
 
-function setElementForContact() {
+function setFieldAttribForContact() {
     $(document).on('focus click', '.age-label', function(){
         var area = document.getElementById("contact_age");
         var func = "this.blur();";
@@ -357,7 +316,7 @@ function setElementForContact() {
     });   
 }
 
-// updateFlag
+// updateFlagという名前のイベント生成
 (function($) {
     $.each(['updateFlag'],function(i,ev) {
         var el = $.fn[ev];
@@ -371,14 +330,13 @@ function setElementForContact() {
 $(function(){
     $(window).scroll(function(){
         $('.newMsgLine').each(function(){
-            // [0]:read_flag [1]:messageId
-            var read_flag = $(this).children('input').eq(0).val()
-            var messageId = $(this).children('input').eq(1).val()
+            var read_flag = $(this).children('input').eq(0).val()   // [0]:read_flag
+            var messageId = $(this).children('input').eq(1).val()   // [1]:messageId
             if(read_flag == 0){ 
                 var msgHeight = $(this).offset().top; // メッセージ要素の位置
                 var scroll = $(window).scrollTop();   // ユーザーがスクロールした量
                 var windowHeight = $(window).height();  // ウィンドウの高さ
-                if (scroll > msgHeight - windowHeight + 10 ) {
+                if (scroll > msgHeight - windowHeight + 10 ) { //ユーザーがメッセージの位置に来たか判定
                     //イベント追加呼出
                     updateMessageFlag(messageId);
                     $(this).css("background","#fffde7");
@@ -388,6 +346,7 @@ $(function(){
     });
 });
 
+// フラグ値更新ajax
 function updateMessageFlag(messageId) {
     $.ajax({
         url: "messages/read_session",

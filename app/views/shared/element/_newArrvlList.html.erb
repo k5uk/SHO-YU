@@ -1,0 +1,13 @@
+<%= will_paginate @newArraivalMessagesAll, :param_name  => 'newArraival_page' %>
+<table class="newMsgTable" rules="rows">
+    <tbody>
+    <% @newArraivalMessagesAll.each do |newArraivalMessage| %>
+        <tr class="newMsgLine">
+            <td class="newMsgLine--nameInfo"><%=newArraivalMessage.speaker_name %></td>
+            <td class="newMsgLine--messageInfo"><%=newArraivalMessage.message %></td>
+            <td class="newMsgLine--timestampInfo"><%=newArraivalMessage.created_at %></td>
+            <td class="newMsgLine--detailInfo"><%= link_to "", message_path(friend_id: newArraivalMessage.speaker_id) %></td>
+        </tr>  
+    <% end %>
+    </tbody>
+</table>

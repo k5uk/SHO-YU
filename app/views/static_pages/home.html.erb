@@ -1,13 +1,17 @@
 <% content_for :home do %>
-	<%= stylesheet_link_tag "custom" %>
+	<%= stylesheet_link_tag "layout/main" %>
 <% end %>
 
 <% if signed_in? %>
-
 	<%= render 'shared/home/member' %>
+	<% content_for :home do %>
+		<%= stylesheet_link_tag "container/home/member" %>
+	<% end %>
 
 <% else %>
-
 	<%= render 'shared/home/guest' %>
+	<% content_for :home do %>
+		<%= stylesheet_link_tag "container/home/guest" %>
+	<% end %>
 	
 <% end %>

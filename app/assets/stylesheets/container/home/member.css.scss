@@ -1,0 +1,52 @@
+.member-card-container {
+    width: 100%;
+    .mdl-card {
+        float: left;
+    }
+    
+	.mdl-card__media {
+	  overflow: hidden;
+	  background: transparent;
+	}
+
+	.mdl-card__media img {
+	  width: 100%;
+	}
+
+	.mdl-card__title {
+	  background: transparent;
+	  height: auto;
+	}
+
+	.mdl-card__title-text {
+	  color: black;
+	  height: auto;
+	}
+
+	.mdl-card__supporting-text {
+	  height: auto;
+	  color: black;
+	  padding-bottom: 20%;
+	}
+
+	.mdl-card__actions {
+	  position: absolute;
+	  bottom: 0;
+	}
+
+	.mdl-card__actions a {
+	  border-top: none;
+	  line-height: 32px;
+	  font-size: 16px;
+	}
+
+	.mdl-card__actions span {
+	  color: #8bc34a;
+	}
+
+	.card-link .material-icons {
+	  position: relative;
+	  top: 6px;
+	} 
+	
+}

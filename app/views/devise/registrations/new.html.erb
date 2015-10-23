@@ -1,3 +1,11 @@
+<% content_for :signup do %>
+    <%= stylesheet_link_tag "layout/main" %>
+    <%= stylesheet_link_tag "container/signup" %>
+    <%= javascript_include_tag "controlElAttr" %>
+    <%= javascript_include_tag "controlForm" %>
+    <%= javascript_include_tag "util" %>
+<% end %>
+
 <div class="signup-card-container mdl-grid">
 
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col mdl-color--lime-50">
@@ -106,14 +114,10 @@
         	    </div>
 
         	    <div class="mdl-card__actions">
-        	        <input type="submit" name="commit" value="アカウント新規作成" onClick="pressSubmit()" 
+        	        <input type="submit" name="commit" value="アカウント新規作成" onClick="pressFormSubmit()" 
         	        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-300" >
         	    </div>
         	<% end %>
     	</div>
     </div>
 </div>
-
-<script>
-setFieldAttribute();
-</script>

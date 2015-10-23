@@ -9,31 +9,29 @@
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <%= csrf_meta_tags %>
-  
+  <%= yield :home %>
+  <%= yield :singin %>
+  <%= yield :signup %>
+  <%= yield :about %>
+  <%= yield :contact %>
+  <%= yield :sending %>
+  <%= yield :sending_contact %>
+  <%= yield :confirm %>
+  <%= yield :search %>
+  <%= yield :edit %>
+  <%= yield :index %>
+  <%= yield :relation %>
+  <%= yield :link %>
+  <%= yield :show %>
+  <%= yield :message %>
+  <%= yield :message_info %>
+  <%= yield :message_chat %>
 </head>
-
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-  
-<!-- before script-->
-
-<script>reload();</script>
-
-<!-- header start -->
-
-<%= render 'layouts/header' %>
-
-<!-- header end -->
-
-<%= render 'layouts/main' %>
-
-<!-- footer start -->
-
-<%= render 'layouts/footer' %>
-
-<!-- footer end -->
-
-
-<!-- after script-->
-
+  <!-- before script-->
+  <script type="text/javascript">reload();</script>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/main' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
