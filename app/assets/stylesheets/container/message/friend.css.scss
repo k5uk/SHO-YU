@@ -2,8 +2,16 @@
     float: left;
     width: 25%;
     height: 650px;
-    background-color: #f9fbe7;
+    margin-bottom: 100px;
+    background-color: #795548;
     list-style: none;
+}
+
+.friend-container__label {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
 }
 
 .friend-container .partner-list {
@@ -14,6 +22,12 @@
         &:last-child {
             border-bottom: 1px solid #DCDCDC;
         }
+}
+
+.friend-container .partnerArea a {
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
 }
 
 // フレンド領域表示のため

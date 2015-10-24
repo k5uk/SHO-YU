@@ -1,7 +1,7 @@
 .newArrivalsContainer {
     float: right;
     width: 75%;
-    height: 200px;
+    height: 250px;
     background-image: image-url("background/liteBrown.gif");
 }
 
@@ -16,6 +16,13 @@
 .newArrivalsContainer-message {
     width: 100%;
     height: 75%;
+}
+.newArrivalsContainer-message .newArrvlList {
+    width: 90%;
+    .newMsgLine {
+        width: 100%;
+        height: 100%;
+    }
     .newMsgLine td {
         font-size: 1.0em;
         height: 2.2em;
@@ -25,7 +32,6 @@
     }
     .newMsgLine--messageInfo {
         width: 50%;
-        visibility: hidden;
     }
     .newMsgLine--timestampInfo {
         width: 20%;

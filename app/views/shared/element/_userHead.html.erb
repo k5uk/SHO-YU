@@ -5,9 +5,9 @@
     </div>
     <div class="messageContainer-userMedia__image">
         <% if current_user.image_file_name.nil? %>
-            <%= image_tag current_user.image,url, :size => "100x50" %>
+            <%= image_tag "link/noImage.png", :size => "75x75" %>
         <% else %>
-            <%= image_tag "link/noImage.png", :size => "100x50" %>
+            <%= image_tag current_user.image, :size => "75x75" %>
         <% end %>
     </div>
 </div>

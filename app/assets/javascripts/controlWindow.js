@@ -1,7 +1,12 @@
+$(document).ready(function(){
+    $('.infoContainer-display').hide();
+})
+
 function moveScrollbar() {
-    if($('#newArraivalPoint').length){
+    if($('#newMsgTable__newArrvlPoint').length){
         if($("#scroll").val() == "scroll") {
             moveScrollbarToNewArrvl();
+            alert("")
         }
         if($("#scroll").val() == "scrollOnly") {
             moveScrollbarToBottom();
@@ -10,11 +15,6 @@ function moveScrollbar() {
     else {
         moveScrollbarToBottom();
     }
-}
-
-function highlightForNewMsg() {
-    highlightFieldForHover('.newMsgLine','.infoContainer-message');
-    getAnchorOnClick('.newMsgLine','.infoContainer-message');
 }
 
 function highlightForFriendli() {
@@ -28,14 +28,19 @@ function highlightForFriendli() {
     getAnchorOnClick('.partner-list','.friend-container');    
 }
 
+function highlightForNewMsg() {
+    highlightFieldForHover('.newMsgLine','.newArrvlList');
+    getAnchorOnClick('.newMsgLine','.newArrvlList');
+}
+
 function highlightForNotification() {
-    highlightFieldForHover('newMsgLine','.notification-area');
-    getAnchorOnClick('newMsgLine','.notification-area');
+    highlightFieldForHover('.newMsgLine','.infoMsgList');
+    getDetailMsgOnClick('.newMsgLine','.infoMsgList');
 }
 
 function moveScrollbarToNewArrvl() {
     var scrollbar = document.getElementById("messageContainer");
-    $(scrollbar).animate({scrollTop:$('#newArraivalPoint').offset().top - 200});
+    $(scrollbar).animate({scrollTop:$('#newMsgTable__newArrvlPoint').offset().top - 200});
     $("#scroll").val('scrollOnly');    
 }
 
@@ -60,4 +65,12 @@ function getAnchorOnClick(targetElm,parentElm) {
     $(parentElm).on('click',targetElm,function(){
         location.href = $(this).find("a").eq(0).attr("href");
     });
+}
+
+function getDetailMsgOnClick(targetElm,parentElm) {
+    $(parentElm).on('click',targetElm,function(){
+        $('.infoContainer-display').show();
+        var notificateId = $(this).find("input").eq(0).attr("value");
+        outputNotification(notificateId);
+    })
 }

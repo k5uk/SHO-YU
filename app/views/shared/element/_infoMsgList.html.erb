@@ -1,17 +1,17 @@
-<%= will_paginate @notificationMsgs, :param_name  => 'notificate_page'%>
-<table class="infoMsgTable" rules="rows">
+<%= will_paginate @notificateMsg, :param_name  => 'notificate_page'%>
+<table class="infoMsgList" rules="rows">
     <tbody>
-    <% @notificationMsgs.each do |notificationMsg| %>
+    <% @notificateMsg.each do |notificationMsg| %>
         <tr class="newMsgLine">
             <td class="newMsgLine--subjectInfo"><%=notificationMsg.subject %></td>
             <td class="newMsgLine--messageInfo"><%=notificationMsg.message %></td>
             <td class="newMsgLine--timestampInfo"><%=notificationMsg.created_at %></td>
             <td class="newMsgLine--detailInfo"><!-- ページ遷移の魔法 --></td>
             <input class="notificaton_msg_id" type="hidden" value= <%=notificationMsg.id%> >
-            <input id="speaker_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.speaker_name %> >
-            <input id="subject_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.subject %> >
-            <input id="message_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.message %> >
-            <input id="timestamp_info<%=notificationMsg.id%>" type="hidden" value= <%=notificationMsg.created_at %> >
+            <input id="speaker_info<%=notificationMsg.id%>" type="hidden" value= "<%=notificationMsg.speaker_name %>" >
+            <input id="subject_info<%=notificationMsg.id%>" type="hidden" value= "<%=notificationMsg.subject %>" >
+            <input id="message_info<%=notificationMsg.id%>" type="hidden" value= "<%=notificationMsg.message %>" >
+            <input id="timestamp_info<%=notificationMsg.id%>" type="hidden" value= "<%=notificationMsg.created_at %>" >
         </tr>  
     <% end %>
     </tbody>

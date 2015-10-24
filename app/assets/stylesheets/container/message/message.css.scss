@@ -1,3 +1,23 @@
+%userTimeCell {
+    text-align: left;
+    width: 8%;
+}
+    
+%userMsgCell {
+    text-align: left;
+    width: 42%;
+}
+    
+%friendMsgCell {
+    text-align: right;
+    width: 42%;
+}
+
+%friendTimeCell {
+    text-align: right;
+    width: 8%;
+}
+
 #messageContainer {
     width: 75%;
     height: 450px;
@@ -8,22 +28,52 @@
     overflow: scroll;
     
     .oldMsgLine__userTimeCell {
-        text-align: left;
-        width: 8%;
+        @extend %userTimeCell;
     }
     
     .oldMsgLine__userMsgCell {
-        text-align: left;
-        width: 42%;
+        @extend %userMsgCell;
     }
     
     .oldMsgLine__friendMsgCell {
-        text-align: right;
-        width: 42%;
+        @extend %friendMsgCell;
     }
     
     .oldMsgLine__friendTimeCell {
-        text-align: right;
-        width: 8%;
+        @extend %friendTimeCell;
     }
+
+    .newMsgLine__userTimeCell {
+        @extend %userTimeCell;
+    }
+    
+    .newMsgLine__userMsgCell {
+        @extend %userMsgCell;
+    }
+    
+    .newMsgLine__friendMsgCell {
+        @extend %friendMsgCell;
+    }
+    
+    .newMsgLine__friendTimeCell {
+        @extend %friendTimeCell;
+    }
+
+    .nowMsgLine__userTimeCell {
+        @extend %userTimeCell;
+    }
+    
+    .nowMsgLine__userMsgCell {
+        @extend %userMsgCell;
+    }
+    
+    .nowMsgLine__friendMsgCell {
+        @extend %friendMsgCell
+    }
+    
+    .nowMsgLine__friendTimeCell {
+        @extend %friendTimeCell;
+    }
+
 }
+

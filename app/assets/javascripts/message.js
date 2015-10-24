@@ -10,32 +10,30 @@ function outputMessage(id,message,speaker) {
     // insert value in row
     var nowDateTime = formatDate(new Date(),'YYYY/MM/DD hh:mm');
     if(speaker == 'User') {
-        setCellValue(cell1,"user-timestamp-cell",nowDateTime);
-        setCellValue(cell2,"user-message-cell",message);
+        setCellValue(cell1,"nowMsgLine__userTimeCell",nowDateTime);
+        setCellValue(cell2,"nowMsgLine__userMsgCell",message);
     }
     else {
-        setCellValue(cell3,"friend-message-cell",message);
-        setCellValue(cell4,"friend-timestamp-cell",nowDateTime);        
+        setCellValue(cell3,"nowMsgLine__friendMsgCell",message);
+        setCellValue(cell4,"nowMsgLine__friendTimeCell",nowDateTime);        
     }
     // move scroll bar
     moveScrollbar();
 }
 
 // 新着情報を画面に出力する
-function outputNotification() {
-    $('.notification-area').on('click','.newMsgLine',function(){
-        var notificationId = $(this).find("input").eq(0).attr("value");
-        var speaker = document.getElementById("speaker_info" + notificationId ).value;
-        var subject = document.getElementById("subject_info" + notificationId ).value;
-        var message = document.getElementById("message_info" + notificationId).value;
-        var timestamp = document.getElementById("timestamp_info" + notificationId).value;
-        outputDisplay(speaker, subject, message, timestamp);
-    });
+function outputNotification(notificateId) {
+    var speaker = document.getElementById("speaker_info" + notificateId ).value;
+    var subject = document.getElementById("subject_info" + notificateId ).value;
+    var message = document.getElementById("message_info" + notificateId).value;
+    var timestamp = document.getElementById("timestamp_info" + notificateId).value;
+    outputDisplay(speaker, subject, message, timestamp);
 }
 
-// scrollし未読メッセージが現れる度に既読フラグを更新する
+// scrollして未読メッセージが現れる度に既読フラグを更新する
 $(function(){
     $(window).scroll(function(){
+        "//@ sourceURL=dynamicScript.js;"
         $('.newMsgLine').each(function(){
             var read_flag = $(this).children('input').eq(0).val()   // [0]:read_flag
             var messageId = $(this).children('input').eq(1).val()   // [1]:messageId
@@ -108,10 +106,10 @@ function setCellValue(cell,clsName,value) {
     cell.className = clsName;
     var divide = document.createElement('div');
     divide.innerHTML = value;
-    if(clsName == "user-message-cell") {
+    if(clsName == "nowMsgLine__userMsgCell") {
         divide.className = "msg-baroon-left";    
     }
-    else if(clsName == "friend-message-cell") {
+    else if(clsName == "nowMsgLine__friendMsgCell") {
         divide.className = "msg-baroon-right";  
     }
     cell.appendChild(divide);

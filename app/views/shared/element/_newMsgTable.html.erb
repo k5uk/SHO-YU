@@ -1,7 +1,7 @@
 <table id="newMsgTable">
     <tbody>
-        <% if @newArraivalMessages.present? %>
-            <div id="newMsgTable__newArrvlPoint">
+        <% if @newArrvlMsg.present? %>
+            <div id="newMsgTable__newArrvlPoint" style="background: #E896C9;">
                 <input type="hidden" id='scroll' value="scroll" >
                 <p>↓ ここから下が新着メッセージです ↓</p>
                 <% if ! @friend_flag %>

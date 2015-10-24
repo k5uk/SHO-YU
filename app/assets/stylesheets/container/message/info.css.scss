@@ -1,8 +1,9 @@
 .infoContainer {
     float: right;
-    margin-top: 50px;
+    margin-top: 25px;
     width: 75%;
-    height: 400px;
+    height: 375px;
+    margin-bottom: 100px;
     background-image: image-url("background/liteBrown.gif");
 }
 
@@ -19,9 +20,9 @@
     height: 35%;
 }
 
-.infoContainer-message .infoMsgTable {
+.infoContainer-message .infoMsgList {
     width: 90%;
-    td {
+    .newMsgLine td {
         font-size: 1.0em;
         height: 2.2em;
     }

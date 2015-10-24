@@ -11,7 +11,7 @@ class Message < ActiveRecord::Base
     end
     
     def self.getOldMessage(user_id,friend_id)
-        userMsgSql = Message.where(speaker_id: user_id, listener_id: friend_id, read_flag: 1).where_values.reduce(:and)
+        userMsgSql = Message.where(speaker_id: user_id, listener_id: friend_id).where_values.reduce(:and)
         friendMsgSql = Message.where(speaker_id: friend_id, listener_id: user_id, read_flag: 1).where_values.reduce(:and)
         oldMsgs = Message.where(userMsgSql.or friendMsgSql).order("created_at")
         oldMsgs
@@ -37,7 +37,7 @@ class Message < ActiveRecord::Base
     def self.getNotificateMsgs(user_id)
         notificateMsgs = Array.new
         notificateMsgs[0] = Message.where(speaker_id: 9999999999, listener_id: user_id).order("created_at")
-        notificateMsgs[1] = notificationMessages[0].where(read_flag: 0).count
+        notificateMsgs[1] = notificateMsgs[0].where(read_flag: 0).count
         notificateMsgs
     end
     
